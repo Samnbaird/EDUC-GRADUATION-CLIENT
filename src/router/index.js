@@ -135,7 +135,7 @@ const routes = [
     props: true
   },
   {
-    path: '/student-achievement-report/:id',
+    path: '/student-achievement-report/:pen',
     name: 'student-achievement-report-show',
     component: StudentAchievementReportShow,
     props: true
