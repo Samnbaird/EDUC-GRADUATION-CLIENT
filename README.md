@@ -28,7 +28,7 @@ npm run lint
 
 ```bash
 npx json-server --watch course-achievement-db.json --port 3001
-npm json-server --watch student-db.json --port 3002
+npx json-server --watch student-db.json --port 3002
 etc.
 ```
 
