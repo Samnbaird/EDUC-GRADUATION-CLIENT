@@ -129,13 +129,13 @@ const routes = [
     component: StudentList
   },
   {
-    path: '/student/:id',
+    path: '/students/:id',
     name: 'student-show',
     component: StudentShow,
     props: true
   },
   {
-    path: '/student-achievement-report/:pen',
+    path: '/student-achievement-reports/:pen',
     name: 'student-achievement-report-show',
     component: StudentAchievementReportShow,
     props: true
