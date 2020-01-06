@@ -1,0 +1,20 @@
+{
+    "courses": [
+        {
+            "courseId": "3d04c408-f42d-4549-a78e-de0e75c7ef7e",
+            "courseName": "Course Name 1",
+            "courseCode": "C2B100",
+            "courseGradeLevel": "10",
+            "credits": 4,
+            "sortOrder": 2
+        },
+        {
+            "courseId": "4d04c408-f42d-4549-a78e-de0e75c7ef7f",
+            "courseName": "Course Name 2",
+            "courseCode": "C2B200",
+            "courseGradeLevel": "11",
+            "credits": 4,
+            "sortOrder": 2
+        }
+    ]
+}
