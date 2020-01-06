@@ -36,7 +36,7 @@ const routes = [
     component: CourseList
   },
   {
-    path: '/course/:id',
+    path: '/courses/:id',
     name: 'course-show',
     component: CourseShow,
     props: true
@@ -47,7 +47,7 @@ const routes = [
     component: CourseRegistrationList
   },
   {
-    path: '/course-registration/:id',
+    path: '/course-registrations/:id',
     name: 'course-registration-show',
     component: CourseRegistrationShow,
     props: true
@@ -58,7 +58,7 @@ const routes = [
     component: CourseAchievementList
   },
   {
-    path: '/course-achievement/:id',
+    path: '/course-achievements/:id',
     name: 'course-achievement-show',
     component: CourseAchievementShow,
     props: true
@@ -69,7 +69,7 @@ const routes = [
     component: AssessmentList
   },
   {
-    path: '/assessment/:id',
+    path: '/assessments/:id',
     name: 'assessment-show',
     component: AssessmentShow,
     props: true
@@ -80,7 +80,7 @@ const routes = [
     component: AssessmentRegistrationList
   },
   {
-    path: '/assessment-registration/:id',
+    path: '/assessment-registrations/:id',
     name: 'assessment-registration-show',
     component: AssessmentRegistrationShow,
     props: true
@@ -91,7 +91,7 @@ const routes = [
     component: AssessmentAchievementList
   },
   {
-    path: '/assessment-achievement/:id',
+    path: '/assessment-achievements/:id',
     name: 'assessment-achievement-show',
     component: AssessmentAchievementShow,
     props: true
@@ -102,7 +102,7 @@ const routes = [
     component: GraduationRuleList
   },
   {
-    path: '/graduation-rule/:id',
+    path: '/graduation-rules/:id',
     name: 'graduation-rule-show',
     component: GraduationRuleShow,
     props: true
@@ -113,14 +113,14 @@ const routes = [
     component: GraduationStatusList
   },
   {
-    path: '/graduation-status/:id',
+    path: '/graduation-statuses/:id',
     name: 'graduation-status-show',
     component: GraduationStatusShow,
     props: true
   },
   {
-    path: '/graduation/create',
-    name: 'graduation-create',
+    path: '/graduation-statuses/create',
+    name: 'graduation-status-create',
     component: GraduationStatusCreate
   },
   {
