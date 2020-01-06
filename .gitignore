@@ -2,9 +2,6 @@
 node_modules
 /dist
 
-# json-server testing files
-*db.json
-
 # local env files
 .env.local
 .env.*.local
