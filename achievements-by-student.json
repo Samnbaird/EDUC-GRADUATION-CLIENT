@@ -1,0 +1,262 @@
+[
+  {
+    "student_pen": "5e14b6aa150acc23406ba8ca",
+    "guid": "817853af-50ff-4084-81c7-baa544639bd9",
+    "student_name": "Frazier",
+    "achievements": [
+      {
+        "id": 0,
+        "course_name": "english12",
+        "percent_grade": 91,
+        "grad_codes": [
+          {
+            "grad_rule_id": 9,
+            "grad_rule_description": "aute magna in proident in"
+          },
+          {
+            "grad_rule_id": 9,
+            "grad_rule_description": "Lorem elit Lorem do elit"
+          }
+        ]
+      },
+      {
+        "id": 1,
+        "course_name": "english11",
+        "percent_grade": 88,
+        "grad_codes": [
+          {
+            "grad_rule_id": 1,
+            "grad_rule_description": "consequat magna enim ex duis"
+          },
+          {
+            "grad_rule_id": 5,
+            "grad_rule_description": "irure cupidatat laborum veniam duis"
+          }
+        ]
+      },
+      {
+        "id": 2,
+        "course_name": "biology11",
+        "percent_grade": 87,
+        "grad_codes": [
+          {
+            "grad_rule_id": 5,
+            "grad_rule_description": "sit et nulla minim officia"
+          },
+          {
+            "grad_rule_id": 10,
+            "grad_rule_description": "ad reprehenderit aute mollit nulla"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "student_pen": "5e14b6aa4c803fc857f82c03",
+    "guid": "5f4b6263-3328-4c71-86fb-c71b3dbf7bb3",
+    "student_name": "Orr",
+    "achievements": [
+      {
+        "id": 0,
+        "course_name": "history11",
+        "percent_grade": 70,
+        "grad_codes": [
+          {
+            "grad_rule_id": 17,
+            "grad_rule_description": "est adipisicing labore cupidatat minim"
+          },
+          {
+            "grad_rule_id": 5,
+            "grad_rule_description": "ex labore officia quis id"
+          }
+        ]
+      },
+      {
+        "id": 1,
+        "course_name": "history12",
+        "percent_grade": 96,
+        "grad_codes": [
+          {
+            "grad_rule_id": 11,
+            "grad_rule_description": "esse consectetur esse quis irure"
+          },
+          {
+            "grad_rule_id": 10,
+            "grad_rule_description": "ipsum voluptate incididunt dolore tempor"
+          }
+        ]
+      },
+      {
+        "id": 2,
+        "course_name": "english10",
+        "percent_grade": 66,
+        "grad_codes": [
+          {
+            "grad_rule_id": 8,
+            "grad_rule_description": "velit reprehenderit velit adipisicing enim"
+          },
+          {
+            "grad_rule_id": 14,
+            "grad_rule_description": "sit ullamco voluptate dolor incididunt"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "student_pen": "5e14b6aacfb26e25d7aa5544",
+    "guid": "a27cc925-66dd-414c-b5ee-024fc05fb68a",
+    "student_name": "Potter",
+    "achievements": [
+      {
+        "id": 0,
+        "course_name": "math10",
+        "percent_grade": 52,
+        "grad_codes": [
+          {
+            "grad_rule_id": 2,
+            "grad_rule_description": "officia aliqua et incididunt anim"
+          },
+          {
+            "grad_rule_id": 4,
+            "grad_rule_description": "deserunt laborum ipsum nostrud minim"
+          }
+        ]
+      },
+      {
+        "id": 1,
+        "course_name": "history11",
+        "percent_grade": 83,
+        "grad_codes": [
+          {
+            "grad_rule_id": 17,
+            "grad_rule_description": "aute non commodo incididunt magna"
+          },
+          {
+            "grad_rule_id": 6,
+            "grad_rule_description": "officia deserunt labore qui pariatur"
+          }
+        ]
+      },
+      {
+        "id": 2,
+        "course_name": "english10",
+        "percent_grade": 60,
+        "grad_codes": [
+          {
+            "grad_rule_id": 2,
+            "grad_rule_description": "sunt labore eu in mollit"
+          },
+          {
+            "grad_rule_id": 15,
+            "grad_rule_description": "laboris dolor quis consectetur est"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "student_pen": "5e14b6aa0f9613e8424a335f",
+    "guid": "7b2f6075-22cc-490f-8253-8602f447144b",
+    "student_name": "Avery",
+    "achievements": [
+      {
+        "id": 0,
+        "course_name": "math10",
+        "percent_grade": 89,
+        "grad_codes": [
+          {
+            "grad_rule_id": 2,
+            "grad_rule_description": "excepteur esse qui ipsum exercitation"
+          },
+          {
+            "grad_rule_id": 17,
+            "grad_rule_description": "exercitation velit sunt mollit tempor"
+          }
+        ]
+      },
+      {
+        "id": 1,
+        "course_name": "biology11",
+        "percent_grade": 60,
+        "grad_codes": [
+          {
+            "grad_rule_id": 6,
+            "grad_rule_description": "sunt in do aliqua nisi"
+          },
+          {
+            "grad_rule_id": 8,
+            "grad_rule_description": "aliquip exercitation id sint consectetur"
+          }
+        ]
+      },
+      {
+        "id": 2,
+        "course_name": "english11",
+        "percent_grade": 64,
+        "grad_codes": [
+          {
+            "grad_rule_id": 5,
+            "grad_rule_description": "quis eiusmod aliquip veniam nostrud"
+          },
+          {
+            "grad_rule_id": 16,
+            "grad_rule_description": "eiusmod esse magna aliqua officia"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "student_pen": "5e14b6aa8038318f46ffa758",
+    "guid": "8fa94bfc-0c87-4cf3-8587-95a8dcfd6b3e",
+    "student_name": "Snyder",
+    "achievements": [
+      {
+        "id": 0,
+        "course_name": "history11",
+        "percent_grade": 73,
+        "grad_codes": [
+          {
+            "grad_rule_id": 4,
+            "grad_rule_description": "excepteur adipisicing dolor nostrud Lorem"
+          },
+          {
+            "grad_rule_id": 8,
+            "grad_rule_description": "deserunt ad esse occaecat nulla"
+          }
+        ]
+      },
+      {
+        "id": 1,
+        "course_name": "biology12",
+        "percent_grade": 97,
+        "grad_codes": [
+          {
+            "grad_rule_id": 7,
+            "grad_rule_description": "ex esse id anim cillum"
+          },
+          {
+            "grad_rule_id": 4,
+            "grad_rule_description": "adipisicing adipisicing velit aute cupidatat"
+          }
+        ]
+      },
+      {
+        "id": 2,
+        "course_name": "english11",
+        "percent_grade": 89,
+        "grad_codes": [
+          {
+            "grad_rule_id": 17,
+            "grad_rule_description": "est nisi nulla culpa laborum"
+          },
+          {
+            "grad_rule_id": 6,
+            "grad_rule_description": "in exercitation excepteur nulla excepteur"
+          }
+        ]
+      }
+    ]
+  }
+]

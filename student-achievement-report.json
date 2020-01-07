@@ -1,0 +1,37 @@
+[
+  {
+    "student_pen": "5e14c32da6c21ed01b22880a",
+    "guid": "c365a5b4-f753-4a30-8a5d-fd867f0564af",
+    "student_name": "Mcdaniel Riggs",
+    "school_name": "HolderGuzman High School",
+    "achievements": [
+      {
+        "course_name": "english12",
+        "percent_grade": 57
+      },
+      {
+        "course_name": "biology10",
+        "percent_grade": 88
+      },
+      {
+        "course_name": "math11",
+        "percent_grade": 56
+      }
+    ],
+    "graduation_reasons": [
+      {
+        "graduation_rule": 0,
+        "reason_description": "Failed to complete english12"
+      },
+      {
+        "graduation_rule": 1,
+        "reason_description": "Failed to complete history11"
+      },
+      {
+        "graduation_rule": 2,
+        "reason_description": "Failed to complete english12"
+      }
+    ],
+    "graduation_status": "Mcdaniel Riggs is not eligible for graduation."
+  }
+]
