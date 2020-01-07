@@ -1,4 +1,4 @@
-# graduation-client
+# EDUC-GRADUATION-CLIENT
 
 ## Project setup
 
