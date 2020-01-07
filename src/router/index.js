@@ -21,6 +21,7 @@ import GraduationStatusCreate from '../views/GraduationStatusCreate.vue'
 import StudentList from '../views/StudentList.vue'
 import StudentShow from '../views/StudentShow.vue'
 import StudentAchievementReportShow from '../views/StudentAchievementReportShow.vue'
+import StudentTranscriptReportShow from '../views/StudentTranscriptReportShow.vue'
 
 Vue.use(VueRouter)
 
@@ -138,6 +139,12 @@ const routes = [
     path: '/student-achievement-reports/:pen',
     name: 'student-achievement-report-show',
     component: StudentAchievementReportShow,
+    props: true
+  },
+  {
+    path: '/student-transcript-reports/:pen',
+    name: 'student-transcript-report-show',
+    component: StudentTranscriptReportShow,
     props: true
   },
   {
