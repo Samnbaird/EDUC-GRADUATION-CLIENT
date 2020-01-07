@@ -2,7 +2,7 @@
   {
     "student_pen": "5e14c32da6c21ed01b22880a",
     "guid": "c365a5b4-f753-4a30-8a5d-fd867f0564af",
-    "student_name": "Mcdaniel Riggs",
+    "student_name": "McDaniel Riggs",
     "school_name": "HolderGuzman High School",
     "achievements": [
       {
@@ -32,6 +32,6 @@
         "reason_description": "Failed to complete english12"
       }
     ],
-    "graduation_status": "Mcdaniel Riggs is not eligible for graduation."
+    "graduation_status": "McDaniel Riggs is not eligible for graduation."
   }
 ]
