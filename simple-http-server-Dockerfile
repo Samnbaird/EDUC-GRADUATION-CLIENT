@@ -19,9 +19,6 @@ COPY . .
 # build for production
 RUN npm run build
 
-EXPOSE 80
-FROM nginx:stable-alpine as production-stage
-# This next line failes without permission
-COPY --from=build-stage /app/dist /usr/share/nginx/html
+EXPOSE 8080
 # start app
-CMD [ "nginx", "-g", "daemon off;" ]
+CMD [ "http-server", "dist" ]
