@@ -1,0 +1,63 @@
+{
+  "achievements": [
+    {
+      "id": 1,
+      "student": {
+        "pen": "PEN123",
+        "name": "Joe Learner"
+      },
+      "course": "English 12",
+      "school": "Colwood High",
+      "session": "Fall 2019",
+      "grade": "A",
+      "gradcodes": [
+        {
+          "id": "1",
+          "description": "Language Arts 12"
+        },
+        {
+          "id": "14",
+          "description": "Grade 12 Non-Electives"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "student": {
+        "pen": "PEN123",
+        "name": "Joe Learner"
+      },
+      "course": "Math 12",
+      "school": "Colwood High",
+      "session": "Winter 2019",
+      "grade": "A",
+      "gradcodes": [
+        {
+          "id": "1",
+          "description": "Math 12"
+        },
+        {
+          "id": "14",
+          "description": "Grade 12 Non-Electives"
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "student": {
+        "pen": "PEN123",
+        "name": "Joe Learner"
+      },
+      "course": "Economics 12",
+      "school": "Colwood High",
+      "session": "Spring 2020",
+      "grade": "",
+      "gradcodes": [
+        {
+          "id": "17",
+          "description": "Grade 12 Electives"
+        }
+      ]
+    }
+  ]
+}

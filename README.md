@@ -27,8 +27,7 @@ npm run lint
 ### Run json-server to start mock json database
 
 ```bash
-npx json-server --watch course-achievement-db.json --port 3001
-npx json-server --watch student-db.json --port 3002
+npx json-server --watch db.json --port 3000
 etc.
 ```
 
