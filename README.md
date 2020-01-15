@@ -1,4 +1,4 @@
-# soon to be named EDUC-ACHIEVEMENT-CLIENT (EDUC-GRADUATION-CLIENT)
+# EDUC-GRADUATION-CLIENT
 
 ## Project setup
 
