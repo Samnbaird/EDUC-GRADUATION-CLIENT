@@ -6,8 +6,20 @@
 git clone https://github.com/bcgov/EDUC-GRADUATION-CLIENT.git
 cd EDUC-GRADUATION-CLIENT
 npm install
+```
+
+## Run json-server to serve a sample course-db.json file
+
+```bash
 npx json-server --watch course-db.json --port 3000
 browse to http://localhost:3000/courses
+```
+
+## Run these instructions to serve EDUC-COURSE-API
+
+```bash
+<insert great instructions from Kamal>
+browse to http://localhost:9999/api/courses <correct?>
 ```
 
 ### Compiles and hot-reloads for development
