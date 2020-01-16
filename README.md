@@ -3,6 +3,8 @@
 ## Project setup
 
 ```bash
+git clone https://github.com/bcgov/EDUC-GRADUATION-CLIENT.git
+cd EDUC-GRADUATION-CLIENT
 npm install
 ```
 
