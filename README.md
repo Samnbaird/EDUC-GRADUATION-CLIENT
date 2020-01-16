@@ -6,6 +6,8 @@
 git clone https://github.com/bcgov/EDUC-GRADUATION-CLIENT.git
 cd EDUC-GRADUATION-CLIENT
 npm install
+npx json-server --watch course-db.json --port 3000
+browse to http://localhost:3000/courses
 ```
 
 ### Compiles and hot-reloads for development
