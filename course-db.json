@@ -1,18 +1,20 @@
 {
     "courses": [
         {
-            "course_id": "3d04c408-f42d-4549-a78e-de0e75c7ef7e",
-            "course_name": "English 10",
-            "course_code": "ENGLI10",
-            "course_grade_level": "10",
-            "credits": 4
+            "courseId": "4d04c408-f42d-4549-a78e-de0e75c7ef7f",
+            "courseName": "Course Name 2",
+            "courseCode": "C2B200",
+            "courseGradeLevel": "CDEFG",
+            "credits": 3,
+            "sortOrder": 2
         },
         {
-            "course_id": "4d04c408-f42d-4549-a78e-de0e75c7ef7f",
-            "course_name": "English 11",
-            "course_code": "ENGLI11",
-            "course_grade_level": "11",
-            "credits": 4
+            "courseId": "4d04c408-f42d-4549-a78e-de0e75c7ef7f",
+            "courseName": "Course Name 2",
+            "courseCode": "C2B200",
+            "courseGradeLevel": "CDEFG",
+            "credits": 3,
+            "sortOrder": 2
         }
     ]
 }
