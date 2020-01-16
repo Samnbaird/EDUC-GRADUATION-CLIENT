@@ -14,6 +14,7 @@ browse to http://localhost:3000/courses
 
 ```bash
 npm run serve
+brose to http://localhost:8080/
 ```
 
 ### Compiles and minifies for production
