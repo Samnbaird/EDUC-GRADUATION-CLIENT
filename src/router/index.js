@@ -142,7 +142,7 @@ const routes = [
     props: true
   },
   {
-    path: '/gradutation-statuses/transcript/:pen',
+    path: '/graduation-statuses/transcript/:pen',
     name: 'student-transcript-report-show',
     component: StudentTranscriptReportShow,
     props: true
