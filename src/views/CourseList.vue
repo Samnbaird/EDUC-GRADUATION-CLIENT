@@ -1,0 +1,34 @@
+<template>
+  <div>
+    <h2>List of Courses</h2>
+    <h6>To see courses you must run 'npx json-server --watch course-db.json --port 3000'</h6>
+    <Course v-for="course in courses" :key="course.courseCode" :course="course" />
+    <BaseIcon />
+  </div>
+</template>
+
+<script>
+import Course from "@/components/Course";
+import CourseService from '@/services/CourseService.js';
+export default {
+  components: {
+    Course
+  },
+  data() {
+    return {
+      courses: []
+    };
+  },
+  created() {
+    CourseService.getCourses()
+      .then((response) => {
+        this.courses = response.data;
+      })
+      .catch((error) => {
+         console.log('There was an error:' + error.response);
+      });
+  }
+};
+</script>
+
+<style></style>
