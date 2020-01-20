@@ -1,11 +1,11 @@
 name: compliance
-description: |
+description: We are funded until March 31, 2020, and we are not thinking about production yet.
   This document is used to track a projects PIA and STRA
   compliance.
 spec:
   - name: PIA
-    status: PIA_STATUS_HERE
+    status: TBD
     last-updated: '2020-01-17T00:03:15.347Z'
   - name: STRA
-    status: STRA_STATUS_HERE
+    status: TBD
     last-updated: '2020-01-17T00:03:15.347Z'
