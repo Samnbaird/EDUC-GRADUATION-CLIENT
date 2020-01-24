@@ -9,6 +9,7 @@ import AssessmentList from '../views/AssessmentList.vue'
 import AssessmentShow from '../views/AssessmentShow.vue'
 import CourseAchievementList from '../views/CourseAchievementList.vue'
 import CourseAchievementShow from '../views/CourseAchievementShow.vue'
+import CourseAchievementCreate from '../views/CourseAchievementCreate.vue'
 import CourseRegistrationList from '../views/CourseRegistrationList.vue'
 import CourseRegistrationShow from '../views/CourseRegistrationShow.vue'
 import CourseList from '../views/CourseList.vue'
@@ -62,6 +63,12 @@ const routes = [
     path: '/course-achievements/:id',
     name: 'course-achievement-show',
     component: CourseAchievementShow,
+    props: true
+  },
+  {
+    path: '/course-achievements/create',
+    name: 'course-achievement-create',
+    component: CourseAchievementCreate,
     props: true
   },
   {
