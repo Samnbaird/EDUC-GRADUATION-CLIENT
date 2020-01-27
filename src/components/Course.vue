@@ -1,11 +1,10 @@
 <template>
-  <router-link class="course-link" :to="{ name: 'course-show', params: { id: course.courseCode} }">
+  <router-link class="course-link" :to="{ name: 'course-show', params: { id: course.id} }">
     <div class="course-card -shadow">
       <span class="eyebrow">CourseName: {{course.courseName}}</span>
       <h4 class="course">CourseCode: {{course.courseCode}}</h4>
       <h6>courseGradeLevel: {{course.courseGradeLevel}}</h6>
       <h6>credits: {{course.credits}}</h6>
-      <h5>What is this? -> sortOrder: {{course.sortOrder}}</h5>
     </div>
   </router-link>
 </template>

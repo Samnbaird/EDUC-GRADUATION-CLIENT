@@ -1,144 +1,44 @@
 {
     "courses": [
-        {
-            "courseName": "Course name BBA",
-            "courseCode": "1UJ29",
-            "courseGradeLevel": "C4D",
-            "credits": 3,
-            "sortOrder": 2
-        },
-        {
-            "courseName": "Course name BBA",
-            "courseCode": "5RI72",
-            "courseGradeLevel": "W6O",
-            "credits": 3,
-            "sortOrder": 3
-        },
-        {
-            "courseName": "Course name BAB",
-            "courseCode": "EP26Q",
-            "courseGradeLevel": "BDM",
-            "credits": 1,
-            "sortOrder": 4
-        },
-        {
-            "courseName": "Course name ABC",
-            "courseCode": "6BS7A",
-            "courseGradeLevel": "5M7",
-            "credits": 1,
-            "sortOrder": 5
-        },
-        {
-            "courseName": "Course name ABB",
-            "courseCode": "OA718",
-            "courseGradeLevel": "418",
-            "credits": 3,
-            "sortOrder": 6
-        },
-        {
-            "courseName": "Course name ABB",
-            "courseCode": "T7B19",
-            "courseGradeLevel": "71D",
-            "credits": 3,
-            "sortOrder": 7
-        },
-        {
-            "courseName": "Course name CCB",
-            "courseCode": "35343",
-            "courseGradeLevel": "IOJ",
-            "credits": 1,
-            "sortOrder": 8
-        },
-        {
-            "courseName": "Course name BBC",
-            "courseCode": "7HP8N",
-            "courseGradeLevel": "3DC",
-            "credits": 3,
-            "sortOrder": 9
-        },
-        {
-            "courseName": "Course name BAB",
-            "courseCode": "K4774",
-            "courseGradeLevel": "434",
-            "credits": 3,
-            "sortOrder": 10
-        },
-        {
-            "courseName": "Course name BCC",
-            "courseCode": "U22XF",
-            "courseGradeLevel": "2C2",
-            "credits": 1,
-            "sortOrder": 11
-        },
-        {
-            "courseName": "Course name BBB",
-            "courseCode": "3QW8G",
-            "courseGradeLevel": "243",
-            "credits": 3,
-            "sortOrder": 12
-        },
-        {
-            "courseName": "Course name BBA",
-            "courseCode": "778R6",
-            "courseGradeLevel": "LN5",
-            "credits": 3,
-            "sortOrder": 13
-        },
-        {
-            "courseName": "Course name BBB",
-            "courseCode": "KMPZ6",
-            "courseGradeLevel": "63H",
-            "credits": 3,
-            "sortOrder": 14
-        },
-        {
-            "courseName": "Course name BAB",
-            "courseCode": "P5Y03",
-            "courseGradeLevel": "8VX",
-            "credits": 1,
-            "sortOrder": 15
-        },
-        {
-            "courseName": "Course name ACB",
-            "courseCode": "X4T9V",
-            "courseGradeLevel": "X17",
-            "credits": 1,
-            "sortOrder": 16
-        },
-        {
-            "courseName": "Course name BCB",
-            "courseCode": "XK8Y0",
-            "courseGradeLevel": "8GF",
-            "credits": 3,
-            "sortOrder": 17
-        },
-        {
-            "courseName": "Course name ABB",
-            "courseCode": "8N8DI",
-            "courseGradeLevel": "0KP",
-            "credits": 1,
-            "sortOrder": 18
-        },
-        {
-            "courseName": "Course name CCC",
-            "courseCode": "TK590",
-            "courseGradeLevel": "36E",
-            "credits": 1,
-            "sortOrder": 19
-        },
-        {
-            "courseName": "Course name BCB",
-            "courseCode": "HA8BX",
-            "courseGradeLevel": "O75",
-            "credits": 3,
-            "sortOrder": 0
-        },
-        {
-            "courseName": "Course name BCB",
-            "courseCode": "L58GO",
-            "courseGradeLevel": "O8J",
-            "credits": 3,
-            "sortOrder": 1
-        }
+      {
+        "id": 1,
+        "courseName": "Course name BBA",
+        "courseCode": "1UJ29",
+        "courseGradeLevel": "C4D",
+        "credits": 3,
+        "sortOrder": 2
+      },
+      {
+        "id": 2,
+        "courseName": "Course name BBA",
+        "courseCode": "5RI72",
+        "courseGradeLevel": "W6O",
+        "credits": 3,
+        "sortOrder": 3
+      },
+      {
+        "id": 3,
+        "courseName": "Course name BAB",
+        "courseCode": "EP26Q",
+        "courseGradeLevel": "BDM",
+        "credits": 1,
+        "sortOrder": 4
+      },
+      {
+        "id": 4,
+        "courseName": "Course name ABC",
+        "courseCode": "6BS7A",
+        "courseGradeLevel": "5M7",
+        "credits": 1,
+        "sortOrder": 5
+      },
+      {
+        "id": 5,
+        "courseName": "Course name ABB",
+        "courseCode": "OA718",
+        "courseGradeLevel": "418",
+        "credits": 3,
+        "sortOrder": 6
+      }
     ]
-}
+  }

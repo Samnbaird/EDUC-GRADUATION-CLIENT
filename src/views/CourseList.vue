@@ -2,7 +2,7 @@
   <div>
     <h2>List of Courses</h2>
     <h6>To see courses you must run 'npx json-server --watch course-db.json --port 3000'</h6>
-    <Course v-for="course in courses" :key="course.courseCode" :course="course" />
+    <Course v-for="course in courses" :key="course.id" :course="course" />
     <BaseIcon />
   </div>
 </template>

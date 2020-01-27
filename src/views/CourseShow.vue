@@ -4,7 +4,6 @@
     <h3 class="title">{{ course.courseCode }}</h3>
     <h5>courseGradeLevel: {{course.courseGradeLevel}}</h5>
     <h5>courseCredits: {{course.credits}}</h5>
-    <h5>What is this? -> sortOrder: {{course.sortOrder}}</h5>
   </div>
 </template>
 

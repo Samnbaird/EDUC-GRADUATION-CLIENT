@@ -19,7 +19,7 @@ browse to http://localhost:3000/courses
 
 ```bash
 <insert great instructions from Kamal>
-browse to http://localhost:9999/courses/{coursecode}
+browse to http://localhost:9999/courses/{courseId}
 ```
 
 ### Compiles and hot-reloads for development

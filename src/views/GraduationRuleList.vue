@@ -9,7 +9,7 @@
 
 <script>
 import GraduationRule from "@/components/GraduationRule";
-import GraduationRuleService from '@/services/GraduationRuleService.js';
+import GraduationRuleService from '@/services/GraduationRulesService.js';
 export default {
   components: {
     GraduationRule
@@ -24,8 +24,9 @@ export default {
       .then((response) => {
         this.rules = response.data;
       })
+      // eslint-disable-next-line no-unused-vars
       .catch((error) => {
-        console.log('There was an error:' + error.response);
+        // console.log('There was an error:' + error.response);
       });
   }
 };
