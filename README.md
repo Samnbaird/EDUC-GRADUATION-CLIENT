@@ -11,7 +11,7 @@ npm install
 ## Run json-server to serve a sample course-db.json file
 
 ```bash
-npx json-server --watch course-db.json --port 3000
+npx json-server --watch course-db.json -i courseId --port 3000
 browse to http://localhost:3000/courses
 ```
 
