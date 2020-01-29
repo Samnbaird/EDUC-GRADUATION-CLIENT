@@ -1,44 +1,18 @@
 {
     "courses": [
-      {
-        "id": 1,
-        "courseName": "Course name BBA",
-        "courseCode": "1UJ29",
-        "courseGradeLevel": "C4D",
-        "credits": 3,
-        "sortOrder": 2
-      },
-      {
-        "id": 2,
-        "courseName": "Course name BBA",
-        "courseCode": "5RI72",
-        "courseGradeLevel": "W6O",
-        "credits": 3,
-        "sortOrder": 3
-      },
-      {
-        "id": 3,
-        "courseName": "Course name BAB",
-        "courseCode": "EP26Q",
-        "courseGradeLevel": "BDM",
-        "credits": 1,
-        "sortOrder": 4
-      },
-      {
-        "id": 4,
-        "courseName": "Course name ABC",
-        "courseCode": "6BS7A",
-        "courseGradeLevel": "5M7",
-        "credits": 1,
-        "sortOrder": 5
-      },
-      {
-        "id": 5,
-        "courseName": "Course name ABB",
-        "courseCode": "OA718",
-        "courseGradeLevel": "418",
-        "credits": 3,
-        "sortOrder": 6
-      }
+        {
+            "courseId": "3d04c408-f42d-4549-a78e-de0e75c7ef7e",
+            "courseName": "English 10",
+            "courseCode": "ENGLI10",
+            "courseGradeLevel": "10",
+            "credits": 4
+        },
+        {
+            "courseId": "4d04c408-f42d-4549-a78e-de0e75c7ef7f",
+            "courseName": "English 11",
+            "courseCode": "ENGLI11",
+            "courseGradeLevel": "11",
+            "credits": 4
+        }
     ]
   }

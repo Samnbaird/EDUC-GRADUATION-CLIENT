@@ -16,3 +16,46 @@
         }
     ]
 }
+
+[
+    {
+      "id": 1,
+      "courseName": "Course name BBA",
+      "courseCode": "1UJ29",
+      "courseGradeLevel": "C4D",
+      "credits": 3,
+      "sortOrder": 2
+    },
+    {
+      "id": 2,
+      "courseName": "Course name BBA",
+      "courseCode": "5RI72",
+      "courseGradeLevel": "W6O",
+      "credits": 3,
+      "sortOrder": 3
+    },
+    {
+      "id": 3,
+      "courseName": "Course name BAB",
+      "courseCode": "EP26Q",
+      "courseGradeLevel": "BDM",
+      "credits": 1,
+      "sortOrder": 4
+    },
+    {
+      "id": 4,
+      "courseName": "Course name ABC",
+      "courseCode": "6BS7A",
+      "courseGradeLevel": "5M7",
+      "credits": 1,
+      "sortOrder": 5
+    },
+    {
+      "id": 5,
+      "courseName": "Course name ABB",
+      "courseCode": "OA718",
+      "courseGradeLevel": "418",
+      "credits": 3,
+      "sortOrder": 6
+    }
+  ]

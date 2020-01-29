@@ -1,5 +1,5 @@
 <template>
-  <router-link class="course-link" :to="{ name: 'course-show', params: { id: course.id} }">
+  <router-link class="course-link" :to="{ name: 'course-show', params: { id: course.courseId} }">
     <div class="course-card -shadow">
       <span class="eyebrow">CourseName: {{course.courseName}}</span>
       <h4 class="course">CourseCode: {{course.courseCode}}</h4>

@@ -18,8 +18,11 @@ browse to http://localhost:3000/courses
 ## Run these instructions to serve EDUC-COURSE-API
 
 ```bash
-<insert great instructions from Kamal>
-browse to http://localhost:9999/courses/{courseId}
+git clone https://github.com/bcgov/EDUC-COURSE-API.git
+cd <project>/EDUC-COURSE-API/api
+mvn clean install
+mvn spring-boot:start
+browse to http://localhost:9999/courses/api
 ```
 
 ### Compiles and hot-reloads for development
