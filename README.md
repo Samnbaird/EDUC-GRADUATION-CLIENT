@@ -15,6 +15,8 @@ npx json-server --watch course-db.json -i courseId --port 3000
 browse to http://localhost:3000/courses
 ```
 
+## A small edit to CourseService.js is required to toggle API address between json-server and Spring
+
 ## Run these instructions to serve EDUC-COURSE-API
 
 ```bash
