@@ -1,10 +1,10 @@
 import axios from 'axios'
 
 const apiClient = axios.create({
-    // for json-server
-  baseURL: 'http://localhost:3000',
+  // for json-server
+  //baseURL: 'http://localhost:3000',
   // for EDUC-COURSE-API
-  //baseURL: 'http://localhost:9999',
+  baseURL: 'http://localhost:9999',
   withCredentials: false,
   headers: {
     Accept: 'application/json',

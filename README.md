@@ -24,10 +24,10 @@ git clone https://github.com/bcgov/EDUC-COURSE-API.git
 cd <project>/EDUC-COURSE-API/api
 mvn clean install
 mvn spring-boot:start
-browse to http://localhost:9999/courses/api
+browse to http://localhost:9999/courses
 ```
 
-### Compiles and hot-reloads for development
+### Run server
 
 ```bash
 npm run serve

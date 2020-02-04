@@ -2,8 +2,14 @@
   <div>
     <h2>List of Courses</h2>
     <h6>To see courses you must run 'npx json-server --watch course-db.json --port 3000'</h6>
-    <Course v-for="course in courses" :key="course.id" :course="course" />
-    <BaseIcon />
+   <Course v-for="course in courses" :key="course.id" :course="course" />
+
+    <ul v-if="courses">
+      <li v-for="course in courses" :key="course.id" :course="course">
+        <p>{{course.courseName}}</p>
+      </li>
+    </ul>
+     <h4>{{ courses }}</h4>
   </div>
 </template>
 
@@ -26,7 +32,7 @@ export default {
       })
       // eslint-disable-next-line no-unused-vars
       .catch((error) => {
-         //console.log('There was an error:' + error.response);
+         console.log('There was an error:' + error.response);
       });
   }
 };
