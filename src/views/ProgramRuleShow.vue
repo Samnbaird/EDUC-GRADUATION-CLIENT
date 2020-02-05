@@ -1,13 +1,13 @@
 <template>
-  <div class="graduation-rule-header">
-    <span>ID: {{graduation-rule.id}} </span>
-    <h3>Description: {{graduation-rule.description }}</h3>
-    <h5>Graduation Code: {{graduation-rule.gradcode}}</h5>
+  <div class="program-rule-header">
+    <span>ID: {{programrule.id}} </span>
+    <h3>Description: {{programrule.description }}</h3>
+    <h5>Not finished Code: {{programrule.gradcode}}</h5>
   </div>
 </template>
 
 <script>
-import GraduationRulesService from '@/services/GraduationRulesService.js'
+import ProgramRuleService from '@/services/ProgramRuleService.js'
 export default {
   props: ["id"],
   data() {
@@ -16,12 +16,13 @@ export default {
     }
   },
   created() {
-    GraduationRulesService.getGraduationRules(this.id)
+    ProgramRuleService.getProgramRules(this.id)
       .then((response) => {
         this.rule = response.data
       })
+      // eslint-disable-next-line no-unused-vars
       .catch((error) => {
-        console.log('There was an error:', error.response)
+        //console.log('There was an error:', error.response)
       })
   }
 };

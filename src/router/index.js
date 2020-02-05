@@ -3,20 +3,16 @@ import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
 import AssessmentAchievementList from '../views/AssessmentAchievementList.vue'
 import AssessmentAchievementShow from '../views/AssessmentAchievementShow.vue'
-import AssessmentRegistrationList from '../views/AssessmentRegistrationList.vue'
-import AssessmentRegistrationShow from '../views/AssessmentRegistrationShow.vue'
 import AssessmentList from '../views/AssessmentList.vue'
 import AssessmentShow from '../views/AssessmentShow.vue'
 import CourseAchievementList from '../views/CourseAchievementList.vue'
 import CourseAchievementShow from '../views/CourseAchievementShow.vue'
 import CourseAchievementCreate from '../views/CourseAchievementCreate.vue'
-import CourseRegistrationList from '../views/CourseRegistrationList.vue'
-import CourseRegistrationShow from '../views/CourseRegistrationShow.vue'
 import CourseList from '../views/CourseList.vue'
 import CourseShow from '../views/CourseShow.vue'
-import GraduationRuleList from '../views/GraduationRuleList.vue'
-import GraduationRuleShow from '../views/GraduationRuleShow.vue'
-import GraduationStatusList from '../views/GraduationStatusList.vue'
+import ProgramRuleList from '../views/ProgramRuleList.vue'
+import ProgramRuleShow from '../views/ProgramRuleShow.vue'
+import GraduationStatusFind from '../views/GraduationStatusFind.vue'
 import GraduationStatusShow from '../views/GraduationStatusShow.vue'
 import GraduationStatusCreate from '../views/GraduationStatusCreate.vue'
 import StudentList from '../views/StudentList.vue'
@@ -41,17 +37,6 @@ const routes = [
     path: '/courses/:id',
     name: 'course-show',
     component: CourseShow,
-    props: true
-  },
-  {
-    path: '/course-registrations',
-    name: 'course-registration-list',
-    component: CourseRegistrationList
-  },
-  {
-    path: '/course-registrations/:id',
-    name: 'course-registration-show',
-    component: CourseRegistrationShow,
     props: true
   },
   {
@@ -83,17 +68,6 @@ const routes = [
     props: true
   },
   {
-    path: '/assessment-registrations',
-    name: 'assessment-registration-list',
-    component: AssessmentRegistrationList
-  },
-  {
-    path: '/assessment-registrations/:id',
-    name: 'assessment-registration-show',
-    component: AssessmentRegistrationShow,
-    props: true
-  },
-  {
     path: '/assessment-achievements',
     name: 'assessment-achievement-list',
     component: AssessmentAchievementList
@@ -105,29 +79,30 @@ const routes = [
     props: true
   },
   {
-    path: '/graduation-rules',
-    name: 'graduation-rule-list',
-    component: GraduationRuleList
+    path: '/program-rules',
+    name: 'program-rule-list',
+    component: ProgramRuleList
   },
   {
-    path: '/graduation-rules/:id',
-    name: 'graduation-rule-show',
-    component: GraduationRuleShow,
+    path: '/program-rules/:id',
+    name: 'program-rule-show',
+    component: ProgramRuleShow,
     props: true
   },
   {
-    path: '/graduation-statuses',
-    name: 'graduation-status-list',
-    component: GraduationStatusList
+    path: '/graduation-status',
+    name: 'graduation-status-find',
+    component: GraduationStatusFind,
+    props: true
   },
   {
-    path: '/graduation-statuses/:id',
+    path: '/graduation-status/:id',
     name: 'graduation-status-show',
     component: GraduationStatusShow,
     props: true
   },
   {
-    path: '/graduation-statuses/create',
+    path: '/graduation-status/create',
     name: 'graduation-status-create',
     component: GraduationStatusCreate
   },
@@ -143,13 +118,13 @@ const routes = [
     props: true
   },
   {
-    path: '/graduation-statuses/sachreport/:pen',
+    path: '/graduation-statuses/sachreport/:id',
     name: 'student-achievement-report-show',
     component: StudentAchievementReportShow,
     props: true
   },
   {
-    path: '/graduation-statuses/transcript/:pen',
+    path: '/graduation-statuses/transcript/:id',
     name: 'student-transcript-report-show',
     component: StudentTranscriptReportShow,
     props: true
