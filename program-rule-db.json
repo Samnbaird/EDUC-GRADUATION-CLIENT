@@ -1,0 +1,44 @@
+{
+    "programRules": [
+      {
+        "programRulesId": null,
+        "requirementCode": 107,
+        "requirementName": "Mathematics 11 or 12",
+        "requiredCredits": 4,
+        "notMetDescription": "No Mathematics 11 or 12",
+        "programCode": "2018"
+      },
+      {
+        "programRulesId": null,
+        "requirementCode": 108,
+        "requirementName": "Science 10",
+        "requiredCredits": 4,
+        "notMetDescription": "No Science 10",
+        "programCode": "2018"
+      },
+      {
+        "programRulesId": null,
+        "requirementCode": 109,
+        "requirementName": "Science 11 or 12",
+        "requiredCredits": 4,
+        "notMetDescription": "No Science 11 or 12",
+        "programCode": "2018"
+      },
+      {
+        "programRulesId": null,
+        "requirementCode": 110,
+        "requirementName": "Physical and Health Education 10",
+        "requiredCredits": 4,
+        "notMetDescription": "No Physical and Health Eduation 10",
+        "programCode": "2018"
+      },
+      {
+        "programRulesId": null,
+        "requirementCode": 111,
+        "requirementName": "Arts Education/Applied Design, Skills, and Technologies",
+        "requiredCredits": 4,
+        "notMetDescription": "No Arts Education/Applied Design, Skills, and Technologies",
+        "programCode": "2018"
+      }
+    ]
+  }
