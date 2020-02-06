@@ -3,16 +3,38 @@
         {
             "courseId": "3d04c408-f42d-4549-a78e-de0e75c7ef7e",
             "courseName": "English 10",
-            "courseCode": "ENGLI10",
+            "courseCode": "EN",
             "courseGradeLevel": "10",
-            "credits": 4
+            "credits": 4,
+            "language": null,
+            "courseStartDate": "10-07-07",
+            "courseEndDate": "10-08-31",
+            "programCode": "2018",
+            "requirementCode": 101
         },
         {
-            "courseId": "4d04c408-f42d-4549-a78e-de0e75c7ef7f",
-            "courseName": "English 11",
-            "courseCode": "ENGLI11",
+            "courseId": "9D5FFE169510D82BE0539AE9228E176D",
+            "courseName": "English 10 First Peoples",
+            "courseCode": "EFP",
+            "courseGradeLevel": "10",
+            "credits": 4,
+            "language": null,
+            "courseStartDate": "00-00-01",
+            "courseEndDate": "20-08-31",
+            "programCode": "2018",
+            "requirementCode": 101
+        },
+        {
+            "courseId": "9D5FFE16950FD82BE0539AE9228E176D",
+            "courseName": "Communications 11",
+            "courseCode": "COM",
             "courseGradeLevel": "11",
-            "credits": 4
+            "credits": 4,
+            "language": null,
+            "courseStartDate": "10-07-07",
+            "courseEndDate": "10-08-31",
+            "programCode": "2018",
+            "requirementCode": 102
         }
     ]
   }

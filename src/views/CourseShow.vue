@@ -1,9 +1,14 @@
 <template>
   <div class="course-header">
-    <span class="title">{{course.courseName}} </span>
-    <h3 class="title">{{ course.courseCode }}</h3>
-    <h5>courseGradeLevel: {{course.courseGradeLevel}}</h5>
-    <h5>courseCredits: {{course.credits}}</h5>
+    <span class="eyebrow">CourseName: {{course.courseName}}</span>
+      <h4 class="course">CourseCode: {{course.courseCode}}</h4>
+      <h6>courseGradeLevel: {{course.courseGradeLevel}}</h6>
+      <h6>credits: {{course.credits}}</h6>
+      <h6>language: {{course.language}}</h6>
+      <h6>courseStartDate: {{course.courseStartDate}}</h6>
+      <h6>courseEndDate: {{course.courseEndDate}}</h6>
+      <h6>programCode: {{course.programCode}}</h6>
+      <h6>requirementCode: {{course.requirementCode}}</h6>
   </div>
 </template>
 
