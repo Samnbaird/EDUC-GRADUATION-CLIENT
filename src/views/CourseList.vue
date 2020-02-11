@@ -1,7 +1,7 @@
 <template>
   <div>
     <h2>List of Courses</h2>
-    <h6>To see courses you must run 'npx json-server --watch course-db.json --port 3000'</h6>
+    <h6>To see courses you must run 'npx json-server --watch course-db.json -i courseId'</h6>
    <Course v-for="course in courses" :key="course.id" :course="course" />
 
     <ul v-if="courses">
