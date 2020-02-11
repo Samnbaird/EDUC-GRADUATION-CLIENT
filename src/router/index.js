@@ -1,10 +1,6 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
-import AssessmentAchievementList from '../views/AssessmentAchievementList.vue'
-import AssessmentAchievementShow from '../views/AssessmentAchievementShow.vue'
-import AssessmentList from '../views/AssessmentList.vue'
-import AssessmentShow from '../views/AssessmentShow.vue'
 import CourseAchievementList from '../views/CourseAchievementList.vue'
 import CourseAchievementShow from '../views/CourseAchievementShow.vue'
 import CourseAchievementCreate from '../views/CourseAchievementCreate.vue'
@@ -54,29 +50,6 @@ const routes = [
     path: '/course-achievements/create',
     name: 'course-achievement-create',
     component: CourseAchievementCreate,
-    props: true
-  },
-  {
-    path: '/assessments',
-    name: 'assessment-list',
-    component: AssessmentList
-  },
-  {
-    path: '/assessments/:id',
-    name: 'assessment-show',
-    component: AssessmentShow,
-    props: true
-  },
-  {
-    path: '/assessment-achievements',
-    name: 'assessment-achievement-list',
-    component: AssessmentAchievementList
-  },
-  {
-    path: '/assessment-achievements/:id',
-    name: 'assessment-achievement-show',
-    component: AssessmentAchievementShow,
-    props: true
   },
   {
     path: '/program-rules',
@@ -118,13 +91,13 @@ const routes = [
     props: true
   },
   {
-    path: '/graduation-statuses/sachreport/:id',
+    path: '/graduation-status/sachreport/:id',
     name: 'student-achievement-report-show',
     component: StudentAchievementReportShow,
     props: true
   },
   {
-    path: '/graduation-statuses/transcript/:id',
+    path: '/graduation-status/transcript/:id',
     name: 'student-transcript-report-show',
     component: StudentTranscriptReportShow,
     props: true
