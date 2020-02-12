@@ -15,6 +15,7 @@ const apiClient = axios.create({
 
 export default {
   getCourses() {
+    //'/api/v1/courses'
     return apiClient.get('/courses')
   },
   getCourse(id) {

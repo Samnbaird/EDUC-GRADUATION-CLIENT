@@ -1,17 +1,17 @@
 <template>
-  <router-link class="course-link" :to="{ name: 'course-show', params: { id: course.courseId} }">
-    <div class="course-card -shadow">
-      <span class="eyebrow">CourseName: {{course.courseName}}</span>
-      <h4 class="course">CourseCode: {{course.courseCode}}</h4>
-      <h6>courseGradeLevel: {{course.courseGradeLevel}}</h6>
-      <h6>credits: {{course.credits}}</h6>
-      <h6>language: {{course.language}}</h6>
-      <h6>courseStartDate: {{course.courseStartDate}}</h6>
-      <h6>courseEndDate: {{course.courseEndDate}}</h6>
-      <h6>programCode: {{course.programCode}}</h6>
-      <h6>requirementCode: {{course.requirementCode}}</h6>
-    </div>
-  </router-link>
+    <tr>
+      
+      <td class="eyebrow">{{course.courseName}}</td>
+      <td class="course">{{course.courseCode}}</td>
+      <td>{{course.courseGradeLevel}}</td>
+      <td>{{course.credits}}</td>
+      <td>{{course.language}}</td>
+      <td>{{course.courseStartDate}}</td>
+      <td>{{course.courseEndDate}}</td>
+      <td>{{course.programCode}}</td>
+      <td>{{course.requirementCode}}</td>
+      <td><router-link class="course-link" :to="{ name: 'course-show', params: { id: course.courseId} }"><button class="btn btn-primary active">EDIT</button></router-link></td>
+    </tr>
 </template>
 
 <script>
