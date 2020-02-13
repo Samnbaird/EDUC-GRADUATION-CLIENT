@@ -20,6 +20,7 @@ browse to http://localhost:3000/courses
 ## Run these instructions to serve EDUC-COURSE-API
 
 ```bash
+see https://github.com/bcgov/EDUC-COURSE-API/tree/master/api for API setup
 git clone https://github.com/bcgov/EDUC-COURSE-API.git
 cd <project>/EDUC-COURSE-API/api
 mvn clean install
