@@ -10,15 +10,20 @@
       <h6>programCode: {{course.programCode}}</h6>
       <h6>requirementCode: {{course.requirementCode}}</h6>
   </div>
+  
 </template>
 
 <script>
+
 import CourseService from '@/services/CourseService.js'
 export default {
   props: ["id"],
   data() {
     return {
-      course: []
+      course: [],
+      name: '',
+      description: '',
+      output: ''
     }
   },
   created() {
