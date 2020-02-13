@@ -20,7 +20,7 @@
             />
           </a>
           <div class="navbar-brand">
-            Graduation Requirements
+            Graduation
           </div>
           <button
             class="navbar-toggler"
