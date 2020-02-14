@@ -1,16 +1,66 @@
 <template>
   <div class="container">
-    <div class="add-course">
-      <form @submit="formSubmit">
-        <strong>Course Name:</strong>
-        <input type="text" class="form-control" v-model="courseName">
-        <strong>Course Code:</strong>
-        <textarea class="form-control" v-model="courseCode"></textarea>
-        <button class="btn btn-success">Add</button>
-      </form>
+
+  <!-- Button trigger modal -->
+<button type="button" class="add-course-button btn btn-primary" data-toggle="modal" data-target="#addCourseModal">
+  Add Course
+</button>
+
+  
+<!-- Modal -->
+<div class="modal fade" id="addCourseModal" tabindex="-1" role="dialog" aria-labelledby="addCourseModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="addCourseModalLabel">Add Course</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+        <form @submit="formSubmit">
+          <div class="modal-body">
+            <div class="add-course">
+            
+              <form @submit="formSubmit">
+                <strong>Course Name:</strong>
+                <input type="text" class="form-control" v-model="courseName">
+                <strong>Course Code:</strong>
+                <textarea class="form-control" v-model="courseCode"></textarea>
+                
+              </form>
+            </div>
+          </div>
+          
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <button class="btn btn-success btn-primary" >Add</button>
+            
+          </div>
+        </form>
+    </div>
+  </div>
+</div>
+    <div class="modal" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Modal title</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <p>Modal body text goes here.</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary">Save changes</button>
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
   </div>
     <h2>Course Listing</h2>
-    <table class="table table-striped table-hover table-sm">
+    <table class="table table-responsive table-striped table-hover table-sm">
       <thead>
             <tr>
               <th>Course Name</th>
@@ -104,4 +154,8 @@ export default {
 };
 </script>
 
-<style></style>
+<style>
+.add-course-button{
+  float:right;
+}
+</style>
