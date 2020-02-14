@@ -33,6 +33,7 @@
           >
             <span class="navbar-toggler-icon"></span>
           </button>
+          <!--
           <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
             <div class="navbar-nav">
               <router-link class="nav-item nav-link" to="/">Home</router-link>
@@ -40,6 +41,7 @@
               <router-link class="nav-item nav-link" to="/about">About</router-link>
             </div>
           </div>
+          -->
         </div>
       </nav>
     </header>

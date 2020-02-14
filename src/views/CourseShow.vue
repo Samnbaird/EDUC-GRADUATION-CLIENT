@@ -49,10 +49,12 @@
         <label for="requirementCode">Requirement Code:</label>
         <input type="text" class="form-control" v-model="course.requirementCode"  :placeholder="course.requirementCode" id="requirementCode">
       </div>
-      <router-link class="nav-item nav-link" to="/courses"><button>Cancel</button></router-link>
-      <button type="submit" class="btn btn-primary">Update</button>
+      <div class="btn-group">
+        <router-link class="nav-item nav-link" to="/courses">Cancel</router-link>
+        <button type="submit" class="btn btn-primary">Update</button>
+      </div>
     </form>  
-     <p><pre>data: {{$data | json 2}}</pre></p>
+     <p><pre>data: {{$data}}</pre></p>
   </div>
 
 </template>
@@ -82,4 +84,14 @@ export default {
   }
 };
 </script>
+<style scoped>
+  .btn-group{
+    float: right;
+    border-radius: 5px;
+  }
+
+  .action-btn{
+    margin-left: 19px;
+  }
+</style>
 
