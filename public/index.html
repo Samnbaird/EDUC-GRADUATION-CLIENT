@@ -17,7 +17,7 @@
     <div id="app"></div>
     <!-- built files will be auto injected -->
 
-    <footer class="footer">
+    <footer class="footer" id="sticky-footer">
       <nav class="navbar navbar-expand-lg navbar-dark">
         <!-- Navbar content -->
         <div class="container">
@@ -89,3 +89,18 @@
     </script>
   </body>
 </html>
+<style>
+  html,
+  body {
+    height: 100%;
+  }
+
+  #app {
+    flex: 1 0 auto;
+  }
+
+  #sticky-footer {
+    flex-shrink: none;
+  }
+
+</style>
