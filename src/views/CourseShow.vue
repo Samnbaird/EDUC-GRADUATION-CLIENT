@@ -12,7 +12,7 @@
       <h6>programCode: {{course.programCode}}</h6>
       <h6>requirementCode: {{course.requirementCode}}</h6>
     -->  
-    <form action="">
+    <form @submit="formSubmit">
       <div class="form-group">
         <label for="CourseName">Course Name:</label>
         <input type="text" class="form-control" v-model="course.courseName" :placeholder="course.courseName" id="CourseName">
@@ -54,7 +54,7 @@
         <button type="submit" class="btn btn-primary">Update</button>
       </div>
     </form>  
-     <p><pre>data: {{$data}}</pre></p>
+    <!-- <p><pre>data: {{$data}}</pre></p> -->
   </div>
 
 </template>
@@ -69,7 +69,49 @@ export default {
       course: [],
       name: '',
       description: '',
+      //courseName: '',
+      //courseCode: '',
+      //courseGradeLevel:'',
+      //credits:null,
+      //language:'',
+      //courseStartDate:'',
+      //courseEndDate:'',
+      //programCode:'',
+      //requirementCode:'',
       output: ''
+    }
+  },
+  methods: {
+    formSubmit(e) {
+      e.preventDefault();
+      let currentObj = this;
+      var url = "http://localhost:9999/api/v1/courses/";
+      var id = currentObj.course.courseId;//window.location.pathname.split("/").pop();
+      CourseService.getApiClient().put(url + id, {
+        "courseName": currentObj.course.courseName,
+        "courseCode": currentObj.course.courseCode,
+        "courseGradeLevel": currentObj.course.courseGradeLevel,
+        "credits": currentObj.course.credits,
+        "language": null,
+        "courseStartDate": currentObj.course.courseStartDate,
+        "courseEndDate": currentObj.course.courseEndDate,
+        "programCode": currentObj.course.programCode,
+        "requirementCode": currentObj.course.requirementCode
+      },{ useCredentails: false })
+      .then(function (response) {
+          CourseService.getCourses()
+          .then((response) => {
+            if (response.status === 200 ){alert("Update Success!");}
+          })
+          // eslint-disable-next-line no-unused-vars
+          .catch((error) => {
+            console.log('There was an error:' + error.response);
+          });
+          currentObj.output = response.data;
+      })
+      .catch(function (error) {
+          currentObj.output = error;
+      });
     }
   },
   created() {
