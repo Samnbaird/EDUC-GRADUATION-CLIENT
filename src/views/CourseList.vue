@@ -26,15 +26,27 @@
                 <input type="text" class="form-control" v-model="courseName">
                 <strong>Course Code:</strong>
                 <textarea class="form-control" v-model="courseCode"></textarea>
-                
+                <strong>Course Grade Level:</strong>
+                <input type="text" class="form-control" v-model="courseGradeLevel">
+                <strong>Credits:</strong>
+                <input type="number" class="form-control" v-model="credits">
+                <strong>Language:</strong>
+                <input type="text" class="form-control" v-model="language">
+                <strong>Course Start Date:</strong>
+                <input type="text" class="form-control" v-model="courseStartDate">
+                <strong>Course End Date:</strong>
+                <input type="text" class="form-control" v-model="courseEndDate">
+                <strong>Program Code:</strong>
+                <input type="text" class="form-control" v-model="programCode">
+                 <strong>Requirement Code:</strong>
+                <input type="text" class="form-control" v-model="requirementCode">
               </form>
             </div>
           </div>
-          
+
           <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
             <button class="btn btn-success btn-primary" >Add</button>
-            
           </div>
         </form>
     </div>
@@ -107,6 +119,13 @@ export default {
       courses: [],
       courseName: '',
       courseCode: '',
+      courseGradeLevel:'',
+      credits:0,
+      language:'',
+      courseStartDate:'',
+      courseEndDate:'',
+      programCode:'',
+      requirementCode:'',
       output: ''
     };
   },
@@ -127,13 +146,13 @@ export default {
         CourseService.getApiClient().post('http://localhost:9999/api/v1/courses',  {
             "courseName": this.courseName,
             "courseCode": this.courseCode,
-            "courseGradeLevel": "10",
-            "credits": 2,
+            "courseGradeLevel": this.courseGradeLevel,
+            "credits": this.credits,
             "language": null,
-            "courseStartDate": "01-Jul-2018",
-            "courseEndDate": null,
-            "programCode": "2018",
-            "requirementCode": "101"
+            "courseStartDate": this.courseStartDate,
+            "courseEndDate": this.courseEndDate,
+            "programCode": this.programCode,
+            "requirementCode": this.requirementCode
         },{ useCredentails: false })
         .then(function (response) {
             CourseService.getCourses()
