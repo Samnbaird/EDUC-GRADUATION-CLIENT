@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <h2>Edit Course</h2>
+    <h2>Edit {{course.courseName}}</h2>
     <!--
     <span class="eyebrow">CourseName: {{course.courseName}}</span>
       <h4 class="course">CourseCode: {{course.courseCode}}</h4>
