@@ -23,8 +23,6 @@ browse to http://localhost:9998/api/v1/course-achievements
 
 ```
 
-## A small edit to CourseService.js is required to toggle API address between json-server and Spring
-
 ## Run these instructions to serve EDUC-COURSE-API
 
 ```bash
