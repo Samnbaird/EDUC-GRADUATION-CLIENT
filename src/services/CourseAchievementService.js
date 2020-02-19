@@ -1,7 +1,7 @@
 import axios from 'axios'
 
 const apiClient = axios.create({
-  baseURL: 'http://localhost:3001',
+  baseURL: 'localhost:9998',
   withCredentials: false,
   headers: {
     Accept: 'application/json',
@@ -12,9 +12,12 @@ const apiClient = axios.create({
 
 export default {
   getCourseAchievements() {
-    return apiClient.get('/course-achievements')
+    return apiClient.get('/api/v1/course-achievements')
   },
   getCourseAchievement(id) {
-    return apiClient.get('/course-achievements/' + id)
+    return apiClient.get('/api/v1/course-achievements/' + id)
+  },
+  getStudentCourseAchievement(pen) {
+    return apiClient.get('/api/v1/course-achievements/pen/' + pen)
   }
 }

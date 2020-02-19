@@ -1,11 +1,5 @@
 <template>
   <div class="container">
-
-  <!-- Button trigger modal -->
-<button type="button" class="add-course-button btn btn-primary" data-toggle="modal" data-target="#addCourseModal">
-  Add Course
-</button>
-
   
 <!-- Modal -->
 <div class="modal fade" id="addCourseModal" tabindex="-1" role="dialog" aria-labelledby="addCourseModalLabel" aria-hidden="true">
@@ -71,26 +65,52 @@
       </div>
     </div>
   </div>
-    <h2>Course Listing</h2>
-    <table class="table table-responsive table-striped table-hover table-sm">
-      <thead>
-            <tr>
-              <th>Course Name</th>
-              <th>Course Code</th>
-              <th>Course Grade Level</th>
-              <th>credits</th>
-              <th>language</th>
-              <th>Course Start Date</th>
-              <th>Course End Date</th>
-              <th>Program Code</th>
-              <th>Requirement Code</th>
-              <th>Edit</th>
-            </tr>
+    <h1>Course Listing</h1>
+    <div class="search-input">
+      <input class="form-control" v-model="filters.name.value" placeholder="Search for a Course by Name"/>
+    </div>
+    <v-table
+        :data="courses"
+        :filters="filters"
+        :currentPage.sync="currentPage"
+        :pageSize="10"
+        @totalPagesChanged="totalPages = $event"
+         class="table table-responsive table-striped table-hover table-md text-center align-middle">
+          <thead slot="head">
+              <v-th sortKey="courseName">Course Name</v-th>
+              <v-th sortKey="courseCode">Course Code</v-th>
+              <v-th sortKey="courseGradeLevel">Course Grade Level</v-th>
+              <v-th sortKey="credits">credits</v-th>
+              <v-th sortKey="language">language</v-th>
+              <v-th sortKey="courseStartDate">Course Start Date</v-th>
+              <v-th sortKey="courseEndDate">Course End Date</v-th>
+              <v-th sortKey="courseProgramCode">Program Code</v-th>
+              <v-th sortKey="requirementCode">Requirement Code</v-th>
+              <th><button type="button" class="add-course-button btn btn-primary" data-toggle="modal" data-target="#addCourseModal">+
+</button></th>
+          
+           
           </thead>
-          <tbody>
-      <Course v-for="course in courses" :key="course.id" :course="course" />
-      </tbody>
-    </table>
+          <tbody slot="body" slot-scope="{displayData}">
+              <tr v-for="row in displayData" :key="row.courseName">
+                <td>{{row.courseName}}</td>
+                <td>{{row.courseCode}}</td>
+                <td>{{row.courseGradeLevel}}</td>
+                <td>{{row.credits}}</td>
+                <td>{{row.language}}</td>
+                <td>{{row.courseStartDate}}</td>
+                <td>{{row.courseEndDate}}</td>
+                <td>{{row.programCode}}</td>
+                <td>{{row.requirementCode}}</td>
+                <td><router-link class="course-link" :to="{ name: 'course-show', params: { id: row.courseId} }"><button class="btn btn-primary active">EDIT</button></router-link></td>
+              </tr>
+
+          </tbody>
+    </v-table>
+     <smart-pagination
+        :currentPage.sync="currentPage"
+        :totalPages="totalPages"
+      />
     
      <!-- DEBUG
     <ul v-if="courses">
@@ -108,12 +128,12 @@
 </template>
 
 <script>
-import Course from "@/components/Course";
 import CourseService from '@/services/CourseService.js';
+
 export default {
   components: {
-    Course
   },
+  name: 'BasicFiltering',
   data() {
     return {
       courses: [],
@@ -126,7 +146,12 @@ export default {
       courseEndDate:'',
       programCode:'',
       requirementCode:'',
-      output: ''
+      output: '',
+      filters: {
+        name: { value: '', keys: ['courseName'] }
+      },
+      currentPage: 1,
+      totalPages: 0
     };
   },
   created() {
@@ -137,7 +162,7 @@ export default {
       // eslint-disable-next-line no-unused-vars
       .catch((error) => {
          //console.log('There was an error:' + error.response);
-      });
+      }); 
   },
   methods: {
       formSubmit(e) {
@@ -154,7 +179,7 @@ export default {
             "programCode": this.programCode,
             "requirementCode": this.requirementCode
         },{ useCredentails: false })
-        .then(function (response) {
+       .then(function (response) {
             CourseService.getCourses()
             .then((response) => {
               currentObj.courses = response.data;
@@ -173,8 +198,17 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 .add-course-button{
   float:right;
+}
+.search-input{
+  float:right;
+  width:300px;
+
+}
+.container h1{
+  width: 400px; 
+  float:left; 
 }
 </style>
