@@ -44,6 +44,7 @@
         top: 0;
         left: 0;
         cursor: pointer;
+        z-index: 1;
     }
 
     .sidebar-panel {
@@ -55,6 +56,6 @@
         height: 100vh;
         z-index: 999;
         padding: 3rem 20px 2rem 20px;
-        width: 300px;
+        width: 244px;
     }
 </style>

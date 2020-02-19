@@ -4,17 +4,21 @@
     <nav class="main-nav">
         <div class="logo">
         Graduation
-        </div>
-        <Burger></Burger>
+        </div>       
     </nav>
     <Sidebar>
         <ul class="sidebar-panel-nav">
           <li><router-link to="/">Home</router-link></li>
-          <li><router-link to="/about">About</router-link></li>
+          <li><router-link to="/students">Students</router-link></li>
+          <li><router-link to="/course-achievements">Course Achievements</router-link></li>
           <li><router-link to="/courses">Courses</router-link></li>
+          <li><router-link to="/program-rules">Program Rules</router-link></li>
         </ul>
     </Sidebar>
-    <router-view/>
+    <div class="container">
+      <Burger style="float:right;"></Burger>
+      <router-view/>
+    </div> 
   </div>
 </template>
 <script>
@@ -58,7 +62,7 @@ export default {
  ul.sidebar-panel-nav > li > a {
    color: #fff;
    text-decoration: none;
-   font-size: 1.5rem;
+   font-size: 1.2rem;
    display: block;
    padding-bottom: 0.5em;
  }
