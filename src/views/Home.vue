@@ -5,7 +5,7 @@
       <p>Enter a Student’s Personal Educations Number (PEN) to retrieve the students current graduation status.</p>
 
       <p>If the student has no graduation status or their status is not up-to-date you can get their current status by clicking on 'Check Grad Status.'</p>
-      <form @submit="formSubmit">
+      <form>
         <div class="form-group">
           <label for="StudentPen">Personal Education Number:</label>
           <input type="text" class="form-control"  id="StudentPen" />
@@ -39,6 +39,7 @@
           <div class="btn-group">
             <button type="submit" class="btn btn-primary" id="find">Check Graduation Status</button>
           </div>
+          <router-link to="/course-achievements" class="pl-3">All Course Achievements</router-link>
           <br />
           <br />
           <h3>Graduation Requirements</h3>
@@ -137,8 +138,8 @@ export default {
 <style scoped>
 .alert,
 .card,
-.btn-group.btn-group-vertical,
-.btn-group > .btn {
+.btn.btn-primary
+{
   position: inherit;
 }
 h6 {

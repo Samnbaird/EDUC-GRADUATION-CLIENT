@@ -16,7 +16,7 @@ export default {
     return apiClient.get('/api/v1/courses')
   },
   getCourse(id) {
-    return apiClient.get('api/v1/courses/' + id)
+    return apiClient.get('/api/v1/courses/' + id)
   },
   getApiClient() {
     return apiClient
