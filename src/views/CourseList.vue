@@ -6,7 +6,7 @@
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="addCourseModalLabel">Add Course</h5>
+        <h2 class="modal-title" id="addCourseModalLabel">Add Course</h2>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -27,9 +27,12 @@
                 <strong>Language:</strong>
                 <input type="text" class="form-control" v-model="language">
                 <strong>Course Start Date:</strong>
+                
                 <input type="text" class="form-control" v-model="courseStartDate">
+                <small id="dateHelp" class="form-text text-muted">2020-02-19</small>
                 <strong>Course End Date:</strong>
                 <input type="text" class="form-control" v-model="courseEndDate">
+                <small id="dateHelp" class="form-text text-muted">2020-02-19</small>
                 <strong>Program Code:</strong>
                 <input type="text" class="form-control" v-model="programCode">
                  <strong>Requirement Code:</strong>
