@@ -143,7 +143,7 @@ export default {
       formSubmit(e) {
         e.preventDefault();
         let currentObj = this;
-        CourseService.getApiClient().post('http://localhost:9999/api/v1/courses',  {
+        CourseService.getApiClient().post('http://142.36.65.148:9999/api/v1/courses',  {
             "courseName": this.courseName,
             "courseCode": this.courseCode,
             "courseGradeLevel": this.courseGradeLevel,

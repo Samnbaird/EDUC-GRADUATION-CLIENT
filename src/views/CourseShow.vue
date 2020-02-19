@@ -85,7 +85,7 @@ export default {
     formSubmit(e) {
       e.preventDefault();
       let currentObj = this;
-      var url = "http://localhost:9999/api/v1/courses/";
+      var url = "http://142.36.65.148:9999/api/v1/courses/";
       var id = currentObj.course.courseId;//window.location.pathname.split("/").pop();
       CourseService.getApiClient().put(url + id, {
         "courseName": currentObj.course.courseName,
