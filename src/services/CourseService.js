@@ -4,7 +4,7 @@ const apiClient = axios.create({
   // for json-server
   //baseURL: 'http://localhost:3000',
   // for EDUC-COURSE-API
-  baseURL: 'http://142.36.65.148:9999',
+  baseURL: ':9999',
   withCredentials: false,
   headers: {
     Accept: 'application/json',
