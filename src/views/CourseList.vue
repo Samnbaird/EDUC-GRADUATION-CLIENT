@@ -198,7 +198,7 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 .add-course-button{
   float:right;
 }
