@@ -9,7 +9,6 @@
   <button class="btn btn-primary active" v-on:click="search">Search</button>
 </div>
 
-
     <h2>Student Course Achievement</h2>
     <table class="table table-responsive table-striped table-hover table-md text-center align-middle">
       <thead>
