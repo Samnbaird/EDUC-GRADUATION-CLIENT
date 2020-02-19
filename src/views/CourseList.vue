@@ -112,16 +112,6 @@
         :totalPages="totalPages"
       />
     
-     <!-- DEBUG
-    <ul v-if="courses">
-     
-      <li v-for="course in courses" :key="course.id" :course="course">
-        <p>{{course.courseName}}</p>
-      </li>
-    </ul>
-    
-     <h4>{{ courses }}</h4>
-     -->
   </div>
 
 
@@ -168,7 +158,7 @@ export default {
       formSubmit(e) {
         e.preventDefault();
         let currentObj = this;
-        CourseService.getApiClient().post('/api/v1/courses',  {
+        CourseService.getApiClient().post('http://localhost:9999/api/v1/courses',  {
             "courseName": this.courseName,
             "courseCode": this.courseCode,
             "courseGradeLevel": this.courseGradeLevel,

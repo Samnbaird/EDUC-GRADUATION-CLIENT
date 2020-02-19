@@ -28,7 +28,8 @@
               <v-th sortKey="interimPercent">Interim Percent</v-th>
               <v-th sortKey="interimLetterGrade">Interim Letter Grade</v-th>
               <v-th sortKey="courseType">Course Type</v-th>
-              <v-th>EDIT</v-th>
+              <th><button type="button" class="add-course-achievement-button btn btn-primary" data-toggle="modal" data-target="#addCourseAchievementModal">+
+</button></th>
           </thead>
           <tbody slot="body" slot-scope="{displayData}">
             <tr v-for="row in displayData" :key="row.pen">

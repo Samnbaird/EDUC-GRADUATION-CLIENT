@@ -11,8 +11,16 @@ npm install
 ## Run json-server to serve a sample course-db.json file
 
 ```bash
-npx json-server --watch course-db.json -i courseId --port 3000
-browse to http://localhost:3000/courses
+npx json-server --watch course-db.json -i courseId --port 9999 --routes course-db-routes.json
+browse to http://localhost:9999/api/v1/courses
+```
+
+## Run json-server to serve a sample course-achievement-db.json file
+
+```bash
+npx json-server --watch course-achievement-db.json --port 9998 --routes course-achievement-db-routes.json
+browse to http://localhost:9998/api/v1/course-achievements
+
 ```
 
 ## A small edit to CourseService.js is required to toggle API address between json-server and Spring
