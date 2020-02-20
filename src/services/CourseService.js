@@ -12,13 +12,13 @@ const apiClient = axios.create({
 
 export default {
   getCourses() {
-    //'/api/v1/courses'
     return apiClient.get('/api/v1/courses')
   },
   getCourse(id) {
     return apiClient.get('/api/v1/courses/' + id)
   },
-  getApiClient() {
-    return apiClient
-  }
+  editCourse(id, data){
+    return apiClient.put("/api/v1/courses/" + id ,data,{ useCredentails: false })
+    
+  },
 }

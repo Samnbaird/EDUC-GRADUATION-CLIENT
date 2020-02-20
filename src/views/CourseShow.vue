@@ -85,9 +85,9 @@ export default {
     formSubmit(e) {
       e.preventDefault();
       let currentObj = this;
-      var url = "http://localhost:9999/api/v1/courses/";
       var id = currentObj.course.courseId;//window.location.pathname.split("/").pop();
-      CourseService.getApiClient().put(url + id, {
+     
+      CourseService.editCourse(id, {
         "courseName": currentObj.course.courseName,
         "courseCode": currentObj.course.courseCode,
         "courseGradeLevel": currentObj.course.courseGradeLevel,
@@ -97,21 +97,16 @@ export default {
         "courseEndDate": currentObj.course.courseEndDate,
         "programCode": currentObj.course.programCode,
         "requirementCode": currentObj.course.requirementCode
-      },{ useCredentails: false })
-      .then(function (response) {
-          CourseService.getCourses()
-          .then((response) => {
-            if (response.status === 200 ){alert("Update Success!");}
-          })
-          // eslint-disable-next-line no-unused-vars
-          .catch((error) => {
-            console.log('There was an error:' + error.response);
-          });
-          currentObj.output = response.data;
+      }).then(function (response) {
+        
+            if (response.status === 200 ){
+              currentObj.$router.push('/courses');  
+            }
       })
       .catch(function (error) {
           currentObj.output = error;
       });
+     
     }
   },
   created() {

@@ -17,9 +17,9 @@
         class="table table-responsive table-striped table-hover table-md text-center align-middle">
           <thead slot="head">
               <v-th sortKey="requirementCode">Requirement Code</v-th>
-              <v-th sortKey="requirementName">Requirement Name</v-th>
-              <v-th sortKey="requiredCredits">Requiremen Credits</v-th>
-              <v-th sortKey="notMetDescription">Not Met Description</v-th>
+              <v-th sortKey="requirementName">Requirement<br>Name</v-th>
+              <v-th sortKey="requiredCredits">Requirement Credits</v-th>
+              <v-th sortKey="notMetDescription">Not Met<br> Description</v-th>
               <v-th sortKey="programCode">Program Code</v-th>
               <th><button type="button" class="add-course-achievement-button btn btn-primary" data-toggle="modal" data-target="#addCourseAchievementModal">Add Rule
 </button></th>

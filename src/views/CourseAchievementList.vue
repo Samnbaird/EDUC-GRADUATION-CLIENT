@@ -32,7 +32,7 @@
 </button></th>
           </thead>
           <tbody slot="body" slot-scope="{displayData}">
-            <tr v-for="row in displayData" :key="row.pen">
+            <tr v-for="row in displayData" :key="row.courseId">
               <td>{{row.pen}}</td>
               <td>{{row.courseId}}</td>
               <td>{{row.finalLetterGrade}}</td>
@@ -40,7 +40,7 @@
               <td>{{row.interimPercent}}</td>
               <td>{{row.interimLetterGrade}}</td>
               <td>{{row.courseType}}</td> 
-              <td><router-link class="achievement-link" :to="{ name: 'achievement-show', params: { id: row.id} }"><button class="btn btn-primary active">EDIT</button></router-link></td>
+              <td><router-link class="course-achievement-show" :to="{ name: 'course-achievement-show', params: { id: '' + row.courseAchievementId} }"><button class="btn btn-primary active">EDIT</button></router-link></td>
             </tr>
           </tbody>
     </v-table>

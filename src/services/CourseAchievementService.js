@@ -15,9 +15,19 @@ export default {
     return apiClient.get('/api/v1/course-achievements')
   },
   getCourseAchievement(id) {
+    console.log('/api/v1/course-achievements/' + id);
     return apiClient.get('/api/v1/course-achievements/' + id)
   },
   getStudentCourseAchievement(pen) {
     return apiClient.get('/api/v1/course-achievements/pen/' + pen)
+  },
+  editStudentCourseAchievement(id, data){
+   
+    return apiClient.put("/api/v1/course-achievements/" + id ,data,{ useCredentails: false })
+    
+  },
+
+  getApiClient() {
+    return apiClient
   }
 }
