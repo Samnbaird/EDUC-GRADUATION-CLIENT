@@ -103,8 +103,8 @@
                 <td>{{row.language}}</td>
                 <td>{{row.courseStartDate}}</td>
                 <td>{{row.courseEndDate}}</td>
-                <td>{{row.programCode}}</td>
-                <td>{{row.requirementCode}}</td>
+                <td>{{row.courseProgramCode}}</td>
+                <td><a href="#" v-on:click="showProgramRule(''+ row.requirementCode)">{{row.requirementCode}}</a></td>
                 <td><router-link class="course-link" :to="{ name: 'course-show', params: { id: row.courseId} }"><button class="btn btn-primary active">EDIT</button></router-link></td>
               </tr>
 
@@ -122,6 +122,7 @@
 
 <script>
 import CourseService from '@/services/CourseService.js';
+import ProgramRuleService from '@/services/ProgramRuleService.js';
 
 export default {
   components: {
@@ -129,6 +130,7 @@ export default {
   name: 'BasicFiltering',
   data() {
     return {
+      programRule:'hello world',
       courses: [],
       courseName: '',
       courseCode: '',
@@ -158,6 +160,22 @@ export default {
       }); 
   },
   methods: {
+      showProgramRule(id) {
+        let currentObj = this;
+        currentObj.programRule = ProgramRuleService.getProgramRule(parseInt(id))
+        .then((response) => {
+          let responseText = "PROGRAM CODE: " + id + "\n" + JSON.stringify(response.data.requirementName, null, 4);
+          let notmet = JSON.stringify(response.data.notMetDescription, null, 4);
+          let programCode = JSON.stringify(response.data.programCode, null, 4);
+          responseText = responseText + "\n" + notmet + "\n" + programCode;
+          alert(responseText);
+        })
+          // eslint-disable-next-line no-unused-vars
+        .catch((error) => {
+            //console.log('There was an error:' + error.response);
+        }); 
+        
+      },
       formSubmit(e) {
         e.preventDefault();
         let currentObj = this;
