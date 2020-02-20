@@ -1,16 +1,5 @@
 {
-  "courses": [{
-    "courseId": "c0a83801-7059-10b9-8170-59ee25150015",
-    "courseName": "ENG123",
-    "courseCode": "ENG123",
-    "courseGradeLevel": "123",
-    "credits": 2,
-    "language": null,
-    "courseStartDate": "18-Feb.-2020",
-    "courseEndDate": null,
-    "programCode": "2018",
-    "requirementCode": "101"
-}, {
+  "courses": [ {
     "courseId": "9d5ffe16-950d-d82b-e053-9ae9228e176d",
     "courseName": "Composition 10",
     "courseCode": "CMPS",
