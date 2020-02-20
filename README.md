@@ -23,6 +23,14 @@ browse to http://localhost:9998/api/v1/course-achievements
 
 ```
 
+## Run json-server to serve a sample program-rules-db.json file
+
+```bash
+npx json-server --watch program-rule-db.json --port 9997 --routes program-rules-db-routes.json
+browse to http://localhost:9997/api/v1/program-rules
+
+```
+
 ## Run these instructions to serve EDUC-COURSE-API
 
 ```bash

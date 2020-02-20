@@ -1,44 +1,148 @@
 {
-  "programRules": [
+  "program-rules": [
     {
-      "programRulesId": null,
       "requirementCode": 107,
       "requirementName": "Mathematics 11 or 12",
       "requiredCredits": 4,
       "notMetDescription": "No Mathematics 11 or 12",
-      "programCode": "2018"
+      "programCode": "2018",
+      "requirementType": "Match"
     },
     {
-      "programRulesId": null,
       "requirementCode": 108,
       "requirementName": "Science 10",
       "requiredCredits": 4,
       "notMetDescription": "No Science 10",
-      "programCode": "2018"
+      "programCode": "2018",
+      "requirementType": "Match"
     },
     {
-      "programRulesId": null,
       "requirementCode": 109,
       "requirementName": "Science 11 or 12",
       "requiredCredits": 4,
       "notMetDescription": "No Science 11 or 12",
-      "programCode": "2018"
+      "programCode": "2018",
+      "requirementType": "Match"
     },
     {
-      "programRulesId": null,
       "requirementCode": 110,
       "requirementName": "Physical and Health Education 10",
       "requiredCredits": 4,
       "notMetDescription": "No Physical and Health Eduation 10",
-      "programCode": "2018"
+      "programCode": "2018",
+      "requirementType": "Match"
     },
     {
-      "programRulesId": null,
       "requirementCode": 111,
       "requirementName": "Arts Education/Applied Design, Skills, and Technologies",
       "requiredCredits": 4,
       "notMetDescription": "No Arts Education/Applied Design, Skills, and Technologies",
-      "programCode": "2018"
+      "programCode": "2018",
+      "requirementType": "Match"
+    },
+    {
+      "requirementCode": 112,
+      "requirementName": "Career Life Education",
+      "requiredCredits": 4,
+      "notMetDescription": "No Career Life Education",
+      "programCode": "2018",
+      "requirementType": "Match"
+    },
+    {
+      "requirementCode": 113,
+      "requirementName": "Career Life Connections",
+      "requiredCredits": 4,
+      "notMetDescription": "No Career Life Connections",
+      "programCode": "2018",
+      "requirementType": "Match"
+    },
+    {
+      "requirementCode": 114,
+      "requirementName": "28 Elective credits",
+      "requiredCredits": 28,
+      "notMetDescription": "Fewer than 28 Elective credits",
+      "programCode": "2018",
+      "requirementType": "Credits Elective"
+    },
+    {
+      "requirementCode": 115,
+      "requirementName": "Numeracy 10 Assessment",
+      "requiredCredits": 0,
+      "notMetDescription": "No Numeracy 10 Assessment",
+      "programCode": "2018",
+      "requirementType": "Match"
+    },
+    {
+      "requirementCode": 116,
+      "requirementName": "Literacy 10 Assessment",
+      "requiredCredits": 0,
+      "notMetDescription": "No Literacy 10 Assessment",
+      "programCode": "2018",
+      "requirementType": "Match"
+    },
+    {
+      "requirementCode": 117,
+      "requirementName": "Literacy 12 Assessment",
+      "requiredCredits": 0,
+      "notMetDescription": "No Literacy 12 Assessment",
+      "programCode": "2018",
+      "requirementType": "Match"
+    },
+    {
+      "requirementCode": 100,
+      "requirementName": "16 Grade 12 Credits",
+      "requiredCredits": 16,
+      "notMetDescription": "Fewer than 16 gr 12 credits",
+      "programCode": "2018",
+      "requirementType": "Credits 12"
+    },
+    {
+      "requirementCode": 101,
+      "requirementName": "Language Arts 10",
+      "requiredCredits": 4,
+      "notMetDescription": "Fewer than 4 Language Arts 10 credits",
+      "programCode": "2018",
+      "requirementType": "Match"
+    },
+    {
+      "requirementCode": 102,
+      "requirementName": "Language Arts 11",
+      "requiredCredits": 4,
+      "notMetDescription": "No Language Arts 11",
+      "programCode": "2018",
+      "requirementType": "Match"
+    },
+    {
+      "requirementCode": 103,
+      "requirementName": "Language Arts 12",
+      "requiredCredits": 4,
+      "notMetDescription": "No Language Arts 12",
+      "programCode": "2018",
+      "requirementType": "Match"
+    },
+    {
+      "requirementCode": 104,
+      "requirementName": "Social Studies 10",
+      "requiredCredits": 4,
+      "notMetDescription": "No Social Studies 10",
+      "programCode": "2018",
+      "requirementType": "Match"
+    },
+    {
+      "requirementCode": 105,
+      "requirementName": "Social Studies 11 or 12",
+      "requiredCredits": 4,
+      "notMetDescription": "No Social Studies 11 or 12",
+      "programCode": "2018",
+      "requirementType": "Match"
+    },
+    {
+      "requirementCode": 106,
+      "requirementName": "Mathematics 10",
+      "requiredCredits": 4,
+      "notMetDescription": "No Mathematics 10",
+      "programCode": "2018",
+      "requirementType": "Match"
     }
   ]
 }

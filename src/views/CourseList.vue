@@ -43,7 +43,7 @@
 
           <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-            <button class="btn btn-success btn-primary" >Add</button>
+            <button class="btn btn-success btn-primary">Add</button>
           </div>
         </form>
     </div>
@@ -89,7 +89,7 @@
               <v-th sortKey="courseEndDate">Course End Date</v-th>
               <v-th sortKey="courseProgramCode">Program Code</v-th>
               <v-th sortKey="requirementCode">Requirement Code</v-th>
-              <th><button type="button" class="add-course-button btn btn-primary" data-toggle="modal" data-target="#addCourseModal">+
+              <th><button type="button" class="add-course-button btn btn-primary" data-toggle="modal" data-target="#addCourseModal">Add Course
 </button></th>
           
            
