@@ -39,7 +39,7 @@
           <div class="btn-group">
             <button type="submit" class="btn btn-primary" id="find">Check Graduation Status</button>
           </div>
-          <router-link to="/course-achievements" class="pl-3">All Course Achievements</router-link>
+         
           <br />
           <br />
           <h3>Graduation Requirements</h3>
@@ -75,6 +75,9 @@
               <li>Fewer than 28 Elective credits</li>
             </ul>
           </div>
+          <br>
+          <br>
+          <router-link to="/course-achievements">All Course Achievements</router-link>
         </div>
       </div>
       <br />

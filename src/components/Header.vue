@@ -20,7 +20,7 @@
             />
           </a>
           <div class="navbar-brand">
-            Graduation
+            Student Achievement MVP
           </div>
           <button
             class="navbar-toggler"

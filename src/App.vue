@@ -1,11 +1,6 @@
 <template>
   <div id="app">  
     <Header></Header>
-    <nav class="main-nav">
-        <div class="logo">
-        Graduation
-        </div>       
-    </nav>
     <Sidebar>
         <ul class="sidebar-panel-nav">
           <li><router-link to="/">Home</router-link></li>
@@ -15,7 +10,7 @@
           <li><router-link to="/program-rules">Program Rules</router-link></li>
         </ul>
     </Sidebar>
-    <div class="container">
+    <div class="container mt-3">
       <Burger style="float:right;"></Burger>
       <router-view/>
     </div> 
