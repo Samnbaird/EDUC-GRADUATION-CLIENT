@@ -20,7 +20,7 @@
             />
           </a>
           <div class="navbar-brand">
-            Student Achievement MVP
+            <router-link class="app-name" to="/">Student Achievement MVP</router-link>
           </div>
           <button
             class="navbar-toggler"
@@ -55,4 +55,9 @@ export default {
   }
 };
 </script>
-<style></style>
+<style>
+.app-name, .app-name:hover{
+  color:#fff;
+  text-decoration: unset;
+}
+</style>

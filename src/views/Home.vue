@@ -7,15 +7,16 @@
       <p>If the student has no graduation status or their status is not up-to-date you can get their current status by clicking on 'Check Grad Status.'</p>
       <form>
         <div class="form-group">
-          <label for="StudentPen">Personal Education Number:</label>
+          <strong><label for="StudentPen">Personal Education Number:</label></strong>
           <input type="text" class="form-control"  id="StudentPen" />
         </div>
+      </form>  
         <div class="btn-group">
-          <button type="submit" class="btn btn-primary" id="find">Find Student</button>
+          <button v-on:click="student = !student" class="btn btn-primary" id="find">Find Student</button>
         </div>
-      </form>
+      <br>
       <br />
-      <div class="card" style="width: 100%;">
+      <div v-if="student" class="card" style="width: 100%;">
         <div class="card-body">
           <h2 class="card-title">Student</h2>
           <h3 class="card-subtitle mb-2 text-muted">Timothy, Matthew Robert</h3>
@@ -28,7 +29,7 @@
         </div>
       </div>
       <br />
-      <div class="card" style="width: 100%;">
+      <div v-if="student" class="card" style="width: 100%;">
         <div class="card-body">
           <h2 class="card-title">Graduation Status</h2>
           <ul>
@@ -81,7 +82,7 @@
         </div>
       </div>
       <br />
-      <div class="card" style="width: 100%;">
+      <div v-if="student" class="card" style="width: 100%;">
         <div class="card-body">
           <h2 class="card-title">Graduation Reports</h2>
           <div class="mt-3">
@@ -135,7 +136,12 @@
 
 export default {
   name: "home",
-  components: {}
+  data() {
+    return {
+     student: false
+    }
+  },
+  components: {},
 };
 </script>
 <style scoped>
