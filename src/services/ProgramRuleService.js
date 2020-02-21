@@ -16,5 +16,13 @@ export default {
   },
   getProgramRule(id) {
     return apiClient.get('/api/v1/program-rules/' + id)
-  }
+  },
+  editProgramRule(data){
+    console.log(data);
+    return apiClient.put("/api/v1/program-rules/",data,{ useCredentials: false })
+  },
+  addProgramRule(data){
+    console.log(data);
+    return apiClient.post("/api/v1/program-rules/",data,{ useCredentials: false })
+  }  
 }

@@ -1,73 +1,73 @@
 <template>
   <div class="container">
   
-<!-- Modal -->
-<div class="modal fade" id="addCourseModal" tabindex="-1" role="dialog" aria-labelledby="addCourseModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h2 class="modal-title" id="addCourseModalLabel">Add Course</h2>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-        <form @submit="formSubmit">
-          <div class="modal-body">
-            <div class="add-course">
-            
-              <form @submit="formSubmit">
-                <strong>Course Name:</strong>
-                <input type="text" class="form-control" v-model="courseName">
-                <strong>Course Code:</strong>
-                <textarea class="form-control" v-model="courseCode"></textarea>
-                <strong>Course Grade Level:</strong>
-                <input type="text" class="form-control" v-model="courseGradeLevel">
-                <strong>Credits:</strong>
-                <input type="number" class="form-control" v-model="credits">
-                <strong>Language:</strong>
-                <input type="text" class="form-control" v-model="language">
-                <strong>Course Start Date:</strong>
-                
-                <input type="text" class="form-control" v-model="courseStartDate">
-                <small id="dateHelp" class="form-text text-muted">2020-02-19</small>
-                <strong>Course End Date:</strong>
-                <input type="text" class="form-control" v-model="courseEndDate">
-                <small id="dateHelp" class="form-text text-muted">2020-02-19</small>
-                <strong>Program Code:</strong>
-                <input type="text" class="form-control" v-model="programCode">
-                 <strong>Requirement Code:</strong>
-                <input type="text" class="form-control" v-model="requirementCode">
-              </form>
-            </div>
-          </div>
-
-          <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-            <button class="btn btn-success btn-primary">Add</button>
-          </div>
-        </form>
-    </div>
-  </div>
-</div>
-    <div class="modal" tabindex="-1" role="dialog">
+  <!-- Modal -->
+  <div class="modal fade" id="addCourseModal" tabindex="-1" role="dialog" aria-labelledby="addCourseModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title">Modal title</h5>
+          <h2 class="modal-title" id="addCourseModalLabel">Add Course</h2>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
-        <div class="modal-body">
-          <p>Modal body text goes here.</p>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-primary">Save changes</button>
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        </div>
+          <form @submit="formSubmit">
+            <div class="modal-body">
+              <div class="add-course">
+              
+                <form @submit="formSubmit">
+                  <strong>Course Name:</strong>
+                  <input type="text" class="form-control" v-model="courseName">
+                  <strong>Course Code:</strong>
+                  <textarea class="form-control" v-model="courseCode"></textarea>
+                  <strong>Course Grade Level:</strong>
+                  <input type="text" class="form-control" v-model="courseGradeLevel">
+                  <strong>Credits:</strong>
+                  <input type="number" class="form-control" v-model="credits">
+                  <strong>Language:</strong>
+                  <input type="text" class="form-control" v-model="language">
+                  <strong>Course Start Date:</strong>
+                  
+                  <input type="text" class="form-control" v-model="courseStartDate">
+                  <small id="dateHelp" class="form-text text-muted">2020-02-19</small>
+                  <strong>Course End Date:</strong>
+                  <input type="text" class="form-control" v-model="courseEndDate">
+                  <small id="dateHelp" class="form-text text-muted">2020-02-19</small>
+                  <strong>Program Code:</strong>
+                  <input type="text" class="form-control" v-model="programCode">
+                  <strong>Requirement Code:</strong>
+                  <input type="text" class="form-control" v-model="requirementCode">
+                </form>
+              </div>
+            </div>
+
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+              <button class="btn btn-success btn-primary">Add</button>
+            </div>
+          </form>
       </div>
     </div>
   </div>
+      <div class="modal" tabindex="-1" role="dialog">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Modal title</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <p>Modal body text goes here.</p>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-primary">Save changes</button>
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
     <h1>Course Listing</h1>
     <div class="search-input">
       <input class="form-control" v-model="filters.name.value" placeholder="Search for a Course by Name"/>
@@ -130,7 +130,7 @@ export default {
   name: 'BasicFiltering',
   data() {
     return {
-      programRule:'hello world',
+      programRule:'',
       courses: [],
       courseName: '',
       courseCode: '',
@@ -160,52 +160,52 @@ export default {
       }); 
   },
   methods: {
-      showProgramRule(id) {
-        let currentObj = this;
-        currentObj.programRule = ProgramRuleService.getProgramRule(parseInt(id))
-        .then((response) => {
-          let responseText = "PROGRAM CODE: " + id + "\n" + JSON.stringify(response.data.requirementName, null, 4);
-          let notmet = JSON.stringify(response.data.notMetDescription, null, 4);
-          let programCode = JSON.stringify(response.data.programCode, null, 4);
-          responseText = responseText + "\n" + notmet + "\n" + programCode;
-          alert(responseText);
-        })
+    showProgramRule(id) {
+      let currentObj = this;
+      currentObj.programRule = ProgramRuleService.getProgramRule(parseInt(id))
+      .then((response) => {
+        let responseText = "PROGRAM CODE: " + id + "\n" + JSON.stringify(response.data.requirementName, null, 4);
+        let notmet = JSON.stringify(response.data.notMetDescription, null, 4);
+        let programCode = JSON.stringify(response.data.programCode, null, 4);
+        responseText = responseText + "\n" + notmet + "\n" + programCode;
+        alert(responseText);
+      })
+        // eslint-disable-next-line no-unused-vars
+      .catch((error) => {
+          //console.log('There was an error:' + error.response);
+      }); 
+      
+    },
+    formSubmit(e) {
+      e.preventDefault();
+      let currentObj = this;
+      CourseService.addCourse({
+          "courseName": this.courseName,
+          "courseCode": this.courseCode,
+          "courseGradeLevel": this.courseGradeLevel,
+          "credits": this.credits,
+          "language": null,
+          "courseStartDate": this.courseStartDate,
+          "courseEndDate": this.courseEndDate,
+          "programCode": this.programCode,
+          "requirementCode": this.requirementCode
+      },{ useCredentails: false })
+      .then(function (response) {
+          CourseService.getCourses()
+          .then((response) => {
+            currentObj.courses = response.data;
+          })
           // eslint-disable-next-line no-unused-vars
-        .catch((error) => {
-            //console.log('There was an error:' + error.response);
-        }); 
-        
-      },
-      formSubmit(e) {
-        e.preventDefault();
-        let currentObj = this;
-        CourseService.getApiClient().post('http://localhost:9999/api/v1/courses',  {
-            "courseName": this.courseName,
-            "courseCode": this.courseCode,
-            "courseGradeLevel": this.courseGradeLevel,
-            "credits": this.credits,
-            "language": null,
-            "courseStartDate": this.courseStartDate,
-            "courseEndDate": this.courseEndDate,
-            "programCode": this.programCode,
-            "requirementCode": this.requirementCode
-        },{ useCredentails: false })
-       .then(function (response) {
-            CourseService.getCourses()
-            .then((response) => {
-              currentObj.courses = response.data;
-            })
-            // eslint-disable-next-line no-unused-vars
-            .catch((error) => {
-              console.log('There was an error:' + error.response);
-            });
-            currentObj.output = response.data;
-        })
-        .catch(function (error) {
-            currentObj.output = error;
-        });
-      }
+          .catch((error) => {
+            console.log('There was an error:' + error.response);
+          });
+          currentObj.output = response.data;
+      })
+      .catch(function (error) {
+          currentObj.output = error;
+      });
     }
+  }
 };
 </script>
 

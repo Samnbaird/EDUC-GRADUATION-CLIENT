@@ -3,7 +3,65 @@
   <div class="container">
   <!-- Button trigger modal -->
 
+    <!-- Modal -->
+  <div class="modal fade" id="addProgramRuleModal" tabindex="-1" role="dialog" aria-labelledby="addProgramRuleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h2 class="modal-title" id="addProgramRuleModalLabel">Add Course</h2>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+          <form @submit="formSubmit">
+            <div class="modal-body">
+              <div class="add-rule">
 
+
+                <form @submit="formSubmit">
+                  <strong>Requirement Code:</strong>
+                  <input type="text" class="form-control" v-model="requirementCode">
+                  <strong>Requirement Name:</strong>
+                  <input type="text" class="form-control" v-model="requirementName">
+                  <strong>Requirement Credits:</strong>
+                  <input type="text" class="form-control" v-model="requiredCredits">
+                  <strong>Not Met Description:</strong>
+                  <input type="text" class="form-control" v-model="notMetDescription">
+                  <strong>Program Code:</strong>
+                  <input type="text" class="form-control" v-model="programCode">
+                  <strong>Requirement Type:</strong>
+                  <input type="text" class="form-control" v-model="requirementType">
+                </form>
+              </div>
+            </div>
+
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+              <button class="btn btn-success btn-primary">Add</button>
+            </div>
+          </form>
+      </div>
+    </div>
+  </div>
+      <div class="modal" tabindex="-1" role="dialog">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Modal title</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <p>Modal body text goes here.</p>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-primary">Save changes</button>
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
     <h1>Graduation Program Rules</h1>
     <div class="search-input">
       <input class="form-control" v-model="filters.name.value" placeholder="Enter a Rule"/>
@@ -21,7 +79,7 @@
               <v-th sortKey="requiredCredits">Requirement Credits</v-th>
               <v-th sortKey="notMetDescription">Not Met<br> Description</v-th>
               <v-th sortKey="programCode">Program Code</v-th>
-              <th><button type="button" class="add-course-achievement-button btn btn-primary" data-toggle="modal" data-target="#addCourseAchievementModal">Add Rule
+              <th><button type="button" class="add-program-rule-button btn btn-primary" data-toggle="modal" data-target="#addProgramRuleModal">Add Rule
 </button></th>
           </thead>
           <tbody slot="body" slot-scope="{displayData}">
@@ -31,7 +89,7 @@
               <td>{{row.requiredCredits}}</td>
               <td>{{row.notMetDescription}}</td>
               <td>{{row.programCode}}</td>
-              <td><router-link class="achievement-link" :to="{ name: 'achievement-show', params: { id: row.id} }"><button class="btn btn-primary active">EDIT</button></router-link></td>
+              <td><router-link class="program-rules-link" :to="{ name: 'program-rule-show', params: { id: row.requirementCode} }"><button class="btn btn-primary active">EDIT</button></router-link></td>
             </tr>
           </tbody>
     </v-table>
@@ -53,12 +111,19 @@ export default {
   data() {
     return {
       rules: [],
+      requirementCode: '',
+      requirementName: '',
+      requiredCredits: '',
+      notMetDescription: '',
+      programCode: '',
+      requirementType: '',
       filters: {
         name: { value: '', keys: ['requirementCode'] }
       },
       currentPage: 1,
       totalPages: 0
     };
+    
   },
   created() {
     ProgramRuleService.getProgramRules()
@@ -69,7 +134,41 @@ export default {
       .catch((error) => {
         // console.log('There was an error:' + error.response);
       });
+  },
+  methods: {
+    formSubmit(e) {
+      e.preventDefault();
+      let currentObj = this;
+        
+      ProgramRuleService.addProgramRule({
+        "requirementCode": parseInt(this.requirementCode),
+        "requirementName": this.requirementName,
+        "requiredCredits": parseInt(this.requiredCredits),
+        "notMetDescription": this.notMetDescription,
+        "programCode": this.programCode,
+        "requirementType": this.requirementType
+
+      })
+      .then(function (response) {
+          ProgramRuleService.getProgramRules()
+          .then((response) => {
+            
+            currentObj.rules = response.data;
+
+          })
+          // eslint-disable-next-line no-unused-vars
+          .catch((error) => {
+            console.log('There was an error:' + error.response);
+          });
+          currentObj.output = response.data;
+      })
+      .catch(function (error) {
+          currentObj.output = error;
+      });
+    }
   }
+  
+  
 };
 </script>
 

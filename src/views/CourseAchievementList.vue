@@ -2,13 +2,58 @@
   
   <div class="container">
   <!-- Button trigger modal -->
-
 <div id="search">
   <!-- `greet` is the name of a method defined below -->
   <input v-model="InputPen" placeholder="Enter Student PEN">
   <button class="btn btn-primary active" v-on:click="search">Search</button>
 </div>
+<div class="modal fade" id="addCourseAchievementModal" tabindex="-1" role="dialog" aria-labelledby="addCourseAchievementModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h2 class="modal-title" id="addCourseAchievementModalLabel">Add Course</h2>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+            <form @submit="formSubmit">
+              <div class="modal-body">
+                <div class="add-course-achievement">
+                  <form @submit="formSubmit">
+                    <strong>Pen:</strong>
+                    <input type="text" class="form-control" v-model="pen">
+                    123383473
+                    <strong>Session Date:</strong>
+                    <input type="text" class="form-control" v-model="sessionDate">
+                    01-Nov.-2018
+                    <strong>Final Percent:</strong>
+                    <input type="text" class="form-control" v-model="finalPercent">
+                    100.0
+                    <strong>Interim Percent:</strong>
+                    <input type="text" class="form-control" v-model="interimPercent">
+                    100.0
+                    <strong>Final Letter Grade:</strong>
+                    <input type="text" class="form-control" v-model="finalLetterGrade">
+                    <strong>Credits:</strong>
+                    <input type="text" class="form-control" v-model="credits">
+                    <strong>Course ID:</strong>
+                    <input type="text" class="form-control" v-model="courseId">
+                    <strong>Course Type:</strong>
+                    <input type="text" class="form-control" v-model="courseType">
+                    <strong>Interim Letter Grade:</strong>
+                    <input type="text" class="form-control" v-model="interimLetterGrade">
+                  </form>
+                </div>
+              </div>
 
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button class="btn btn-success btn-primary">Add</button>
+              </div>
+            </form>
+        </div>
+      </div>
+    </div>
     <h1>Student Course Achievement</h1>
     <div class="search-input">
       <input class="form-control" v-model="filters.name.value" placeholder="Enter a PEN"/>
@@ -16,38 +61,41 @@
     <v-table
         :data="achievements"
         :filters="filters"
-        :currentPage.sync="currentPage"
-        :pageSize="10"
-        @totalPagesChanged="totalPages = $event"
         class="table table-responsive table-striped table-hover table-md text-center align-middle">
           <thead slot="head">
               <v-th sortKey="pen">PEN</v-th>
-              <v-th sortKey="courseId">Course</v-th>
-              <v-th sortKey="finalLetterGrade">Final Letter Grade</v-th>
+              <v-th sortKey="sessionDate">Session Date</v-th>
               <v-th sortKey="finalPercent">Final Percent</v-th>
               <v-th sortKey="interimPercent">Interim Percent</v-th>
-              <v-th sortKey="interimLetterGrade">Interim Letter Grade</v-th>
+              <v-th sortKey="finalLetterGrade">Final Letter Grade</v-th>
+              <v-th sortKey="credits">Credits</v-th>
+              <v-th sortKey="courseId">Course ID</v-th>
               <v-th sortKey="courseType">Course Type</v-th>
+              <v-th sortKey="interimLetterGrade">Interim Letter Grade</v-th>
+              <v-th sortKey="id">ID</v-th>
+
+                         
+              
               <th><button type="button" class="add-course-achievement-button btn btn-primary" data-toggle="modal" data-target="#addCourseAchievementModal">Add Course
 </button></th>
           </thead>
           <tbody slot="body" slot-scope="{displayData}">
-            <tr v-for="row in displayData" :key="row.courseId">
+            <tr v-for="row in displayData" :key="row.courseAchievementId">
               <td>{{row.pen}}</td>
-              <td>{{row.courseId}}</td>
-              <td>{{row.finalLetterGrade}}</td>
+              <td>{{row.sessionDate}}</td>
               <td>{{row.finalPercent}}</td>
               <td>{{row.interimPercent}}</td>
+              <td>{{row.finalLetterGrade}}</td>
+              <td>{{row.credits}}</td>
+              <td>{{row.courseId}}</td>
+              <td>{{row.courseType}}</td>             
               <td>{{row.interimLetterGrade}}</td>
-              <td>{{row.courseType}}</td> 
+              <td>{{row.courseAchievementId}}</td>
               <td><router-link class="course-achievement-show" :to="{ name: 'course-achievement-show', params: { id: '' + row.courseAchievementId} }"><button class="btn btn-primary active">EDIT</button></router-link></td>
             </tr>
           </tbody>
     </v-table>
-    <smart-pagination
-        :currentPage.sync="currentPage"
-        :totalPages="totalPages"
-      />
+
 
   </div>
 </template>
@@ -55,7 +103,7 @@
 <script>
 import CourseAchievementService from '@/services/CourseAchievementService.js';
 export default {
-  props: ["pen"],
+  /*props: ["pen"],*/
   components: {
   },
   name: 'BasicFiltering',
@@ -66,6 +114,15 @@ export default {
       filters: {
         name: { value: '', keys: ['pen'] }
       },
+      pen: '',
+      sessionDate: '',
+      finalPercent: '',
+      interimPercent: '',
+      finalLetterGrade: '',
+      credits: '',
+      courseId: '',
+      courseType: '',
+      interimLetterGrade: '',
       currentPage: 1,
       totalPages: 0
     };
@@ -93,7 +150,42 @@ export default {
             console.log('There was an error:' + error.response);
           });
     
-    }
+      },
+      formSubmit(e) {
+        e.preventDefault();
+        let currentObj = this;
+          
+        CourseAchievementService.addStudentCourseAchievement({
+            "pen": this.pen,
+            "sessionDate": this.sessionDate,
+            "finalPercent": parseInt(this.finalPercent),
+            "interimPercent": parseInt(this.interimPercent),
+            "finalLetterGrade": this.finalLetterGrade,
+            "credits": parseInt(this.credits),
+            "courseId": this.courseId,
+            "courseType": this.courseType,
+            "interimLetterGrade": this.interimLetterGrade,
+          
+        })
+       .then(function (response) {
+            CourseAchievementService.getCourseAchievements()
+            .then((response) => {
+              
+              currentObj.achievements = response.data;
+  
+            })
+            // eslint-disable-next-line no-unused-vars
+            .catch((error) => {
+              console.log('There was an error:' + error.response);
+            });
+            currentObj.output = response.data;
+        })
+        .catch(function (error) {
+            currentObj.output = error;
+        });
+      }
+  
+    
    }
 };
 </script>
