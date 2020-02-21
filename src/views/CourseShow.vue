@@ -1,17 +1,6 @@
 <template>
   <div class="container">
     <h2>Edit {{course.courseName}}</h2>
-    <!--
-    <span class="eyebrow">CourseName: {{course.courseName}}</span>
-      <h4 class="course">CourseCode: {{course.courseCode}}</h4>
-      <h6>courseGradeLevel: {{course.courseGradeLevel}}</h6>
-      <h6>credits: {{course.credits}}</h6>
-      <h6>language: {{course.language}}</h6>
-      <h6>courseStartDate: {{course.courseStartDate}}</h6>
-      <h6>courseEndDate: {{course.courseEndDate}}</h6>
-      <h6>programCode: {{course.programCode}}</h6>
-      <h6>requirementCode: {{course.requirementCode}}</h6>
-    -->  
     <form @submit="formSubmit">
       <div class="form-group">
         <label for="CourseName">Course Name:</label>
@@ -54,7 +43,6 @@
         <button type="submit" class="btn btn-primary">Update</button>
       </div>
     </form>  
-    <!-- <p><pre>data: {{$data}}</pre></p> -->
   </div>
 
 </template>
@@ -69,15 +57,6 @@ export default {
       course: [],
       name: '',
       description: '',
-      //courseName: '',
-      //courseCode: '',
-      //courseGradeLevel:'',
-      //credits:null,
-      //language:'',
-      //courseStartDate:'',
-      //courseEndDate:'',
-      //programCode:'',
-      //requirementCode:'',
       output: ''
     }
   },
@@ -106,7 +85,6 @@ export default {
       .catch(function (error) {
           currentObj.output = error;
       });
-     
     }
   },
   created() {
