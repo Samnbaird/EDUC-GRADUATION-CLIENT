@@ -131,6 +131,7 @@ export default {
     };
   },
   created() {
+    
     this.displayMessage = this.$route.params.message;
     CourseAchievementService.getCourseAchievements()
       .then((response) => {
