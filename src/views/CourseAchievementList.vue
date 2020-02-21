@@ -1,7 +1,7 @@
 <template>
   
   <div class="container">
-    <SiteMessage v-bind:message=this.message v-if="message"></SiteMessage>
+    <SiteMessage v-bind:message=this.displayMessage v-if="displayMessage"></SiteMessage>
   <!-- Button trigger modal -->
 <div id="search">
   <!-- `greet` is the name of a method defined below -->
@@ -127,10 +127,11 @@ export default {
       interimLetterGrade: '',
       currentPage: 1,
       totalPages: 0,
-      message: null
+      displayMessage: null
     };
   },
   created() {
+    this.displayMessage = this.$route.params.message;
     CourseAchievementService.getCourseAchievements()
       .then((response) => {
         this.achievements = response.data;
@@ -175,6 +176,7 @@ export default {
             .then((response) => {
               
               currentObj.achievements = response.data;
+              currentObj.displayMessage = "You have successfully added a Course Achievement";
   
             })
             // eslint-disable-next-line no-unused-vars

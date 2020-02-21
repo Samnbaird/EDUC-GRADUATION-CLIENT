@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <SiteMessage v-bind:message=this.message v-if="message"></SiteMessage>
+    <SiteMessage v-bind:message=this.displayMessage v-if="displayMessage"></SiteMessage>
   
   <!-- Modal -->
   <div class="modal fade" id="addCourseModal" tabindex="-1" role="dialog" aria-labelledby="addCourseModalLabel" aria-hidden="true">
@@ -28,12 +28,13 @@
                   <strong>Language:</strong>
                   <input type="text" class="form-control" v-model="language">
                   <strong>Course Start Date:</strong>
-                  
                   <input type="text" class="form-control" v-model="courseStartDate">
-                  <small id="dateHelp" class="form-text text-muted">2020-02-19</small>
+                  <small class="form-text text-muted">"01-Jul.-2018"</small>
+
                   <strong>Course End Date:</strong>
                   <input type="text" class="form-control" v-model="courseEndDate">
-                  <small id="dateHelp" class="form-text text-muted">2020-02-19</small>
+                  <small class="form-text text-muted">"01-Jul.-2018"</small>
+
                   <strong>Program Code:</strong>
                   <input type="text" class="form-control" v-model="programCode">
                   <strong>Requirement Code:</strong>
@@ -149,12 +150,12 @@ export default {
       },
       currentPage: 1,
       totalPages: 0,
-      message: null
+      displayMessage: null
     };
   },
   created() {
      //Check for any messages from routes
-    this.message = this.$route.params.message;
+    this.displayMessage = this.$route.params.message;
 
     CourseService.getCourses()
       .then((response) => {
@@ -200,6 +201,7 @@ export default {
           CourseService.getCourses()
           .then((response) => {
             currentObj.courses = response.data;
+            currentObj.displayMessage = "You have successfully added a Course";
           })
           // eslint-disable-next-line no-unused-vars
           .catch((error) => {

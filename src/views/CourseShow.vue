@@ -79,7 +79,7 @@ export default {
       }).then(function (response) {
         
             if (response.status === 200 ){
-              currentObj.$router.push({name: 'course-list', params:{ message: 'Successfully updated Course:' + currentObj.course.courseName}});  
+              currentObj.$router.push({name: 'course-list', params:{ message: 'Successfully updated Course: ' + currentObj.course.courseName}});  
             }
       })
       .catch(function (error) {

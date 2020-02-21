@@ -77,7 +77,7 @@ export default {
       }).then(function (response) {
         
             if (response.status === 200 ){
-              currentObj.$router.push({name: '/course-achievements', params:{ message: 'Successfully updated Course Achievement ID:' + currentObj.achievement.courseAchievementId + " for Student: " + currentObj.achievement.pen}});        
+              currentObj.$router.push({name: 'course-achievement-list', params:{ message: 'Successfully updated Course Achievement ID:' + currentObj.achievement.courseAchievementId + " for Student: " + currentObj.achievement.pen}});        
             }
       })
       .catch(function (error) {

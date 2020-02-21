@@ -1,7 +1,7 @@
 <template>
   
   <div class="container">
-    <SiteMessage v-bind:message=this.message v-if="message"></SiteMessage>
+    <SiteMessage style="z-index:1" v-bind:message=this.displayMessage v-if="displayMessage"></SiteMessage>
 
     <!-- Modal -->
   <div class="modal fade" id="addProgramRuleModal" tabindex="-1" role="dialog" aria-labelledby="addProgramRuleModalLabel" aria-hidden="true">
@@ -124,12 +124,12 @@ export default {
       },
       currentPage: 1,
       totalPages: 0,
-      message: null
+      displayMessage: null
     };
   },
   created() {
     //Check for any messages from routes
-    this.message = this.$route.params.message;
+    this.displayMessage = this.$route.params.message;
 
     ProgramRuleService.getProgramRules()
       .then((response) => {
@@ -159,6 +159,7 @@ export default {
           .then((response) => {
             
             currentObj.rules = response.data;
+            currentObj.displayMessage = "You have successfully added a Program Rule";
 
           })
           // eslint-disable-next-line no-unused-vars
