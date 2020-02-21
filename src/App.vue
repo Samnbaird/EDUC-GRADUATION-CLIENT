@@ -1,7 +1,8 @@
 <template>
   <div id="app">  
-    <Header></Header>
-    <Sidebar>
+    <!-- <Header></Header> -->
+    <Bcheader style="margin-top:50px;margin-bottom: 28px;"></Bcheader>
+    <!-- <Sidebar>
         <ul class="sidebar-panel-nav">
           <li><router-link to="/">Home</router-link></li>
           <li><router-link to="/students">Students</router-link></li>
@@ -9,22 +10,25 @@
           <li><router-link to="/courses">Courses</router-link></li>
           <li><router-link to="/program-rules">Program Rules</router-link></li>
         </ul>
-    </Sidebar>
-    <div class="container mt-3">
+    </Sidebar> -->
+    <router-view/>
+    <!-- <div class="container mt-3">
       <Burger style="float:right;"></Burger>
-      <router-view/>
-    </div> 
+      
+    </div>   -->
   </div>
 </template>
 <script>
-import Header from "@/components/Header";
-import Burger from './components/Menu/Burger.vue';
-import Sidebar from './components/Menu/Sidebar.vue';
+//import Header from "@/components/Header";
+import Bcheader from "@/components/BCHeader";
+//import Burger from './components/Menu/Burger.vue';
+//import Sidebar from './components/Menu/Sidebar.vue';
 export default {
   components: {
-    Header,
-    Burger,
-    Sidebar
+    //Header,
+    //Burger,
+  //  Sidebar,
+    Bcheader
   }
 };
 </script>

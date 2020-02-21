@@ -1,0 +1,275 @@
+ 
+ <template>  
+ <div>
+ <header>
+     <div class="banner">
+        <a class="navbar-brand" href="https://www2.gov.bc.ca">
+            <img
+              class="img-fluid d-none d-md-block"
+              src="../assets/images/bcid-logo-rev-en.svg"
+              width="181"
+              height="44"
+              alt="B.C. Government Logo"
+            />
+            <img
+              class="img-fluid d-md-none"
+              src="../assets/images/bcid-logo-rev-en.svg"
+              width="200"
+              height="44"
+              alt="B.C. Government Logo"
+            />
+          </a>
+        <h1>Student Achievement MVP</h1>
+    </div> 
+    <div class="other">
+      <a class="nav-btn">
+        <i class="fas fa-bars" id="menu"></i>
+      </a>
+    <!--
+      This place is for anything that needs to be right aligned
+      beside the logo.
+    -->
+    </div>
+  </header>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-primary-nav">
+          <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+         <!-- <li><router-link to="/">Home</router-link></li>
+          <li><router-link to="/students">Students</router-link></li>
+          <li><router-link to="/course-achievements">Course Achievements</router-link></li>
+          <li><router-link to="/courses">Courses</router-link></li>
+          <li><router-link to="/program-rules">Program Rules</router-link></li> -->
+          <div class="navbar-collapse collapse" id="navbarColor01" style="">
+            <ul class="navbar-nav mr-auto">
+              <li class="nav-item active">
+                <li><router-link class="nav-link" to="/">Home <span class="sr-only">(current)</span></router-link>
+              </li>
+              <li class="nav-item">
+                <router-link class="nav-link" to="/students">Students</router-link>
+              </li>
+              <li class="nav-item">
+                <router-link class="nav-link" to="/course-achievements">Course Achievements</router-link>
+              </li>
+              <li class="nav-item">
+                <router-link class="nav-link" to="/courses">Courses</router-link>
+              </li>
+              <li class="nav-item">
+                <router-link class="nav-link" to="/program-rules">Program Rules</router-link>
+              </li>
+            </ul>
+         
+          </div>
+        </nav>
+  <nav class="navigation-main" id="navbar">
+    <div class="container">
+      <ul>
+       <li><router-link to="/">Home</router-link></li>
+          <li><router-link to="/students">Students</router-link></li>
+          <li><router-link to="/course-achievements">Course Achievements</router-link></li>
+          <li><router-link to="/courses">Courses</router-link></li>
+          <li><router-link to="/program-rules">Program Rules</router-link></li>
+      </ul>
+    </div>
+  </nav>
+</div>  
+</template>
+  
+<script>
+export default {
+  props: {
+    //course: Array
+    course: Object
+  }
+};
+//  function setupSampleMenuControl() {
+//       const useCapture = false;
+//       const show = elem => elem.style.display = 'block';
+//       const hide = elem => elem.style.display = 'none';
+//       const toggle = (elem) => {
+//         if (window.getComputedStyle(elem).display === 'block') {
+//           hide(elem);
+//           return;
+//         }
+//         show(elem);
+//       };
+//       // Listen for click events
+//       const menuButton = document.getElementById('menu');
+//       menuButton.addEventListener('click', (event) => {
+//         // Filter events
+//         if (event.target.id !== 'menu') return;
+//         // Prevent default link behavior
+//         event.preventDefault();
+//         // Check for a valid target
+//         const nav = document.getElementById('navbar')
+//         if (!nav) return;
+//         // Toggle
+//         toggle(nav);
+//       }, useCapture);
+//     }
+//     setupSampleMenuControl();
+</script>
+<style scoped>
+header {
+    background-color: #036;
+    border-bottom: 2px solid #fcba19;
+    padding: 0 30px 0 30px;
+    color: #fff;
+    display: flex;
+    height: 65px;
+    top: 0;
+    position: fixed;
+    width: 100%;
+    -webkit-box-shadow: 0 6px 8px -4px #b3b1b3;
+    -moz-box-shadow: 0 6px 8px -4px #b3b1b3;
+    box-shadow: 0 6px 8px -4px #b3b1b3;
+  }
+  
+  header h1 {
+    font-family: ‘BCSans’, ‘Noto Sans’, Verdana, Arial, sans-serif;
+    font-weight: normal;  /* 400 */
+    margin: 5px 5px 0 18px;
+    visibility: hidden;
+  }
+  
+  header .banner {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin: 0 10px 0 0;
+    /* border-style: dotted;
+    border-width: 1px;
+    border-color: lightgrey; */
+  }
+  
+  header .other {
+    display: flex;
+    align-items: center;
+    flex-grow: 1;
+    /* border-style: dotted;
+    border-width: 1px;
+    border-color: lightgrey; */
+  }
+
+  header a [class^="fas fa-"] {
+    color: white;
+    font-size: 1.4em;
+    font-style: bold;
+    line-height: 1;
+    /* border-style: solid;
+    border-width: 1px;
+    border-color: #fcba19; */
+    padding: 5px;
+    -webkit-font-smoothing: antialiased;
+  }
+  
+  header .nav-btn {
+    display: block;
+    width: auto;
+    margin: 0 0 0 auto;
+    cursor: pointer;
+  }
+
+  .navigation-main {
+    display: none;
+    position: fixed;
+    top: 65px;
+    color: #fcba19;
+    background-color: #38598a;
+    width: 100%;
+    -webkit-box-shadow: 0 6px 8px -4px #b3b1b3;
+    -moz-box-shadow: 0 6px 8px -4px #b3b1b3;
+    box-shadow: 0 6px 8px -4px #b3b1b3;
+  }
+
+  .navigation-main .container {
+    padding: 10px 0 10px 0;
+  }
+  
+  .navigation-main .container ul {
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    color: #fff;
+    list-style: none;
+    margin-left: -25px;
+    /* border-style: dotted;
+    border-width: 1px;
+    border-color: red; */
+  }
+
+  .navigation-main .container ul li {
+    margin: 5px 0;
+  }
+
+  .navigation-main .container ul li a {
+    display: flex;
+    font-size: 0.813em;
+    font-weight: normal;  /* 400 */
+    color: #fff;
+    padding: 0 15px 0 15px;
+    text-decoration: none;
+    /* border-style: dotted;
+    border-width: 1px;
+    border-color: green; */
+  }
+
+  .navigation-main .container ul li a:hover {
+    text-decoration: underline;
+  }
+
+  .navigation-main .container ul .active {
+    text-decoration: underline;
+    font-weight: bold;
+  }
+
+  :focus {
+    outline: 4px solid #3B99FC;
+    outline-offset: 1px;
+  }
+
+  /*
+    These are sample media queries only. Media queries are quite subjective
+    but, in general, should be made for the three different classes of screen
+    size: phone, tablet, full. 
+  */
+  
+  @media screen and (min-width: 768px) {
+    .navigation-main {
+      display: block;
+    }
+
+    .navigation-main .container ul {
+      flex-direction: row;
+    }
+
+    .navigation-main .container ul li {
+      margin: 0;
+    }
+    
+    .navigation-main .container ul li a {
+      border-right: 1px solid #9b9b9b;
+    }
+
+    header .nav-btn {
+      display: none;
+      width: auto;
+      margin: 0 0 0 auto;
+      cursor: pointer;
+    }
+  }
+
+  @media screen and (min-width: 768px) and (max-width: 899px) {
+    header h1 {
+      font-size: calc(7px + 2.2vw);
+      visibility: visible;
+    }
+  }
+  
+  @media screen and (min-width: 900px) {
+    header h1 {
+      font-size: 2.0em;
+      visibility: visible;
+    }
+  }
+</style>
