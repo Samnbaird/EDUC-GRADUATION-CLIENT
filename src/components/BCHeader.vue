@@ -31,15 +31,10 @@
     -->
     </div>
   </header>
-  <nav class="navbar navbar-expand-lg navbar-dark bg-primary-nav">
+  <nav class="navbar navbar-expand-lg navbar-dark bg-primary-nav burgernav">
           <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
-         <!-- <li><router-link to="/">Home</router-link></li>
-          <li><router-link to="/students">Students</router-link></li>
-          <li><router-link to="/course-achievements">Course Achievements</router-link></li>
-          <li><router-link to="/courses">Courses</router-link></li>
-          <li><router-link to="/program-rules">Program Rules</router-link></li> -->
           <div class="navbar-collapse collapse" id="navbarColor01" style="">
             <ul class="navbar-nav mr-auto">
               <li class="nav-item active">
@@ -82,32 +77,6 @@ export default {
     course: Object
   }
 };
-//  function setupSampleMenuControl() {
-//       const useCapture = false;
-//       const show = elem => elem.style.display = 'block';
-//       const hide = elem => elem.style.display = 'none';
-//       const toggle = (elem) => {
-//         if (window.getComputedStyle(elem).display === 'block') {
-//           hide(elem);
-//           return;
-//         }
-//         show(elem);
-//       };
-//       // Listen for click events
-//       const menuButton = document.getElementById('menu');
-//       menuButton.addEventListener('click', (event) => {
-//         // Filter events
-//         if (event.target.id !== 'menu') return;
-//         // Prevent default link behavior
-//         event.preventDefault();
-//         // Check for a valid target
-//         const nav = document.getElementById('navbar')
-//         if (!nav) return;
-//         // Toggle
-//         toggle(nav);
-//       }, useCapture);
-//     }
-//     setupSampleMenuControl();
 </script>
 <style scoped>
 header {
@@ -237,6 +206,10 @@ header {
   @media screen and (min-width: 768px) {
     .navigation-main {
       display: block;
+      margin-bottom: 100px
+    }
+    .burgernav{
+      display: none;
     }
 
     .navigation-main .container ul {
