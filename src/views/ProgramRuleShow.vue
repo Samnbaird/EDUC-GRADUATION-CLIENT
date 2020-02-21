@@ -59,7 +59,7 @@ export default {
       }).then(function (response) {
           
             if (response.status === 200 ){
-              currentObj.$router.push('/program-rules');  
+              currentObj.$router.push({name: 'program-rule-list', params:{ message: 'Successfully updated Program Rule:' + currentObj.rule.requirementCode}});  
             }
       })
       .catch(function (error) {

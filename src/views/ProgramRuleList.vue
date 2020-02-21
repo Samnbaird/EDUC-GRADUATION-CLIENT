@@ -1,14 +1,14 @@
 <template>
   
   <div class="container">
-  <!-- Button trigger modal -->
+    <SiteMessage v-bind:message=this.message v-if="message"></SiteMessage>
 
     <!-- Modal -->
   <div class="modal fade" id="addProgramRuleModal" tabindex="-1" role="dialog" aria-labelledby="addProgramRuleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
-          <h2 class="modal-title" id="addProgramRuleModalLabel">Add Course</h2>
+          <h2 class="modal-title" id="addProgramRuleModalLabel">Add Program Rule</h2>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
@@ -103,9 +103,11 @@
 
 <script>
 import ProgramRuleService from '@/services/ProgramRuleService.js';
+import SiteMessage from '@/components/SiteMessage';
 export default {
   
   components: {
+    'SiteMessage': SiteMessage
   },
   name: 'BasicFiltering',
   data() {
@@ -121,11 +123,14 @@ export default {
         name: { value: '', keys: ['requirementCode'] }
       },
       currentPage: 1,
-      totalPages: 0
+      totalPages: 0,
+      message: null
     };
-    
   },
   created() {
+    //Check for any messages from routes
+    this.message = this.$route.params.message;
+
     ProgramRuleService.getProgramRules()
       .then((response) => {
         this.rules = response.data;

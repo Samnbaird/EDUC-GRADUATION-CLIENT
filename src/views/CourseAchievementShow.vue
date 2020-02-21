@@ -1,7 +1,6 @@
 <template>
   <div class="container">
     <h2>Edit {{achievement.courseAchievementId}}</h2>
-    {{achievement}}
     <form @submit="formSubmit">
       <div class="form-group">
         <label for="pen">PEN:</label>
@@ -78,7 +77,7 @@ export default {
       }).then(function (response) {
         
             if (response.status === 200 ){
-              currentObj.$router.push('/course-achievements');  
+              currentObj.$router.push({name: '/course-achievements', params:{ message: 'Successfully updated Course Achievement ID:' + currentObj.achievement.courseAchievementId + " for Student: " + currentObj.achievement.pen}});        
             }
       })
       .catch(function (error) {
@@ -88,10 +87,9 @@ export default {
 
   },
   created() {
-    console.log(this.id);
+
     CourseAchievementService.getCourseAchievement(this.id)
       .then((response) => {
-        console.log(response.data);
         this.achievement = response.data
       })
       .catch((error) => {

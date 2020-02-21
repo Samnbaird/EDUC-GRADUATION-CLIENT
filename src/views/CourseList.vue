@@ -1,5 +1,6 @@
 <template>
   <div class="container">
+    <SiteMessage v-bind:message=this.message v-if="message"></SiteMessage>
   
   <!-- Modal -->
   <div class="modal fade" id="addCourseModal" tabindex="-1" role="dialog" aria-labelledby="addCourseModalLabel" aria-hidden="true">
@@ -123,9 +124,10 @@
 <script>
 import CourseService from '@/services/CourseService.js';
 import ProgramRuleService from '@/services/ProgramRuleService.js';
-
+import SiteMessage from '@/components/SiteMessage';
 export default {
   components: {
+    'SiteMessage': SiteMessage
   },
   name: 'BasicFiltering',
   data() {
@@ -146,10 +148,14 @@ export default {
         name: { value: '', keys: ['courseName'] }
       },
       currentPage: 1,
-      totalPages: 0
+      totalPages: 0,
+      message: null
     };
   },
   created() {
+     //Check for any messages from routes
+    this.message = this.$route.params.message;
+
     CourseService.getCourses()
       .then((response) => {
         this.courses = response.data;

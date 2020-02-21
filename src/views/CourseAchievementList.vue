@@ -1,6 +1,7 @@
 <template>
   
   <div class="container">
+    <SiteMessage v-bind:message=this.message v-if="message"></SiteMessage>
   <!-- Button trigger modal -->
 <div id="search">
   <!-- `greet` is the name of a method defined below -->
@@ -102,9 +103,10 @@
 
 <script>
 import CourseAchievementService from '@/services/CourseAchievementService.js';
+import SiteMessage from '@/components/SiteMessage';
 export default {
-  /*props: ["pen"],*/
   components: {
+    'SiteMessage': SiteMessage
   },
   name: 'BasicFiltering',
   data() {
@@ -124,7 +126,8 @@ export default {
       courseType: '',
       interimLetterGrade: '',
       currentPage: 1,
-      totalPages: 0
+      totalPages: 0,
+      message: null
     };
   },
   created() {

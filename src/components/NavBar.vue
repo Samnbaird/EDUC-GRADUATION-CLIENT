@@ -10,7 +10,6 @@
 <script>
 export default {
   props: {
-    //course: Array
     course: Object
   }
 };
