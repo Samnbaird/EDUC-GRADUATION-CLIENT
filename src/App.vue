@@ -11,7 +11,10 @@
           <li><router-link to="/program-rules">Program Rules</router-link></li>
         </ul>
     </Sidebar> -->
-    <router-view/>
+    <div style="margin-top: 130px;">
+      <router-view/>
+    </div>
+    
     <!-- <div class="container mt-3">
       <Burger style="float:right;"></Burger>
       
