@@ -18,7 +18,8 @@ export default {
   getCourseAchievement(id) {
     return apiClient.get('/api/v1/course-achievements/' + id)
   },
-  getStudentCourseAchievement(pen) {
+
+  getStudentCourseAchievements(pen) {
     return apiClient.get('/api/v1/course-achievements/pen/' + pen)
   },
   editStudentCourseAchievement(id, data){

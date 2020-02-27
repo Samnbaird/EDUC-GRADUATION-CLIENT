@@ -79,7 +79,12 @@ export default {
 };
 </script>
 <style scoped>
+.navbar, .nav{
+  z-index:100;
+
+} 
 header {
+    z-index:100;
     background-color: #036;
     border-bottom: 2px solid #fcba19;
     padding: 0 30px 0 30px;

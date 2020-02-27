@@ -4,6 +4,7 @@ import Home from '../views/Home.vue'
 import CourseAchievementList from '../views/CourseAchievementList.vue'
 import CourseAchievementShow from '../views/CourseAchievementShow.vue'
 import CourseAchievementCreate from '../views/CourseAchievementCreate.vue'
+import CourseAchievementSearch from '../views/CourseAchievementSearch.vue'
 import CourseList from '../views/CourseList.vue'
 import CourseShow from '../views/CourseShow.vue'
 import ProgramRuleList from '../views/ProgramRuleList.vue'
@@ -37,8 +38,14 @@ const routes = [
   },
   {
     path: '/course-achievements',
+    name: 'course-achievement-search',
+    component: CourseAchievementSearch
+  },
+  {
+    path: '/course-achievements/pen/:personalEducationNumber',
     name: 'course-achievement-list',
-    component: CourseAchievementList
+    component: CourseAchievementList,
+    props: true
   },
   {
     path: '/course-achievements/:id',
