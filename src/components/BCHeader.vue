@@ -81,8 +81,10 @@ export default {
 <style scoped>
 .navbar, .nav{
   z-index:100;
-
 } 
+#navbar{
+  z-index:100;
+}
 header {
     z-index:100;
     background-color: #036;
