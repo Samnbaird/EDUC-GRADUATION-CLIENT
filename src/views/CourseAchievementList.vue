@@ -91,7 +91,8 @@
           </thead>
           <tbody slot="body" slot-scope="{displayData}">
             <tr v-for="row in displayData" :key="row.courseAchievementId">
-              <td>{{row.courseId}}</td>
+
+              <td>{{ getCourseName(row.courseId) }}</td>
               <td>{{row.sessionDate}}</td>
               <td>{{row.finalPercent}}</td>
               <td>{{row.interimPercent}}</td>
@@ -109,6 +110,7 @@
 </template>
 
 <script>
+import CourseService from '@/services/CourseService.js';
 import CourseAchievementService from '@/services/CourseAchievementService.js';
 import SiteMessage from '@/components/SiteMessage';
 export default {
@@ -120,6 +122,8 @@ export default {
   data() {
     return {
       achievements: [],
+      InputCourse: '',
+      courses: [],
       InputPen: '',
       filters: {
         name: { value: '', keys: ['courseId'] }
@@ -140,7 +144,6 @@ export default {
     };
   },
   created() {
-    
     this.displayMessage = this.$route.params.message;
     CourseAchievementService.getStudentCourseAchievements(this.personalEducationNumber)
       .then((response) => {
@@ -149,64 +152,95 @@ export default {
       .catch((error) => {
         console.log('There was an error:' + error.response);
       });
-  },
-   methods: {
-      search: function () {
-          
-          CourseAchievementService.getStudentCourseAchievements(this.InputPen)
-          .then((response) => {
-            console.log(response.data)
-            console.log(this.achievements)
-            this.achievements = [response.data];
+    //replace the course ids with names from the courses array
+    CourseService.getCourses()
+      .then((response) => {
+        //this.courses = response.data;
+        //console.log(response.data.courseCode + response.data.CourseName)
+        let data =  response.data;
+        this.courses = data.map((item) => {
+          return {
+            id: item.courseId,
+            name: item.courseName
+          };
+        }); 
 
+
+           
+
+      })
+      .catch((error) => {
+        console.log('There was an error:' + error.response);
+      });
+    
+  },
+
+  methods: {
+     getCourseName: function (cid) {
+       let result = '';
+        this.courses.filter(function (n){
+          if(n.id === cid){
+            result = n.name;
+            return result; 
+          }
+        });
+        return result;
+        
+   
+     },
+    search: function () {
+        
+        CourseAchievementService.getStudentCourseAchievements(this.InputPen)
+        .then((response) => {
+          console.log(this.achievements)
+          this.achievements = [response.data];
+
+        })
+        .catch((error) => {
+          console.log('There was an error:' + error.response);
+        });
+  
+    },
+    addButton: function () {
+        if(this.modalVisible){
+            this.modalVisible = null;
+        }else{
+          this.modalVisible = true;
+        }
+  
+    },
+    formSubmit(e) {
+      e.preventDefault();
+      let currentObj = this;
+        
+      CourseAchievementService.addStudentCourseAchievement({
+          "pen": this.pen,
+          "sessionDate": this.sessionDate,
+          "finalPercent": parseInt(this.finalPercent),
+          "interimPercent": parseInt(this.interimPercent),
+          "finalLetterGrade": this.finalLetterGrade,
+          "credits": parseInt(this.credits),
+          "courseId": this.courseId,
+          "courseType": this.courseType,
+          "interimLetterGrade": this.interimLetterGrade,
+        
+      })
+      .then(function (response) {
+          CourseAchievementService.getCourseAchievements()
+          .then((response) => {
+            currentObj.achievements = response.data;
+            currentObj.displayMessage = "You have successfully added a Course Achievement";
           })
+          // eslint-disable-next-line no-unused-vars
           .catch((error) => {
             console.log('There was an error:' + error.response);
           });
-    
-      },
-      addButton: function () {
-          if(this.modalVisible){
-             this.modalVisible = null;
-          }else{
-            this.modalVisible = true;
-          }
-    
-      },
-      formSubmit(e) {
-        e.preventDefault();
-        let currentObj = this;
-          
-        CourseAchievementService.addStudentCourseAchievement({
-            "pen": this.pen,
-            "sessionDate": this.sessionDate,
-            "finalPercent": parseInt(this.finalPercent),
-            "interimPercent": parseInt(this.interimPercent),
-            "finalLetterGrade": this.finalLetterGrade,
-            "credits": parseInt(this.credits),
-            "courseId": this.courseId,
-            "courseType": this.courseType,
-            "interimLetterGrade": this.interimLetterGrade,
-          
-        })
-       .then(function (response) {
-            CourseAchievementService.getCourseAchievements()
-            .then((response) => {
-              
-              currentObj.achievements = response.data;
-              currentObj.displayMessage = "You have successfully added a Course Achievement";
-  
-            })
-            // eslint-disable-next-line no-unused-vars
-            .catch((error) => {
-              console.log('There was an error:' + error.response);
-            });
-            currentObj.output = response.data;
-        })
-        .catch(function (error) {
-            currentObj.output = error;
-        });
-      }
+          currentObj.output = response.data;
+      })
+      .catch(function (error) {
+          currentObj.output = error;
+      });
+    }
   
     
    }
