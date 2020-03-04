@@ -62,6 +62,7 @@
        <li><router-link to="/">Home</router-link></li>
           <li><router-link to="/students">Students</router-link></li>
           <li><router-link to="/course-achievements">Course Achievements</router-link></li>
+          <!-- <li><router-link :to="{path: '/course-achievements/pen/' + pen}">Course Achievements</router-link></li> -->
           <li><router-link to="/courses">Courses</router-link></li>
           <li><router-link to="/program-rules">Program Rules</router-link></li>
       </ul>
@@ -71,10 +72,20 @@
 </template>
   
 <script>
+import { store } from '@/store.js'
 export default {
   props: {
     //course: Array
     course: Object
+  },
+  data(){
+    return{
+      pen:""
+    }    
+  },
+  created() {
+    console.log("BCHeader storePen: " + store.currentPen);
+    //this.pen = store.currentPen;
   }
 };
 </script>

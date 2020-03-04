@@ -66,7 +66,7 @@
     </div>
     </div>
     <div class="row">
-      <div class="col-12 student-pen-display"><h3>PEN: {{this.personalEducationNumber }}</h3></div>
+      <div class="col-12 student-pen-display"><h3>PEN: {{this.pen }}</h3></div>
     </div>
     
     
@@ -82,10 +82,7 @@
               <v-th sortKey="finalLetterGrade">Final Letter Grade</v-th>
               <v-th sortKey="credits">Credits</v-th>
               <v-th sortKey="courseType">Course Type</v-th>
-              <v-th sortKey="interimLetterGrade">Interim Letter Grade</v-th>
-
-                         
-              
+              <v-th sortKey="interimLetterGrade">Interim Letter Grade</v-th>             
               <th><button type="button" class="add-course-achievement-button btn btn-primary" data-toggle="modal" data-target="#addCourseAchievementModal">Add Course
 </button></th>
           </thead>
@@ -111,6 +108,7 @@
 <script>
 import CourseAchievementService from '@/services/CourseAchievementService.js';
 import SiteMessage from '@/components/SiteMessage';
+import { store } from '@/store.js';
 export default {
   props: ["personalEducationNumber"],
   components: {
@@ -120,6 +118,7 @@ export default {
   data() {
     return {
       achievements: [],
+      InputCourse:'',
       InputPen: '',
       filters: {
         name: { value: '', keys: ['courseId'] }
@@ -140,9 +139,10 @@ export default {
     };
   },
   created() {
-    
+    console.log("CourseAchievement storePen: " + store.currentPen);
     this.displayMessage = this.$route.params.message;
-    CourseAchievementService.getStudentCourseAchievements(this.personalEducationNumber)
+    this.pen = store.currentPen;
+    CourseAchievementService.getStudentCourseAchievements(store.currentPen)
       .then((response) => {
         this.achievements = response.data;
       })

@@ -5,7 +5,7 @@
       <div class="alert alert-danger" role="alert" v-if="noPen">
         Please enter a valid Student’s Personal Educations Number (PEN)!
       </div>
-      <h1>Student Graduation Status 128201845</h1>
+      <h1>Student Graduation Status</h1>
       <p>Enter a Student’s Personal Educations Number (PEN) to retrieve the students current graduation status.</p>
 
       <p>If the student has no graduation status or their status is not up-to-date you can get their current status by clicking on 'Check Grad Status.'</p>
@@ -41,7 +41,7 @@
           </ul>
 
           <div class="btn-group">
-            <button type="submit" class="btn btn-primary" id="find">Check Graduation Status</button>
+            <button type="submit" class="btn btn-bcgold my-2 my-sm-0" id="find">Refresh</button>
           </div>
          
           <br />
@@ -86,7 +86,7 @@
           </div>  
 <br>
 
-          <router-link to="/course-achievements">All Course Achievements</router-link>
+         <router-link to="/course-achievements"><button class="btn btn-primary" id="find">All Course Achievements</button></router-link>
         </div>
       </div>
       <br />
@@ -108,6 +108,7 @@
 
 <script>
 // @ is an alias to /src
+import { store } from '@/store.js'
 import GraduationStatusService from '@/services/GraduationStatusService.js';
 export default {
   name: "home",
@@ -140,12 +141,50 @@ export default {
       requirementsNotMet: []
     }
   },
+  created() {
+    console.log("Home storePen: " + store.currentPen);
+    if(store.currentPen != null){
+       GraduationStatusService.getGraduationStatus(store.currentPen)
+          .then((response) => {
+            this.inputPen = store.currentPen;
+            this.student = true;
+            this.noPen = false;            
+            this.graduationStatusData = response.data;
+            this.legalFirstName = this.graduationStatusData.legalFirstName;
+            this.legalMiddleName = this.graduationStatusData.legalMiddleName;
+            this.legalLastName = this.graduationStatusData.legalLastName;
+            this.graduationProgram = this.graduationStatusData.graduationProgram;
+            this.school = this.graduationStatusData.school;
+            this.dob = this.graduationStatusData.dob;
+            this.sexCode = this.graduationStatusData.sexCode;
+            this.genderCode = this.graduationStatusData.genderCode;
+            this.dataSourceCode = this.graduationStatusData.dataSourceCode;
+            this.usualFirstName = this.graduationStatusData.usualFirstName;
+            this.usualMiddleName = this.graduationStatusData.usualMiddleName;
+            this.usualLastName = this.graduationStatusData.usualLastName;
+            this.email = this.graduationStatusData.email;
+            this.deceasedDate = this.graduationStatusData.deceasedDate;
+            this.gradeCode = this.graduationStatusData.gradeCode;
+            this.citizenship = this.graduationStatusData.citizenship;
+            this.address = this.graduationStatusData.address;
+            this.gradMessages = this.graduationStatusData.gradMessages;
+            this.requirementsMet = this.graduationStatusData.requirementsMet;
+            this.requirementsNotMet = this.graduationStatusData.requirementsNotMet;
+          })
+          .catch((error) => {
+            this.student = false;
+            this.noPen = true;
+            console.log('There was an error:' + error.response);
+          });    
+    }
+  },
    methods: {
       search: function () {
         console.log(this.inputPen)
         GraduationStatusService.getGraduationStatus(this.inputPen)
           .then((response) => {
             console.log(response.data);
+            store.currentPen = this.inputPen;
             this.noPen = false;
             if(this.inputPen != " "){
               this.student = true;

@@ -1,21 +1,21 @@
-import Vue from 'vue'
-import VueRouter from 'vue-router'
-import Home from '../views/Home.vue'
-import CourseAchievementList from '../views/CourseAchievementList.vue'
-import CourseAchievementShow from '../views/CourseAchievementShow.vue'
-import CourseAchievementCreate from '../views/CourseAchievementCreate.vue'
-import CourseAchievementSearch from '../views/CourseAchievementSearch.vue'
-import CourseList from '../views/CourseList.vue'
-import CourseShow from '../views/CourseShow.vue'
-import ProgramRuleList from '../views/ProgramRuleList.vue'
-import ProgramRuleShow from '../views/ProgramRuleShow.vue'
-import GraduationStatusFind from '../views/GraduationStatusFind.vue'
-import GraduationStatusShow from '../views/GraduationStatusShow.vue'
-import GraduationStatusCreate from '../views/GraduationStatusCreate.vue'
-import StudentList from '../views/StudentList.vue'
-import StudentShow from '../views/StudentShow.vue'
-import StudentAchievementReportShow from '../views/StudentAchievementReportShow.vue'
-import StudentTranscriptReportShow from '../views/StudentTranscriptReportShow.vue'
+import Vue from 'vue';
+import VueRouter from 'vue-router';
+import Home from '../views/Home.vue';
+import CourseAchievementList from '../views/CourseAchievementList.vue';
+import CourseAchievementShow from '../views/CourseAchievementShow.vue';
+import CourseAchievementCreate from '../views/CourseAchievementCreate.vue';
+import CourseAchievementSearch from '../views/CourseAchievementSearch.vue';
+import CourseList from '../views/CourseList.vue';
+import CourseShow from '../views/CourseShow.vue';
+import ProgramRuleList from '../views/ProgramRuleList.vue';
+import ProgramRuleShow from '../views/ProgramRuleShow.vue';
+import GraduationStatusFind from '../views/GraduationStatusFind.vue';
+import GraduationStatusShow from '../views/GraduationStatusShow.vue';
+import GraduationStatusCreate from '../views/GraduationStatusCreate.vue';
+import StudentList from '../views/StudentList.vue';
+import StudentShow from '../views/StudentShow.vue';
+import StudentAchievementReportShow from '../views/StudentAchievementReportShow.vue';
+import StudentTranscriptReportShow from '../views/StudentTranscriptReportShow.vue';
 
 Vue.use(VueRouter)
 
@@ -37,12 +37,12 @@ const routes = [
     props: true
   },
   {
-    path: '/course-achievements',
+    path: '/course-achievements/search',
     name: 'course-achievement-search',
     component: CourseAchievementSearch
   },
   {
-    path: '/course-achievements/pen/:personalEducationNumber',
+    path: '/course-achievements/',
     name: 'course-achievement-list',
     component: CourseAchievementList,
     props: true
