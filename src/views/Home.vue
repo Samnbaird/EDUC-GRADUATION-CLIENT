@@ -5,6 +5,7 @@
       <div class="alert alert-danger" role="alert" v-if="noPen">
         Please enter a valid Student’s Personal Educations Number (PEN)!
       </div>
+      <a v-on:click="StudentAchievementReport" class="btn btn-bcgold my-2 my-sm-0">Student Achievement Report (PDF)</a>
       <h1>Student Graduation Status</h1>
       <p>Enter a Student’s Personal Educations Number (PEN) to retrieve the students current graduation status.</p>
 
@@ -14,8 +15,7 @@
           <input v-model="inputPen" class="form-control"  id="StudentPen"/>
         </div>
         <div class="btn-group">
-          <button  v-on:click="search" class="btn btn-primary" id="find">Find Student  <span v-if="!isHidden" class="spinner-border spinner-border-sm"></span>
-           </button>
+          <button  v-on:click="search" class="btn btn-primary" id="find">Find Student</button>
         </div>
       <br>
       <br />
@@ -42,7 +42,7 @@
           </ul>
 
           <div class="btn-group">
-            <button v-on:click="search" class="btn btn-bcgold my-2 my-sm-0" id="find">Refresh  <span v-if="!isHidden2" class="spinner-border spinner-border-sm"></span></button>
+            <button type="submit" class="btn btn-bcgold my-2 my-sm-0" id="find">Refresh</button>
           </div>
          
           <br />
@@ -96,7 +96,7 @@
           <h2 class="card-title">Graduation Reports</h2>
           <div class="mt-3">
             <ul>
-              <li><a href="#" v-on:click="StudentAchievementReport" class="">Student Achievement Report</a> (PDF)</li>
+              <li></li>
               <li>Student Transcript Report</li>
             </ul>
           </div>
@@ -117,8 +117,6 @@ export default {
     return {
       student: false,
       noPen:false,
-      isHidden:true,
-      isHidden2:true,
       inputPen:"",
       graduationStatusData:[],
       pen: "",
@@ -201,13 +199,10 @@ export default {
           });    
       },
       search: function () {
-        this.isHidden = !this.isHidden
-        this.isHidden2 = !this.isHidden2
-        //console.log(this.inputPen)
+        console.log(this.inputPen)
         GraduationStatusService.getGraduationStatus(this.inputPen)
           .then((response) => {
-            this.isHidden = true
-            //console.log(response.data);
+            console.log(response.data);
             store.currentPen = this.inputPen;
             this.noPen = false;
             if(this.inputPen != " "){

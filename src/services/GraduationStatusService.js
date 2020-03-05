@@ -16,17 +16,13 @@ const testapiClient = axios.create({
   withCredentials: false,
   headers: {
     Accept: 'application/json',
-    'Content-Type': 'application/json',
-    'Access-Control-Allow-Origin': 'http://localhost:8080'
-    
+    'Content-Type': 'application/json'
   }
 })
 export default {
   getGraduationStatus(pen) {
-    var url =  'http://localhost:9996/api/v1/graduation-status/';
     var inputPen = pen;
-    console.log("GraduationStatusService:" + url + inputPen);
-    return apiClient.get(url + inputPen);
+    return apiClient.get('/api/v1/graduation-status/' + inputPen);
   },
   getGraduationReport() {
     //let url =  'http://weasyprint-wbmfsf-tools.pathfinder.gov.bc.ca/pdf?filename=myfile.pdf';
