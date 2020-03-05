@@ -14,7 +14,8 @@
           <input v-model="inputPen" class="form-control"  id="StudentPen"/>
         </div>
         <div class="btn-group">
-          <button  v-on:click="search" class="btn btn-primary" id="find">Find Student</button>
+          <button  v-on:click="search" class="btn btn-primary" id="find">Find Student  <span v-if="!isHidden" class="spinner-border spinner-border-sm"></span>
+           </button>
         </div>
       <br>
       <br />
@@ -41,7 +42,7 @@
           </ul>
 
           <div class="btn-group">
-            <button type="submit" class="btn btn-bcgold my-2 my-sm-0" id="find">Refresh</button>
+            <button v-on:click="search" class="btn btn-bcgold my-2 my-sm-0" id="find">Refresh  <span v-if="!isHidden2" class="spinner-border spinner-border-sm"></span></button>
           </div>
          
           <br />
@@ -116,6 +117,8 @@ export default {
     return {
       student: false,
       noPen:false,
+      isHidden:true,
+      isHidden2:true,
       inputPen:"",
       graduationStatusData:[],
       pen: "",
@@ -198,10 +201,13 @@ export default {
           });    
       },
       search: function () {
-        console.log(this.inputPen)
+        this.isHidden = !this.isHidden
+        this.isHidden2 = !this.isHidden2
+        //console.log(this.inputPen)
         GraduationStatusService.getGraduationStatus(this.inputPen)
           .then((response) => {
-            console.log(response.data);
+            this.isHidden = true
+            //console.log(response.data);
             store.currentPen = this.inputPen;
             this.noPen = false;
             if(this.inputPen != " "){
