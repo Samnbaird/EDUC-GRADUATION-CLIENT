@@ -95,7 +95,7 @@
           <h2 class="card-title">Graduation Reports</h2>
           <div class="mt-3">
             <ul>
-              <li>Student Achievement Report</li>
+              <li><a href="#" v-on:click="StudentAchievementReport" class="">Student Achievement Report</a> (PDF)</li>
               <li>Student Transcript Report</li>
             </ul>
           </div>
@@ -179,6 +179,24 @@ export default {
     }
   },
    methods: {
+      StudentAchievementReport: function(){
+          GraduationStatusService.getGraduationReport()
+          .then((response) => {
+            console.log(response);
+             //Create a Blob from the PDF Stream
+              const file = new Blob(
+              [response.data], 
+              {type: 'application/pdf'});
+              //Build a URL from the file
+              const fileURL = URL.createObjectURL(file);
+              //Open the URL on new Window
+              window.open(fileURL);
+          })
+          .catch((error) => {
+           
+            console.log('There was an error:' + error.response);
+          });    
+      },
       search: function () {
         console.log(this.inputPen)
         GraduationStatusService.getGraduationStatus(this.inputPen)
