@@ -4,7 +4,7 @@
       <div>
         <div class="alert alert-dismissible alert-success">
           <button type="button" class="close" data-dismiss="alert">×</button>
-          <div class="message"><strong>{{message}}</strong></div>
+          <div class="message"><strong><div v-html="message"></div></strong></div>
         </div>
       </div>
    

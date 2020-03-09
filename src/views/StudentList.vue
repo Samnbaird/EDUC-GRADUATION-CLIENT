@@ -11,7 +11,10 @@
             <li>Grade: 11</li>
             <li>Graduation Program: 2018</li>
           </ul>
-          <router-link class="course-achievement-list" :to="{ name: 'course-achievement-list', params: { personalEducationNumber: '' + 126398841} }"><button class="btn btn-primary active">View Course Achivements</button></router-link>
+          
+          <button class="btn btn-primary active" v-on:click="storePen(126398841)">View Graduation Status</button>
+          <router-link class="course-achievement-list" :to="{ name: 'course-achievement-list', params: { personalEducationNumber: '' + 126398841} }"><button class="btn btn-primary active">View Course Achievements</button></router-link>
+          
         </div>
       </div>
       <div class="card" style="width: 100%;">
@@ -24,7 +27,9 @@
             <li>Grade: 11</li>
             <li>Graduation Program: 2018</li>
           </ul>
+          <button class="btn btn-primary active" v-on:click="storePen(126214493)">View Graduation Status</button>
           <router-link class="course-achievement-list" :to="{ name: 'course-achievement-list', params: { personalEducationNumber: '' + 126214493} }"><button class="btn btn-primary active">View Course Achivements</button></router-link>
+          
         </div>
       </div>
       <div class="card" style="width: 100%;">
@@ -37,7 +42,9 @@
             <li>Grade: 11</li>
             <li>Graduation Program: 2018</li>
           </ul>
+        <button class="btn btn-primary active" v-on:click="storePen(123456789)">View Graduation Status</button>
         <router-link class="course-achievement-list" :to="{ name: 'course-achievement-list', params: { personalEducationNumber: '' + 123456789} }"><button class="btn btn-primary active">View Course Achivements</button></router-link>
+        
         </div>
         
       </div>
@@ -53,7 +60,9 @@
             <li>Grade: 11</li>
             <li>Graduation Program: 2018</li>
           </ul>
+          <button class="btn btn-primary active" v-on:click="storePen(128201845)">View Graduation Status</button>
           <router-link class="course-achievement-list" :to="{ name: 'course-achievement-list', params: { personalEducationNumber: '' + 128201845} }"><button class="btn btn-primary active">View Course Achivements</button></router-link>
+          
         </div>
       </div>
     </div>
@@ -61,10 +70,18 @@
 </template>
 <script>
 // @ is an alias to /src
-
+import { store } from "@/store.js";
 export default {
   name: "studentlist",
-  components: {}
+  components: {},
+  methods: {
+    storePen: function(pen){
+        console.log(pen);
+        store.currentPen = pen;
+        this.$router.push({name: 'home'});        
+        
+    }
+  }
 };
 </script>
 <style scoped>
@@ -73,6 +90,7 @@ export default {
 .btn.btn-primary
 {
   position: inherit;
+  margin-right: 10px;
 }
 h6 {
   font-size: 1.5rem;

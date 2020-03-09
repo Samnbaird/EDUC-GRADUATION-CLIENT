@@ -158,8 +158,17 @@ export default {
   },
   created() {
     this.displayMessage = this.$route.params.message;
-    this.pen = store.currentPen;
-    CourseAchievementService.getStudentCourseAchievements(store.currentPen)
+    if(this.personalEducationNumber){
+      this.pen = this.personalEducationNumber;
+      store.currentPen = this.pen;
+    }else{
+      this.pen = store.currentPen;
+    }
+    //display message to select a student
+    if(!this.pen){
+       this.displayMessage = "Please select a student on the <a href='/students'>Students Page</a> or the <a href='/'>Graduation Status Page</a>"
+    }
+    CourseAchievementService.getStudentCourseAchievements(this.pen)
       .then(response => {
         this.achievements = response.data;
       })

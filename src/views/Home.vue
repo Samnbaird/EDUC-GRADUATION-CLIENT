@@ -5,7 +5,7 @@
       <div class="alert alert-danger" role="alert" v-if="noPen">
         Please enter a valid Student’s Personal Educations Number (PEN)!
       </div>
-      <a v-on:click="StudentAchievementReport" class="btn btn-bcgold my-2 my-sm-0">Student Achievement Report (PDF)</a>
+      
       <h1>Student Graduation Status</h1>
       <p>Enter a Student’s Personal Educations Number (PEN) to retrieve the students current graduation status.</p>
 
@@ -20,9 +20,66 @@
       <br>
       <br />
       <h1></h1>
-      <div v-if="student" class="card" style="width: 100%;">
+          <div class="card" style="width: 100%;" v-show="selectedPen==126398841">
         <div class="card-body">
-          <h2 class="card-title">Student</h2>
+          <h2 class="card-title">Student 126398841</h2>
+          <h3 class="card-subtitle mb-2 text-muted">Timothy, Matthew Robert</h3>
+          <ul>
+            <li>Date of Birth: 2004-06-29</li>
+            <li>School: Oak Bay High School</li>
+            <li>Grade: 11</li>
+            <li>Graduation Program: 2018</li>
+          </ul>
+        </div>
+      </div>
+      <div class="card" style="width: 100%;" v-if="selectedPen==126214493">
+        <div class="card-body">
+          <h2 class="card-title">Student 126214493</h2>
+          <h3 class="card-subtitle mb-2 text-muted">Henley, Clifford</h3>
+          <ul>
+            <li>Date of Birth: 2004-06-29</li>
+            <li>School: Oak Bay High School</li>
+            <li>Grade: 11</li>
+            <li>Graduation Program: 2018</li>
+          </ul>
+        </div>
+      </div>
+
+
+      <div class="card" style="width: 100%;" v-show="selectedPen==123456789">
+        <div class="card-body">
+          <h2 class="card-title">Student 123456789</h2>
+          <h3 class="card-subtitle mb-2 text-muted">O'Moore, Timothy</h3>
+          <ul>
+            <li>Date of Birth: 2004-06-29</li>
+            <li>School: Oak Bay High School</li>
+            <li>Grade: 11</li>
+            <li>Graduation Program: 2018</li>
+          </ul>
+        </div>
+        
+      </div>
+       
+      
+      <div class="card" style="width: 100%;" v-show="selectedPen==128201845">
+        <div class="card-body">
+          <h2 class="card-title">Student 128201845</h2>
+          <h3 class="card-subtitle mb-2 text-muted">Mill, Nicole</h3>
+          <ul>
+            <li>Date of Birth: 2004-06-29</li>
+            <li>School: Oak Bay High School</li>
+            <li>Grade: 11</li>
+            <li>Graduation Program: 2018</li>
+          </ul>
+          
+        </div>
+      </div>
+          
+          
+       <!--div v-if="student" class="card" style="width: 100%;" >
+        <div class="card-body"> 
+          
+          <h2 class="card-title">Student {{ selectedPen }} </h2>
           <h3 class="card-subtitle mb-2 text-muted">{{legalFirstName}}, {{legalMiddleName}} {{legalLastName}}</h3>
           <ul>
             <li>Date of Birth: {{dob}}</li>
@@ -31,7 +88,7 @@
             <li>Graduation Program: {{graduationProgram}}</li>
           </ul>
         </div>
-      </div>
+      </div-->
       <br />
       <div v-if="student" class="card" style="width: 100%;">
         <div class="card-body">
@@ -96,7 +153,7 @@
           <h2 class="card-title">Graduation Reports</h2>
           <div class="mt-3">
             <ul>
-              <li></li>
+              <li><a v-on:click="StudentAchievementReport" href="#" class="">Student Achievement Report (PDF)</a></li>
               <li>Student Transcript Report</li>
             </ul>
           </div>
@@ -118,6 +175,7 @@ export default {
       student: false,
       noPen:false,
       inputPen:"",
+      selectedPen: "",
       graduationStatusData:[],
       pen: "",
       legalFirstName: "",
@@ -147,7 +205,9 @@ export default {
     if(store.currentPen != null){
        GraduationStatusService.getGraduationStatus(store.currentPen)
           .then((response) => {
+            
             this.inputPen = store.currentPen;
+            this.selectedPen = this.inputPen;
             this.student = true;
             this.noPen = false;            
             this.graduationStatusData = response.data;
@@ -204,6 +264,7 @@ export default {
           .then((response) => {
             console.log(response.data);
             store.currentPen = this.inputPen;
+            this.selectedPen = this.inputPen;
             this.noPen = false;
             if(this.inputPen != " "){
               this.student = true;
