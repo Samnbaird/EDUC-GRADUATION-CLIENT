@@ -1,24 +1,28 @@
 <template>
   <div class="home">
+   
     <div class="container">
+      <div class="alert alert-danger" role="alert" v-if="noPen">
+        Please enter a valid Student’s Personal Educations Number (PEN)!
+      </div>
+      
       <h1>Student Graduation Status</h1>
       <p>Enter a Student’s Personal Educations Number (PEN) to retrieve the students current graduation status.</p>
 
       <p>If the student has no graduation status or their status is not up-to-date you can get their current status by clicking on 'Check Grad Status.'</p>
-      <form>
         <div class="form-group">
           <strong><label for="StudentPen">Personal Education Number:</label></strong>
-          <input type="text" class="form-control"  id="StudentPen" />
+          <input v-model="inputPen" class="form-control"  id="StudentPen"/>
         </div>
-      </form>  
         <div class="btn-group">
-          <button v-on:click="student = !student" class="btn btn-primary" id="find">Find Student</button>
+          <button  v-on:click="search" class="btn btn-primary" id="find">Find Student</button>
         </div>
       <br>
       <br />
-      <div v-if="student" class="card" style="width: 100%;">
+      <h1></h1>
+          <div class="card" style="width: 100%;" v-show="selectedPen==126398841">
         <div class="card-body">
-          <h2 class="card-title">Student</h2>
+          <h2 class="card-title">Student 126398841</h2>
           <h3 class="card-subtitle mb-2 text-muted">Timothy, Matthew Robert</h3>
           <ul>
             <li>Date of Birth: 2004-06-29</li>
@@ -28,57 +32,119 @@
           </ul>
         </div>
       </div>
+      <div class="card" style="width: 100%;" v-if="selectedPen==126214493">
+        <div class="card-body">
+          <h2 class="card-title">Student 126214493</h2>
+          <h3 class="card-subtitle mb-2 text-muted">Henley, Clifford</h3>
+          <ul>
+            <li>Date of Birth: 2004-06-29</li>
+            <li>School: Oak Bay High School</li>
+            <li>Grade: 11</li>
+            <li>Graduation Program: 2018</li>
+          </ul>
+        </div>
+      </div>
+
+
+      <div class="card" style="width: 100%;" v-show="selectedPen==123456789">
+        <div class="card-body">
+          <h2 class="card-title">Student 123456789</h2>
+          <h3 class="card-subtitle mb-2 text-muted">O'Moore, Timothy</h3>
+          <ul>
+            <li>Date of Birth: 2004-06-29</li>
+            <li>School: Oak Bay High School</li>
+            <li>Grade: 11</li>
+            <li>Graduation Program: 2018</li>
+          </ul>
+        </div>
+        
+      </div>
+       
+      
+      <div class="card" style="width: 100%;" v-show="selectedPen==128201845">
+        <div class="card-body">
+          <h2 class="card-title">Student 128201845</h2>
+          <h3 class="card-subtitle mb-2 text-muted">Mill, Nicole</h3>
+          <ul>
+            <li>Date of Birth: 2004-06-29</li>
+            <li>School: Oak Bay High School</li>
+            <li>Grade: 11</li>
+            <li>Graduation Program: 2018</li>
+          </ul>
+          
+        </div>
+      </div>
+          
+          
+       <!--div v-if="student" class="card" style="width: 100%;" >
+        <div class="card-body"> 
+          
+          <h2 class="card-title">Student {{ selectedPen }} </h2>
+          <h3 class="card-subtitle mb-2 text-muted">{{legalFirstName}}, {{legalMiddleName}} {{legalLastName}}</h3>
+          <ul>
+            <li>Date of Birth: {{dob}}</li>
+            <li>School: {{school}}</li>
+            <li>Grade: {{gradeCode}}</li>
+            <li>Graduation Program: {{graduationProgram}}</li>
+          </ul>
+        </div>
+      </div-->
       <br />
       <div v-if="student" class="card" style="width: 100%;">
         <div class="card-body">
           <h2 class="card-title">Graduation Status</h2>
           <ul>
-            <li>Graduation Status: Not graduated</li>
+            <li>Graduation Status: <strong>{{gradMessages[1]}}</strong></li>
             <li>Last Update Status: 2020-02-18</li>
           </ul>
 
           <div class="btn-group">
-            <button type="submit" class="btn btn-primary" id="find">Check Graduation Status</button>
+            <button type="submit" class="btn btn-bcgold my-2 my-sm-0" id="find">Refresh</button>
           </div>
          
           <br />
           <br />
           <h3>Graduation Requirements</h3>
-          <a href="#rec-met" class="btn btn-info" data-toggle="collapse">Completed</a>
-          <div id="rec-met" class="collapse">
-            <ul class="mt-3">
-              <li>Language Arts 10</li>
-              <li>Social Studies 10</li>
-              <li>Language Arts 11</li>
-              <li>Mathematics 10</li>
-              <li>Numeracy 10 Assessment</li>
-              <li>Literacy 10 Assessment</li>
-              <li>Language Arts 12</li>
-              <li>Science 10</li>
-              <li>Social Studies 10</li>
-              <li>Science 10</li>
-              <li>Career Life Education</li>
-            </ul>
-          </div>
-          <br />
-          <a href="#rec-not-met" class="btn btn-warning mt-3" data-toggle="collapse">Not Completed</a>
-          <div id="rec-not-met" class="collapse">
-            <ul class="mt-3">
-              <li>Fewer than 16 Gr 12 credits</li>
-              <li>No Social Studies 11 or 12</li>
-              <li>No Mathematics 11 or 12</li>
-              <li>No Science 11 or 12</li>
-              <li>No Literacy 12 Assessment</li>
-              <li>No Physical and Health Education 10</li>
-              <li>Fewer than 4 Arts Education/Applied</li>
-              <li>Design, Skills, and Technologies</li>
-              <li>No Career Life Connections</li>
-              <li>Fewer than 28 Elective credits</li>
-            </ul>
-          </div>
-          <br>
-          <br>
-          <router-link to="/course-achievements">All Course Achievements</router-link>
+          <!-- Accordion -->
+          <div class="accordion" id="graduationReqAccordion">
+            <div class="card" >
+              <div class="card-header alert alert-success" id="item1Header">
+                <h5 class="mb-0">
+                  <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#expandable1" aria-expanded="false" aria-controls="expandable1">
+                    Requirements Met:
+                  </button>
+                </h5>
+              </div>
+              <div id="expandable1" class="collapse" aria-labelledby="item1Header" data-parent="#graduationReqAccordion">
+                <div class="card-body">
+                    <ul>
+                      <li v-for="rm in requirementsMet" :key="rm.message">{{rm}}</li>
+                    </ul>
+                </div>
+              </div>
+            </div>
+          </div>  
+          <div class="accordion" id="graduationReqAccordion2">  
+            <div class="card" >
+              <div class="card-header alert alert-danger" id="item2Header">
+                <h5 class="mb-0">
+                  <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#expandable2" aria-expanded="false" aria-controls="expandable1">
+                    Non-Grad Reasons:
+                  </button>
+                </h5>
+              </div>
+              <div id="expandable2" class="collapse" aria-labelledby="item2Header" data-parent="#graduationReqAccordion2">
+                <div class="card-body">
+                    <ul>
+                      <li v-for="rnm in requirementsNotMet" :key="rnm.message">{{rnm}}</li>
+                    </ul>
+                </div>
+              </div>
+            </div>
+          </div>  
+<br>
+
+         <router-link to="/course-achievements"><button class="btn btn-primary" id="find">All Course Achievements</button></router-link>
         </div>
       </div>
       <br />
@@ -87,45 +153,12 @@
           <h2 class="card-title">Graduation Reports</h2>
           <div class="mt-3">
             <ul>
-              <li>Student Achievement Report</li>
+              <li><a v-on:click="StudentAchievementReport" href="#" class="">Student Achievement Report (PDF)</a></li>
               <li>Student Transcript Report</li>
             </ul>
           </div>
         </div>
       </div>
-
-      <br />
-      <!-- <div class="alert alert-success" style="width: 50%;">
-        Requirements Met:
-        <ul>
-          <li>Language Arts 10</li>
-          <li>Social Studies 10</li>
-          <li>Language Arts 11</li>
-          <li>Mathematics 10</li>
-          <li>Numeracy 10 Assessment</li>
-          <li>Literacy 10 Assessment</li>
-          <li>Language Arts 12</li>
-          <li>Science 10</li>
-          <li>Social Studies 10</li>
-          <li>Science 10</li>
-          <li>Career Life Education</li>
-        </ul>
-      </div>
-      <div class="alert alert-danger" style="width: 50%;">
-        Non-Grad Reasons:
-        <ul>
-          <li>Fewer than 16 Gr 12 credits</li>
-          <li>No Social Studies 11 or 12</li>
-          <li>No Mathematics 11 or 12</li>
-          <li>No Science 11 or 12</li>
-          <li>No Literacy 12 Assessment</li>
-          <li>No Physical and Health Education 10</li>
-          <li>Fewer than 4 Arts Education/Applied </li>
-          <li>Design, Skills, and Technologies</li>
-          <li>No Career Life Connections</li>
-          <li>Fewer than 28 Elective credits</li>
-        </ul>
-      </div>-->
       <br />
     </div>
   </div>
@@ -133,14 +166,138 @@
 
 <script>
 // @ is an alias to /src
-
+import { store } from '@/store.js'
+import GraduationStatusService from '@/services/GraduationStatusService.js';
 export default {
   name: "home",
   data() {
     return {
-     student: false
+      student: false,
+      noPen:false,
+      inputPen:"",
+      selectedPen: "",
+      graduationStatusData:[],
+      pen: "",
+      legalFirstName: "",
+      legalMiddleName: "",
+      legalLastName: "",
+      graduationProgram: "",
+      school: "",
+      dob: "",
+      sexCode: "",
+      genderCode: "",
+      dataSourceCode: "",
+      usualFirstName: "",
+      usualMiddleName: "",
+      usualLastName: "",
+      email: "",
+      deceasedDate: "",
+      gradeCode: "",
+      citizenship: "",
+      address: "",
+      gradMessages: [],
+      requirementsMet: [],
+      requirementsNotMet: []
     }
   },
+  created() {
+    console.log("Home storePen: " + store.currentPen);
+    if(store.currentPen != null){
+       GraduationStatusService.getGraduationStatus(store.currentPen)
+          .then((response) => {
+            
+            this.inputPen = store.currentPen;
+            this.selectedPen = this.inputPen;
+            this.student = true;
+            this.noPen = false;            
+            this.graduationStatusData = response.data;
+            this.legalFirstName = this.graduationStatusData.legalFirstName;
+            this.legalMiddleName = this.graduationStatusData.legalMiddleName;
+            this.legalLastName = this.graduationStatusData.legalLastName;
+            this.graduationProgram = this.graduationStatusData.graduationProgram;
+            this.school = this.graduationStatusData.school;
+            this.dob = this.graduationStatusData.dob;
+            this.sexCode = this.graduationStatusData.sexCode;
+            this.genderCode = this.graduationStatusData.genderCode;
+            this.dataSourceCode = this.graduationStatusData.dataSourceCode;
+            this.usualFirstName = this.graduationStatusData.usualFirstName;
+            this.usualMiddleName = this.graduationStatusData.usualMiddleName;
+            this.usualLastName = this.graduationStatusData.usualLastName;
+            this.email = this.graduationStatusData.email;
+            this.deceasedDate = this.graduationStatusData.deceasedDate;
+            this.gradeCode = this.graduationStatusData.gradeCode;
+            this.citizenship = this.graduationStatusData.citizenship;
+            this.address = this.graduationStatusData.address;
+            this.gradMessages = this.graduationStatusData.gradMessages;
+            this.requirementsMet = this.graduationStatusData.requirementsMet;
+            this.requirementsNotMet = this.graduationStatusData.requirementsNotMet;
+          })
+          .catch((error) => {
+            this.student = false;
+            this.noPen = true;
+            console.log('There was an error:' + error.response);
+          });    
+    }
+  },
+   methods: {
+      StudentAchievementReport: function(){
+          GraduationStatusService.getGraduationReport()
+          .then((response) => {
+            console.log(response);
+             //Create a Blob from the PDF Stream
+              const file = new Blob(
+              [response.data], 
+              {type: 'application/pdf'});
+              //Build a URL from the file
+              const fileURL = URL.createObjectURL(file);
+              //Open the URL on new Window
+              window.open(fileURL);
+          })
+          .catch((error) => {
+           
+            console.log('There was an error:' + error.response);
+          });    
+      },
+      search: function () {
+        console.log(this.inputPen)
+        GraduationStatusService.getGraduationStatus(this.inputPen)
+          .then((response) => {
+            console.log(response.data);
+            store.currentPen = this.inputPen;
+            this.selectedPen = this.inputPen;
+            this.noPen = false;
+            if(this.inputPen != " "){
+              this.student = true;
+            }              
+            this.graduationStatusData = response.data;
+            this.legalFirstName = this.graduationStatusData.legalFirstName;
+            this.legalMiddleName = this.graduationStatusData.legalMiddleName;
+            this.legalLastName = this.graduationStatusData.legalLastName;
+            this.graduationProgram = this.graduationStatusData.graduationProgram;
+            this.school = this.graduationStatusData.school;
+            this.dob = this.graduationStatusData.dob;
+            this.sexCode = this.graduationStatusData.sexCode;
+            this.genderCode = this.graduationStatusData.genderCode;
+            this.dataSourceCode = this.graduationStatusData.dataSourceCode;
+            this.usualFirstName = this.graduationStatusData.usualFirstName;
+            this.usualMiddleName = this.graduationStatusData.usualMiddleName;
+            this.usualLastName = this.graduationStatusData.usualLastName;
+            this.email = this.graduationStatusData.email;
+            this.deceasedDate = this.graduationStatusData.deceasedDate;
+            this.gradeCode = this.graduationStatusData.gradeCode;
+            this.citizenship = this.graduationStatusData.citizenship;
+            this.address = this.graduationStatusData.address;
+            this.gradMessages = this.graduationStatusData.gradMessages;
+            this.requirementsMet = this.graduationStatusData.requirementsMet;
+            this.requirementsNotMet = this.graduationStatusData.requirementsNotMet;
+          })
+          .catch((error) => {
+            this.student = false;
+            this.noPen = true;
+            console.log('There was an error:' + error.response);
+          });    
+      }
+   },
   components: {},
 };
 </script>
@@ -154,4 +311,5 @@ export default {
 h6 {
   font-size: 1.5rem;
 }
+
 </style>
