@@ -59,7 +59,7 @@ export default {
   components: {},
   methods: {
     storePen: function(pen){
-        console.log(pen);
+        //store the pen and reroute to home
         store.currentPen = pen;
         this.$router.push({name: 'home'});        
         
