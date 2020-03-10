@@ -17,66 +17,7 @@
         <div class="btn-group">
           <button  v-on:click="search" class="btn btn-primary" id="find">Find Student</button>
         </div>
-      <br>
-      <br />
-      <h1></h1>
-          <div class="card" style="width: 100%;" v-show="selectedPen==126398841">
-        <div class="card-body">
-          <h2 class="card-title">Student 126398841</h2>
-          <h3 class="card-subtitle mb-2 text-muted">Timothy, Matthew Robert</h3>
-          <ul>
-            <li>Date of Birth: 2004-06-29</li>
-            <li>School: Oak Bay High School</li>
-            <li>Grade: 11</li>
-            <li>Graduation Program: 2018</li>
-          </ul>
-        </div>
-      </div>
-      <div class="card" style="width: 100%;" v-if="selectedPen==126214493">
-        <div class="card-body">
-          <h2 class="card-title">Student 126214493</h2>
-          <h3 class="card-subtitle mb-2 text-muted">Henley, Clifford</h3>
-          <ul>
-            <li>Date of Birth: 2004-06-29</li>
-            <li>School: Oak Bay High School</li>
-            <li>Grade: 11</li>
-            <li>Graduation Program: 2018</li>
-          </ul>
-        </div>
-      </div>
-
-
-      <div class="card" style="width: 100%;" v-show="selectedPen==123456789">
-        <div class="card-body">
-          <h2 class="card-title">Student 123456789</h2>
-          <h3 class="card-subtitle mb-2 text-muted">O'Moore, Timothy</h3>
-          <ul>
-            <li>Date of Birth: 2004-06-29</li>
-            <li>School: Oak Bay High School</li>
-            <li>Grade: 11</li>
-            <li>Graduation Program: 2018</li>
-          </ul>
-        </div>
-        
-      </div>
-       
-      
-      <div class="card" style="width: 100%;" v-show="selectedPen==128201845">
-        <div class="card-body">
-          <h2 class="card-title">Student 128201845</h2>
-          <h3 class="card-subtitle mb-2 text-muted">Mill, Nicole</h3>
-          <ul>
-            <li>Date of Birth: 2004-06-29</li>
-            <li>School: Oak Bay High School</li>
-            <li>Grade: 11</li>
-            <li>Graduation Program: 2018</li>
-          </ul>
-          
-        </div>
-      </div>
-          
-          
-       <!--div v-if="student" class="card" style="width: 100%;" >
+       <div v-if="student" class="card" style="width: 100%;" >
         <div class="card-body"> 
           
           <h2 class="card-title">Student {{ selectedPen }} </h2>
@@ -88,14 +29,14 @@
             <li>Graduation Program: {{graduationProgram}}</li>
           </ul>
         </div>
-      </div-->
+      </div>
       <br />
       <div v-if="student" class="card" style="width: 100%;">
         <div class="card-body">
           <h2 class="card-title">Graduation Status</h2>
           <ul>
             <li>Graduation Status: <strong>{{gradMessages[1]}}</strong></li>
-            <li>Last Update Status: 2020-02-18</li>
+            <li>Last Update Status: {{statusData}}</li>
           </ul>
 
           <div class="btn-group">
@@ -176,7 +117,7 @@ export default {
       noPen:false,
       inputPen:"",
       selectedPen: "",
-      graduationStatusData:[],
+      studentGradData:[],
       pen: "",
       legalFirstName: "",
       legalMiddleName: "",
@@ -195,6 +136,7 @@ export default {
       gradeCode: "",
       citizenship: "",
       address: "",
+      statusDate: "",
       gradMessages: [],
       requirementsMet: [],
       requirementsNotMet: []
@@ -210,27 +152,33 @@ export default {
             this.selectedPen = this.inputPen;
             this.student = true;
             this.noPen = false;            
-            this.graduationStatusData = response.data;
-            this.legalFirstName = this.graduationStatusData.legalFirstName;
-            this.legalMiddleName = this.graduationStatusData.legalMiddleName;
-            this.legalLastName = this.graduationStatusData.legalLastName;
-            this.graduationProgram = this.graduationStatusData.graduationProgram;
-            this.school = this.graduationStatusData.school;
-            this.dob = this.graduationStatusData.dob;
-            this.sexCode = this.graduationStatusData.sexCode;
-            this.genderCode = this.graduationStatusData.genderCode;
-            this.dataSourceCode = this.graduationStatusData.dataSourceCode;
-            this.usualFirstName = this.graduationStatusData.usualFirstName;
-            this.usualMiddleName = this.graduationStatusData.usualMiddleName;
-            this.usualLastName = this.graduationStatusData.usualLastName;
-            this.email = this.graduationStatusData.email;
-            this.deceasedDate = this.graduationStatusData.deceasedDate;
-            this.gradeCode = this.graduationStatusData.gradeCode;
-            this.citizenship = this.graduationStatusData.citizenship;
-            this.address = this.graduationStatusData.address;
-            this.gradMessages = this.graduationStatusData.gradMessages;
-            this.requirementsMet = this.graduationStatusData.requirementsMet;
-            this.requirementsNotMet = this.graduationStatusData.requirementsNotMet;
+            this.studentGradData = response.data;
+            console.log(response.data);
+            this.legalFirstName = this.studentGradData.legalFirstName;
+            this.legalMiddleName = this.studentGradData.legalMiddleName;
+            this.legalLastName = this.studentGradData.legalLastName;
+            this.graduationProgram = this.studentGradData.graduationProgram;
+            this.school = this.studentGradData.school;
+            this.dob = this.studentGradData.dob;
+            this.sexCode = this.studentGradData.sexCode;
+            this.genderCode = this.studentGradData.genderCode;
+            this.dataSourceCode = this.studentGradData.dataSourceCode;
+            this.usualFirstName = this.studentGradData.usualFirstName;
+            this.usualMiddleName = this.studentGradData.usualMiddleName;
+            this.usualLastName = this.studentGradData.usualLastName;
+            this.email = this.studentGradData.email;
+            this.deceasedDate = this.studentGradData.deceasedDate;
+            this.gradeCode = this.studentGradData.gradeCode;
+            this.citizenship = this.studentGradData.citizenship;
+            this.address = this.studentGradData.address;
+            this.statusData = response.data.statusDate;
+            
+            //this.gradMessages = this.studentGradData.gradMessages;
+            this.requirementsMet = this.studentGradData.requirementsMet;
+            this.requirementsNotMet = this.studentGradData.requirementsNotMet;
+            this.statusData = response.data.statusDate;
+            this.achievementReport = response.achievementReport;
+            this.transcriptReport = response.transcriptReport;            
           })
           .catch((error) => {
             this.student = false;
@@ -269,27 +217,30 @@ export default {
             if(this.inputPen != " "){
               this.student = true;
             }              
-            this.graduationStatusData = response.data;
-            this.legalFirstName = this.graduationStatusData.legalFirstName;
-            this.legalMiddleName = this.graduationStatusData.legalMiddleName;
-            this.legalLastName = this.graduationStatusData.legalLastName;
-            this.graduationProgram = this.graduationStatusData.graduationProgram;
-            this.school = this.graduationStatusData.school;
-            this.dob = this.graduationStatusData.dob;
-            this.sexCode = this.graduationStatusData.sexCode;
-            this.genderCode = this.graduationStatusData.genderCode;
-            this.dataSourceCode = this.graduationStatusData.dataSourceCode;
-            this.usualFirstName = this.graduationStatusData.usualFirstName;
-            this.usualMiddleName = this.graduationStatusData.usualMiddleName;
-            this.usualLastName = this.graduationStatusData.usualLastName;
-            this.email = this.graduationStatusData.email;
-            this.deceasedDate = this.graduationStatusData.deceasedDate;
-            this.gradeCode = this.graduationStatusData.gradeCode;
-            this.citizenship = this.graduationStatusData.citizenship;
-            this.address = this.graduationStatusData.address;
-            this.gradMessages = this.graduationStatusData.gradMessages;
-            this.requirementsMet = this.graduationStatusData.requirementsMet;
-            this.requirementsNotMet = this.graduationStatusData.requirementsNotMet;
+            this.studentGradData = response.data;
+            this.legalFirstName = this.studentGradData.legalFirstName;
+            this.legalMiddleName = this.studentGradData.legalMiddleName;
+            this.legalLastName = this.studentGradData.legalLastName;
+            this.graduationProgram = this.studentGradData.graduationProgram;
+            this.school = this.studentGradData.school;
+            this.dob = this.studentGradData.dob;
+            this.sexCode = this.studentGradData.sexCode;
+            this.genderCode = this.studentGradData.genderCode;
+            this.dataSourceCode = this.studentGradData.dataSourceCode;
+            this.usualFirstName = this.studentGradData.usualFirstName;
+            this.usualMiddleName = this.studentGradData.usualMiddleName;
+            this.usualLastName = this.studentGradData.usualLastName;
+            this.email = this.studentGradData.email;
+            this.deceasedDate = this.studentGradData.deceasedDate;
+            this.gradeCode = this.studentGradData.gradeCode;
+            this.citizenship = this.studentGradData.citizenship;
+            this.address = this.studentGradData.address;
+            //this.gradMessages = this.studentGradData.gradMessages;
+            this.requirementsMet = this.studentGradData.requirementsMet;
+            this.requirementsNotMet = this.studentGradData.requirementsNotMet;
+            this.statusData = response.data.statusDate;
+            this.achievementReport = response.achievementReport;
+            this.transcriptReport = response.transcriptReport;
           })
           .catch((error) => {
             this.student = false;
