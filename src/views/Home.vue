@@ -40,7 +40,7 @@
           </ul>
 
           <div class="btn-group">
-            <button type="submit" class="btn btn-bcgold my-2 my-sm-0" id="find">Refresh</button>
+            <button type="submit" v-on:click="refresh" class="btn btn-bcgold my-2 my-sm-0" id="find">Refresh</button>
           </div>
          
           <br />
@@ -143,7 +143,7 @@ export default {
     }
   },
   created() {
-    console.log("Home storePen: " + store.currentPen);
+    console.log("storePen: " + store.currentPen);
     if(store.currentPen != null){
        GraduationStatusService.getGraduationStatus(store.currentPen)
           .then((response) => {
@@ -153,7 +153,8 @@ export default {
             this.student = true;
             this.noPen = false;            
             this.studentGradData = response.data;
-            console.log(response.data);
+            this.studentGradData = JSON.parse(this.studentGradData.studentGradData);
+            //console.log(this.studentGradData);
             this.legalFirstName = this.studentGradData.legalFirstName;
             this.legalMiddleName = this.studentGradData.legalMiddleName;
             this.legalLastName = this.studentGradData.legalLastName;
@@ -171,14 +172,12 @@ export default {
             this.gradeCode = this.studentGradData.gradeCode;
             this.citizenship = this.studentGradData.citizenship;
             this.address = this.studentGradData.address;
-            this.statusData = response.data.statusDate;
-            
-            //this.gradMessages = this.studentGradData.gradMessages;
+            this.gradMessages = this.studentGradData.gradMessages;
             this.requirementsMet = this.studentGradData.requirementsMet;
             this.requirementsNotMet = this.studentGradData.requirementsNotMet;
             this.statusData = response.data.statusDate;
             this.achievementReport = response.achievementReport;
-            this.transcriptReport = response.transcriptReport;            
+            this.transcriptReport = response.transcriptReport;       
           })
           .catch((error) => {
             this.student = false;
@@ -207,17 +206,19 @@ export default {
           });    
       },
       search: function () {
-        console.log(this.inputPen)
+        console.log("Search:" + this.inputPen)
         GraduationStatusService.getGraduationStatus(this.inputPen)
           .then((response) => {
-            console.log(response.data);
+            //console.log(response.data);
             store.currentPen = this.inputPen;
             this.selectedPen = this.inputPen;
             this.noPen = false;
             if(this.inputPen != " "){
               this.student = true;
-            }              
+            }                         
             this.studentGradData = response.data;
+            this.studentGradData = JSON.parse(this.studentGradData.studentGradData);
+            //console.log(this.studentGradData);
             this.legalFirstName = this.studentGradData.legalFirstName;
             this.legalMiddleName = this.studentGradData.legalMiddleName;
             this.legalLastName = this.studentGradData.legalLastName;
@@ -235,7 +236,44 @@ export default {
             this.gradeCode = this.studentGradData.gradeCode;
             this.citizenship = this.studentGradData.citizenship;
             this.address = this.studentGradData.address;
-            //this.gradMessages = this.studentGradData.gradMessages;
+            this.gradMessages = this.studentGradData.gradMessages;
+            this.requirementsMet = this.studentGradData.requirementsMet;
+            this.requirementsNotMet = this.studentGradData.requirementsNotMet;
+            this.statusData = response.data.statusDate;
+            this.achievementReport = response.achievementReport;
+            this.transcriptReport = response.transcriptReport;
+          })
+          .catch((error) => {
+            this.student = false;
+            this.noPen = true;
+            console.log('There was an error:' + error.response);
+          });    
+      },
+       refresh: function () {
+        console.log("Refersh:" + this.inputPen)
+        GraduationStatusService.refreshGraduationStatus(this.inputPen)
+          .then((response) => {                       
+            this.studentGradData = response.data;
+            this.studentGradData = JSON.parse(this.studentGradData.studentGradData);
+            console.log(this.studentGradData);
+            this.legalFirstName = this.studentGradData.legalFirstName;
+            this.legalMiddleName = this.studentGradData.legalMiddleName;
+            this.legalLastName = this.studentGradData.legalLastName;
+            this.graduationProgram = this.studentGradData.graduationProgram;
+            this.school = this.studentGradData.school;
+            this.dob = this.studentGradData.dob;
+            this.sexCode = this.studentGradData.sexCode;
+            this.genderCode = this.studentGradData.genderCode;
+            this.dataSourceCode = this.studentGradData.dataSourceCode;
+            this.usualFirstName = this.studentGradData.usualFirstName;
+            this.usualMiddleName = this.studentGradData.usualMiddleName;
+            this.usualLastName = this.studentGradData.usualLastName;
+            this.email = this.studentGradData.email;
+            this.deceasedDate = this.studentGradData.deceasedDate;
+            this.gradeCode = this.studentGradData.gradeCode;
+            this.citizenship = this.studentGradData.citizenship;
+            this.address = this.studentGradData.address;
+            this.gradMessages = this.studentGradData.gradMessages;
             this.requirementsMet = this.studentGradData.requirementsMet;
             this.requirementsNotMet = this.studentGradData.requirementsNotMet;
             this.statusData = response.data.statusDate;
