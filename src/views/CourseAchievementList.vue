@@ -1,5 +1,12 @@
 <template>
   <div class="container">
+    <div v-show="inputPenMissing">
+      <div class="alert alert-dismissible alert-success">
+        <button type="button" class="close" data-dismiss="alert">×</button>
+        <div class="message"><strong>"Please select a student on the <router-link class="student-list" :to="{ name: 'student-list' }"><a href="#">Student Page</a></router-link>
+        or the <router-link class="home" :to="{ name: 'home' }"><a href="#">Graduation Status Page</a></router-link>"</strong></div>
+      </div>
+    </div>
     <SiteMessage v-bind:message="this.displayMessage" v-if="displayMessage"></SiteMessage>
     <!-- Button trigger modal -->
     <div id="search">
@@ -153,7 +160,9 @@ export default {
       currentPage: 1,
       totalPages: 0,
       displayMessage: null,
-      modalVisible: null
+      modalVisible: null,
+      inputPenMissing: false,
+      
     };
   },
   created() {
@@ -164,9 +173,10 @@ export default {
     }else{
       this.pen = store.currentPen;
     }
+
     //display message to select a student
     if(!this.pen){
-       this.displayMessage = "Please select a student on the <a href='/students'>Students Page</a> or the <a href='/'>Graduation Status Page</a>"
+       this.inputPenMissing = true;
     }
     CourseAchievementService.getStudentCourseAchievements(this.pen)
       .then(response => {
@@ -274,5 +284,9 @@ export default {
   clear: both;
   width: 100%;
   position: relative;
+}
+.message{
+  text-align:center;
+  z-index:1;
 }
 </style>
