@@ -9,7 +9,7 @@
       <h1>Student Graduation Status</h1>
       <p>Enter a Student’s Personal Education Number (PEN) to retrieve the students current graduation status.</p>
 
-      <p>If the student has no graduation status or their status is not up-to-date you can get their current status by clicking on 'Refresh.'</p>
+    
         <div class="form-group">
           <strong><label for="StudentPen">Personal Education Number:</label></strong>
           <input v-model="inputPen" class="form-control"  id="StudentPen"/>
@@ -50,9 +50,9 @@
           <div class="accordion" id="graduationReqAccordion">
             <div class="card" >
               <div class="card-header alert alert-success" id="item1Header">
-                <h5 class="mb-0">
+                <h5 class="mb-0 requirements-met">
                   <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#expandable1" aria-expanded="false" aria-controls="expandable1">
-                    Requirements Met:
+                    Requirements Met: {{ requirementsMet.length }}
                   </button>
                 </h5>
               </div>
@@ -68,9 +68,9 @@
           <div class="accordion" id="graduationReqAccordion2">  
             <div class="card" >
               <div class="card-header alert alert-danger" id="item2Header">
-                <h5 class="mb-0">
+                <h5 class="mb-0 requirements-not-met">
                   <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#expandable2" aria-expanded="false" aria-controls="expandable1">
-                    Non-Grad Reasons:
+                    Non-Grad Reasons: {{ requirementsNotMet.length }}
                   </button>
                 </h5>
               </div>
@@ -176,7 +176,6 @@ export default {
             this.requirementsMet = this.studentGradData.requirementsMet;
             this.requirementsNotMet = this.studentGradData.requirementsNotMet;
             this.statusData = response.data.statusDate;
-            this.achievementReport = response.achievementReport;
             this.transcriptReport = response.transcriptReport;       
           })
           .catch((error) => {
@@ -188,7 +187,7 @@ export default {
   },
    methods: {
       StudentAchievementReport: function(){
-          GraduationStatusService.getGraduationReport()
+          GraduationStatusService.getAchievementReport(this.inputPen)
           .then((response) => {
             console.log(response);
              //Create a Blob from the PDF Stream

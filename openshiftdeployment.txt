@@ -1,0 +1,13 @@
+$ npm install -g @vue/cli
+$ oc login
+$ npm run build
+Prepare nNginx nginx.conf
+Containerize application Dockerfile
+docker build -t educ-graduation-client .
+docker run -it -p 8080:8080 --rm --name docker-vue-app educ-graduation-client
+docker tag educ-graduation-client docker.io/oldpond/educ-graduation-client
+docker push docker.io/oldpond/educ-graduation-client
+oc login https://console.pathfinder.gov.bc.ca:8443 --token=[token]
+oc project wbmfsf-dev
+oc new-app docker.io/oldpond/educ-graduation-client
+oc expose svc/educ-graduation-client --port=8080
