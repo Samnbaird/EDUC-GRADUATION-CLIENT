@@ -172,6 +172,7 @@ export default {
       .then(response => {
         this.achievements = response.data;
       })
+      // eslint-disable-next-line no-unused-vars
       .catch(error => {
       });
     //replace the course ids with names from the courses array
@@ -185,6 +186,7 @@ export default {
           };
         });
       })
+      // eslint-disable-next-line no-unused-vars
       .catch(error => {
       });
   },
@@ -204,6 +206,7 @@ export default {
         .then(response => {
           this.achievements = [response.data];
         })
+        // eslint-disable-next-line no-unused-vars
         .catch(error => {
         });
     },
@@ -242,6 +245,7 @@ export default {
             });
           currentObj.output = response.data;
         })
+        // eslint-disable-next-line no-unused-vars
         .catch(function(error) {
           currentObj.output = error;
         });
