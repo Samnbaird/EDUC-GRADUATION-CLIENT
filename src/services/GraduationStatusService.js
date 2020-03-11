@@ -8,31 +8,16 @@ const apiClient = axios.create({
     Accept: 'application/json',
     'Content-Type': 'application/json',
   }
-}
-)
-const testapiClient = axios.create({
-  
-  baseURL: 'http://weasyprint-wbmfsf-tools.pathfinder.gov.bc.ca',
-  withCredentials: false,
-  headers: {
-    Accept: 'application/json',
-    'Content-Type': 'application/json'
-  }
 })
 export default {
   getGraduationStatus(pen) {
-    var inputPen = pen;
-    return apiClient.get('/api/v1/graduation-status/' + inputPen);
+    return apiClient.get('/api/v1/graduation-status/' + pen);
   },
-  getGraduationReport(data) {
-    //let url =  'http://weasyprint-wbmfsf-tools.pathfinder.gov.bc.ca/pdf?filename=myfile.pdf';
-    
-    //var inputPen = pen;
-    //console.log("GraduationStatusService:" + url + inputPen);
-    return testapiClient.post('/pdf?filename=myfile.pdf',data, {responseType: 'arraybuffer'})
+  getAchievementReport(pen) {
+
+    return apiClient.get('/api/v1/graduation-status/' + pen + "/achievement-report", {responseType: 'arraybuffer'});
   },
   refreshGraduationStatus(pen){
-   var inputPen = pen;
-   return apiClient.post('/api/v1/graduation-status/' + inputPen);
+   return apiClient.post('/api/v1/graduation-status/' + pen);
   }
 }

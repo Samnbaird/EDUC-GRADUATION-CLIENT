@@ -176,7 +176,6 @@ export default {
             this.requirementsMet = this.studentGradData.requirementsMet;
             this.requirementsNotMet = this.studentGradData.requirementsNotMet;
             this.statusData = response.data.statusDate;
-            this.achievementReport = response.achievementReport;
             this.transcriptReport = response.transcriptReport;       
           })
           .catch((error) => {
@@ -188,7 +187,7 @@ export default {
   },
    methods: {
       StudentAchievementReport: function(){
-          GraduationStatusService.getGraduationReport(this.achievementReport)
+          GraduationStatusService.getAchievementReport(this.inputPen)
           .then((response) => {
             console.log(response);
              //Create a Blob from the PDF Stream
