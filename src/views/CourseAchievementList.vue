@@ -173,13 +173,10 @@ export default {
         this.achievements = response.data;
       })
       .catch(error => {
-        console.log("There was an error:" + error.response);
       });
     //replace the course ids with names from the courses array
     CourseService.getCourses()
       .then(response => {
-        //this.courses = response.data;
-        //console.log(response.data.courseCode + response.data.CourseName)
         let data = response.data;
         this.courses = data.map(item => {
           return {
@@ -189,7 +186,6 @@ export default {
         });
       })
       .catch(error => {
-        console.log("There was an error:" + error.response);
       });
   },
   methods: {
@@ -206,11 +202,9 @@ export default {
     search: function() {
       CourseAchievementService.getStudentCourseAchievements(this.InputPen)
         .then(response => {
-          console.log(this.achievements);
           this.achievements = [response.data];
         })
         .catch(error => {
-          console.log("There was an error:" + error.response);
         });
     },
     addButton: function() {
@@ -244,7 +238,7 @@ export default {
             })
             // eslint-disable-next-line no-unused-vars
             .catch(error => {
-              console.log("There was an error:" + error.response);
+              //console.log("There was an error:" + error.response);
             });
           currentObj.output = response.data;
         })

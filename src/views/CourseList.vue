@@ -205,7 +205,7 @@ export default {
           })
           // eslint-disable-next-line no-unused-vars
           .catch((error) => {
-            console.log('There was an error:' + error.response);
+            //console.log('There was an error:' + error.response);
           });
           currentObj.output = response.data;
       })

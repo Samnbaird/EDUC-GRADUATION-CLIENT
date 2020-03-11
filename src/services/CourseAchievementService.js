@@ -23,11 +23,9 @@ export default {
     return apiClient.get('/api/v1/course-achievements/pen/' + pen)
   },
   editStudentCourseAchievement(id, data){
-    console.log(data);
     return apiClient.put("/api/v1/course-achievements/" + id ,data,{ useCredentials: false })
   },
   addStudentCourseAchievement(data){
-    console.log(data);
     return apiClient.post("/api/v1/course-achievements/",data,{ useCredentials: false })
   }
 }
