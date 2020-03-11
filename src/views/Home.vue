@@ -143,7 +143,6 @@ export default {
     }
   },
   created() {
-    console.log("storePen: " + store.currentPen);
     if(store.currentPen != null){
        GraduationStatusService.getGraduationStatus(store.currentPen)
           .then((response) => {
@@ -154,7 +153,6 @@ export default {
             this.noPen = false;            
             this.studentGradData = response.data;
             this.studentGradData = JSON.parse(this.studentGradData.studentGradData);
-            //console.log(this.studentGradData);
             this.legalFirstName = this.studentGradData.legalFirstName;
             this.legalMiddleName = this.studentGradData.legalMiddleName;
             this.legalLastName = this.studentGradData.legalLastName;
@@ -178,10 +176,10 @@ export default {
             this.statusData = response.data.statusDate;
             this.transcriptReport = response.transcriptReport;       
           })
+          // eslint-disable-next-line no-unused-vars
           .catch((error) => {
             this.student = false;
             this.noPen = true;
-            console.log('There was an error:' + error.response);
           });    
     }
   },
@@ -189,7 +187,6 @@ export default {
       StudentAchievementReport: function(){
           GraduationStatusService.getAchievementReport(this.inputPen)
           .then((response) => {
-            console.log(response);
              //Create a Blob from the PDF Stream
               const file = new Blob(
               [response.data], 
@@ -199,16 +196,14 @@ export default {
               //Open the URL on new Window
               window.open(fileURL);
           })
+          // eslint-disable-next-line no-unused-vars
           .catch((error) => {
-           
-            console.log('There was an error:' + error.response);
+            //console.log('There was an error:' + error.response);
           });    
       },
       search: function () {
-        console.log("Search:" + this.inputPen)
         GraduationStatusService.getGraduationStatus(this.inputPen)
           .then((response) => {
-            //console.log(response.data);
             store.currentPen = this.inputPen;
             this.selectedPen = this.inputPen;
             this.noPen = false;
@@ -217,7 +212,6 @@ export default {
             }                         
             this.studentGradData = response.data;
             this.studentGradData = JSON.parse(this.studentGradData.studentGradData);
-            //console.log(this.studentGradData);
             this.legalFirstName = this.studentGradData.legalFirstName;
             this.legalMiddleName = this.studentGradData.legalMiddleName;
             this.legalLastName = this.studentGradData.legalLastName;
@@ -242,19 +236,18 @@ export default {
             this.achievementReport = response.achievementReport;
             this.transcriptReport = response.transcriptReport;
           })
+          // eslint-disable-next-line no-unused-vars
           .catch((error) => {
             this.student = false;
             this.noPen = true;
-            console.log('There was an error:' + error.response);
+            //console.log('There was an error:' + error.response);
           });    
       },
        refresh: function () {
-        console.log("Refersh:" + this.inputPen)
         GraduationStatusService.refreshGraduationStatus(this.inputPen)
           .then((response) => {                       
             this.studentGradData = response.data;
             this.studentGradData = JSON.parse(this.studentGradData.studentGradData);
-            console.log(this.studentGradData);
             this.legalFirstName = this.studentGradData.legalFirstName;
             this.legalMiddleName = this.studentGradData.legalMiddleName;
             this.legalLastName = this.studentGradData.legalLastName;
@@ -279,10 +272,11 @@ export default {
             this.achievementReport = response.achievementReport;
             this.transcriptReport = response.transcriptReport;
           })
+          // eslint-disable-next-line no-unused-vars
           .catch((error) => {
             this.student = false;
             this.noPen = true;
-            console.log('There was an error:' + error.response);
+            //console.log('There was an error:' + error.response);
           });    
       }
    },

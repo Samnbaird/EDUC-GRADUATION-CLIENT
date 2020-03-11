@@ -52,13 +52,11 @@ export default {
   },
   methods: {
     search: function() {
-      console.log(this.inputPen);
       store.currentPen = this.inputPen;
       this.selectedPen = this.inputPen;
       //notify parent
       this.$emit("penSearch", this.inputPen);
       this.student = true;
-      console.log(this.student);
       this.showSearch = false;
     },
     resetSearch: function() {

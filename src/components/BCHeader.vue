@@ -91,7 +91,6 @@
 </template>
 
 <script>
-import { store } from "@/store.js";
 export default {
   props: {
     //course: Array
@@ -103,8 +102,6 @@ export default {
     };
   },
   created() {
-    console.log("BCHeader storePen: " + store.currentPen);
-    //this.pen = store.currentPen;
   }
 };
 </script>
