@@ -7,9 +7,9 @@
       </div>
       
       <h1>Student Graduation Status</h1>
-      <p>Enter a Student’s Personal Educations Number (PEN) to retrieve the students current graduation status.</p>
+      <p>Enter a Student’s Personal Education Number (PEN) to retrieve the students current graduation status.</p>
 
-      <p>If the student has no graduation status or their status is not up-to-date you can get their current status by clicking on 'Check Grad Status.'</p>
+      <p>If the student has no graduation status or their status is not up-to-date you can get their current status by clicking on 'Refresh.'</p>
         <div class="form-group">
           <strong><label for="StudentPen">Personal Education Number:</label></strong>
           <input v-model="inputPen" class="form-control"  id="StudentPen"/>
