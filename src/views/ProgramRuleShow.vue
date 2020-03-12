@@ -26,6 +26,14 @@
         <label for="requirementType">Requirement Type:</label>
         <input type="text" class="form-control" v-model="rule.requirementType"  :placeholder="rule.requirementType" id="requirementType">
       </div>
+      <div class="form-group">
+        <label for="activeFlag">Active Flag:</label>
+        <input type="text" class="form-control" v-model="rule.activeFlag"  :placeholder="rule.activeFlag" id="activeFlag">
+      </div>
+      <div class="form-group">
+        <label for="requiredLevel">Required Level:</label>
+        <input type="text" class="form-control" v-model="rule.requiredLevel"  :placeholder="rule.requiredLevel" id="requiredLevel">
+      </div>      
       <div class="btn-group">
         <router-link class="nav-item nav-link" to="/program-rules">Cancel</router-link>
         <button type="submit" class="btn btn-primary">Update</button>
@@ -55,9 +63,10 @@ export default {
         "requiredCredits": parseInt(currentObj.rule.requiredCredits),
         "notMetDescription": currentObj.rule.notMetDescription,
         "programCode": currentObj.rule.programCode,
-        "requirementType": currentObj.rule.requirementType
+        "requirementType": currentObj.rule.requirementType,
+        "activeFlag": currentObj.rule.activeFlag,
+        "requiredLevel": currentObj.rule.requiredLevel
       }).then(function (response) {
-          
             if (response.status === 200 ){
               currentObj.$router.push({name: 'program-rule-list', params:{ message: 'Successfully updated Program Rule:' + currentObj.rule.requirementCode}});  
             }

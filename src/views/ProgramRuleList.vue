@@ -31,6 +31,8 @@
                   <input type="text" class="form-control" v-model="programCode">
                   <strong>Requirement Type:</strong>
                   <input type="text" class="form-control" v-model="requirementType">
+                  <strong>Active Flag (Y or N):</strong>
+                  <input type="text" class="form-control" v-model="activeFlag">
                 </form>
               </div>
             </div>
@@ -79,6 +81,8 @@
               <v-th sortKey="requiredCredits">Requirement Credits</v-th>
               <v-th sortKey="notMetDescription">Not Met<br> Description</v-th>
               <v-th sortKey="programCode">Program Code</v-th>
+              <v-th sortKey="active">Requirement Type</v-th>
+              <v-th sortKey="active">Active</v-th>
               <th><button type="button" class="add-program-rule-button btn btn-primary" data-toggle="modal" data-target="#addProgramRuleModal">Add Rule
 </button></th>
           </thead>
@@ -89,6 +93,9 @@
               <td>{{row.requiredCredits}}</td>
               <td>{{row.notMetDescription}}</td>
               <td>{{row.programCode}}</td>
+              <td>{{row.requirementType}}</td>
+              <td>{{row.activeFlag}}</td>
+              
               <td><router-link class="program-rules-link" :to="{ name: 'program-rule-show', params: { id: row.requirementCode} }"><button class="btn btn-primary active">EDIT</button></router-link></td>
             </tr>
           </tbody>
@@ -119,6 +126,7 @@ export default {
       notMetDescription: '',
       programCode: '',
       requirementType: '',
+      activeFlag: '',
       filters: {
         name: { value: '', keys: ['requirementCode'] }
       },
@@ -151,7 +159,8 @@ export default {
         "requiredCredits": parseInt(this.requiredCredits),
         "notMetDescription": this.notMetDescription,
         "programCode": this.programCode,
-        "requirementType": this.requirementType
+        "requirementType": this.requirementType,
+        "activeFlag": this.activeFlag
 
       })
       .then(function (response) {
@@ -173,8 +182,6 @@ export default {
       });
     }
   }
-  
-  
 };
 </script>
 

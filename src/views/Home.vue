@@ -21,7 +21,7 @@
         <div class="card-body"> 
           
           <h2 class="card-title">Student {{ selectedPen }} </h2>
-          <h3 class="card-subtitle mb-2 text-muted">{{legalFirstName}}, {{legalMiddleName}} {{legalLastName}}</h3>
+          <h3 class="card-subtitle mb-2 text-muted">{{legalMiddleName}} {{legalLastName}}, {{legalFirstName}}</h3>
           <ul>
             <li>Date of Birth: {{dob}}</li>
             <li>School: {{school}}</li>

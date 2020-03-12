@@ -13,7 +13,7 @@
           </ul>
           
           <button class="btn btn-primary active" v-on:click="storePen(126214493)">View Graduation Status</button>
-          <router-link class="course-achievement-list" :to="{ name: 'course-achievement-list', params: { personalEducationNumber: '' + 126398841} }"><button class="btn btn-primary active">View Course Achievements</button></router-link>
+          <router-link class="course-achievement-list" :to="{ name: 'course-achievement-list', params: { personalEducationNumber: '' + 126214493} }"><button class="btn btn-primary active">View Course Achievements</button></router-link>
           
         </div>
       </div>
@@ -28,7 +28,7 @@
             <li>Graduation Program: 2018</li>
           </ul>
           <button class="btn btn-primary active" v-on:click="storePen(128201845)">View Graduation Status</button>
-          <router-link class="course-achievement-list" :to="{ name: 'course-achievement-list', params: { personalEducationNumber: '' + 126214493} }"><button class="btn btn-primary active">View Course Achivements</button></router-link>
+          <router-link class="course-achievement-list" :to="{ name: 'course-achievement-list', params: { personalEducationNumber: '' + 128201845} }"><button class="btn btn-primary active">View Course Achivements</button></router-link>
           
         </div>
       </div>
