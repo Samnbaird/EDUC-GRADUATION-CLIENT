@@ -86,7 +86,7 @@
       class="table table-responsive table-striped table-hover table-md text-center align-middle"
     >
       <thead slot="head">
-        <v-th sortKey="courseId">Course ID</v-th>
+        <v-th sortKey="courseId">Course Name</v-th>
         <v-th sortKey="sessionDate">Session Date</v-th>
         <v-th sortKey="finalPercent">Final Percent</v-th>
         <v-th sortKey="interimPercent">Interim Percent</v-th>
