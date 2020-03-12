@@ -3,18 +3,18 @@
    
     <div class="container">
       <div class="alert alert-danger" role="alert" v-if="noPen">
-        Please enter a valid Student’s Personal Educations Number (PEN)!
+        Please enter a valid Personal Education Number (PEN)
       </div>
       
       <h1>Student Graduation Status</h1>
-      <p>Enter a Student’s Personal Educations Number (PEN) to retrieve the students current graduation status.</p>
+      <p>Enter a Personal Education Number (PEN) to retrieve the student’s current graduation status.</p>
 
     
         <div class="form-group">
           <strong><label for="StudentPen">Personal Education Number:</label></strong>
           <input v-model="inputPen" class="form-control"  id="StudentPen"/>
         </div>
-        <div class="btn-group">
+        <div class="btn-group find" >
           <button  v-on:click="search" class="btn btn-primary" id="find">Find Student</button>
         </div>
        <div v-if="student" class="card" style="width: 100%;" >
@@ -292,6 +292,9 @@ export default {
 }
 h6 {
   font-size: 1.5rem;
+}
+.find{
+  padding-bottom: 1rem;
 }
 
 </style>
